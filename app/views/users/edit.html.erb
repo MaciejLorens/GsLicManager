@@ -1,0 +1,83 @@
+<div class="page-header">
+  <h1><%= t('user.navbar.edit_user') %> <%= @user.full_name %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<%= form_with(model: @user, class: 'form-horizontal denser') do |form| %>
+
+  <div class="fieldset">
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this
+          user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :email, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :email, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :first_name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :first_name, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :last_name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :last_name, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+<!--    <div class="form-group control-group">-->
+      <%#= form.label :client_id, class: 'col-sm-2 control-label' %>
+<!--      <div class="col-sm-10 controls">-->
+        <%#= form.select :client_id, options_for_clients, {}, class: 'form-control' %>
+<!--      </div>-->
+<!--    </div>-->
+
+    <%# if super_admin? %>
+<!--      <div class="form-group control-group">-->
+        <%#= form.label :hidden, class: 'col-sm-2 control-label' %>
+<!--        <div class="col-sm-10 controls">-->
+          <%#= form.select :hidden, options_for_hidden, {}, class: 'form-control' %>
+<!--        </div>-->
+<!--      </div>-->
+
+      <%#= hidden_field_tag :'user[hidden_at]', @user.hidden_at %>
+
+<!--      <div class="form-group control-group">-->
+        <%#= form.label :company_id, class: 'col-sm-2 control-label' %>
+<!--        <div class="col-sm-10 controls">-->
+          <%#= form.select :company_id, options_for_companies, {}, class: 'form-control' %>
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
+
+    <div class="form-group control-group">
+      <div class='col-sm-2'></div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: 'Save') %>
+        <% end %>
+
+        <%= link_to fa_icon('times', text: 'Cancel'), users_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

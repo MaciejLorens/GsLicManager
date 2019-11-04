@@ -1,0 +1,48 @@
+<nav class="navbar fixed-top navbar-light">
+
+  <div class="navbar-header">
+
+    <%= link_to 'GS Lic Manager', root_path, class: 'navbar-brand' %>
+
+    <% if user_signed_in? %>
+      <%#= link_to t('menu.notifies'), notifies_path, class: 'link' %>
+    <% end %>
+
+    <%# if admin? %>
+      <%#= link_to t('menu.clients'), clients_path, class: 'link' %>
+      <%#= link_to t('menu.products'), products_path, class: 'link' %>
+    <%# end %>
+
+    <%# if user_signed_in? %>
+      <%#= link_to t('menu.drivers'), drivers_path, class: 'link' %>
+    <%# end %>
+
+    <%# if admin? %>
+      <%= link_to t('menu.users'), users_path, class: 'link' %>
+    <%# end %>
+
+    <%# if super_admin? %>
+      <%#= link_to t('menu.admins'), admins_path, class: 'link' %>
+      <%#= link_to t('menu.companies'), companies_path, class: 'link' %>
+      <%#= link_to t('menu.settings'), settings_path, class: 'link' %>
+    <%# end %>
+
+  </div>
+
+  <div class='pull-right'>
+    <% if user_signed_in? %>
+      <span class="login-username">
+        <%= "#{current_user.first_name} #{current_user.last_name} (#{current_user.email})" %>
+      </span>
+      <%# if current_user.locale == 'pl' %>
+        <%= link_to image_tag('pl_50.png', class: 'i18n-flag'), locale_set_path(locale: 'en'), method: :patch %>
+      <%# else %>
+        <%#= link_to image_tag('en_50.png', class: 'i18n-flag'), locale_set_path(locale: 'pl'), method: :patch %>
+      <%# end %>
+      <%= link_to t('devise.logout'), destroy_user_session_path, { method: 'delete', class: 'link' } %>
+    <% else %>
+      <%= link_to t('devise.login'), new_user_session_path, class: 'link' %>
+    <% end %>
+  </div>
+
+</nav>

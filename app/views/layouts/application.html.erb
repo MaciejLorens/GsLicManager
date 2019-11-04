@@ -10,6 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= hidden_field_tag :current_user_locale, current_user.try(:locale) %>
+
+    <%= bootstrap_flash %>
+
+    <%= render partial: 'shared/header' %>
+
+    <div class="main-content container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

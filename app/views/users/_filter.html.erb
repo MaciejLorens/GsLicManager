@@ -1,0 +1,52 @@
+<div class='well'>
+
+  <%= form_tag(users_path, method: :get, class: 'filter-form') do %>
+
+    <div class="filter-field form-inline">
+
+      <%= hidden_field_tag :s_field, params[:s_field] %>
+      <%= hidden_field_tag :s_order, params[:s_order] %>
+
+      <%= text_field_tag :f_email,
+                         params[:f_email],
+                         placeholder: t('activerecord.attributes.user.email'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_first_name,
+                         params[:f_first_name],
+                         placeholder: t('activerecord.attributes.user.first_name'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_last_name,
+                         params[:f_last_name],
+                         placeholder: t('activerecord.attributes.user.last_name'),
+                         class: 'form-control filter' %>
+
+      <%#= select_tag :f_client_id,
+                     options_for_select(options_for_clients, params[:f_client_id]),
+                     include_blank: t('activerecord.attributes.user.client_id'),
+                     class: 'form-control filter' %>
+
+      <%# if super_admin? %>
+        <%#= select_tag :f_hidden,
+                       options_for_select(options_for_hidden, params[:f_hidden]),
+                       include_blank: t('activerecord.attributes.user.hidden'),
+                       class: 'form-control filter' %>
+
+        <%#= select_tag :f_company_id,
+                       options_for_select(options_for_companies, params[:f_company_id]),
+                       include_blank: t('activerecord.attributes.user.company_id'),
+                       class: 'form-control filter' %>
+      <%# end %>
+
+      <%= link_to fa_icon('times'), users_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
+
+      <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
+        <%= fa_icon('retweet', text: t('common.refresh')) %>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>

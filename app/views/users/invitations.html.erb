@@ -1,0 +1,66 @@
+<div class="page-header">
+  <h1><%= t('user.invitation.list.header') %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<% if @invitations.empty? %>
+  <p> - <%= t('common.no_results_found') %> - </p>
+<% else %>
+
+  <div class="col-sm-12 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th>
+          <%= link_to t('activerecord.attributes.user.email'), '#',
+                      'data-field' => 'email',
+                      class: "sort-link #{sort_class('email')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.invitation.sent_at'), '#',
+                      'data-field' => 'sent_at',
+                      class: "sort-link #{sort_class('sent_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.invitation.created_at'), '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.invitation.client_id'), '#',
+                      'data-field' => 'client_id',
+                      class: "sort-link #{sort_class('client_id')}" %>
+        </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.invitation.company_id'), '#',
+                        'data-field' => 'company_id',
+                        class: "sort-link #{sort_class('company_id')}" %>
+          </th>
+        <% end %>
+        <th><%= t('common.actions') %></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @invitations.each do |invitation| %>
+        <tr>
+          <td><%= invitation.email %></td>
+          <td><%= date_format(invitation.sent_at) %></td>
+          <td><%= date_format(invitation.created_at) %></td>
+          <td><%= invitation.client.name %></td>
+          <% if super_admin? %>
+            <td><%= invitation.company.name %></td>
+          <% end %>
+          <td class="action-links">
+            <%= link_to fa_icon('envelope', text: t('user.invitation.list.resend')), resend_user_path(invitation), method: :patch, class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), invitation_destroy_user_path(invitation), method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

@@ -1,5 +1,24 @@
 Rails.application.routes.draw do
-  
+
+  root to: 'users#index'
+
+  patch 'locale/set'
+
+  devise_for :users
+
+  resources :licenses
+
+  resources :users, except: [:show] do
+    get :invitations, on: :collection
+
+    patch :resend, on: :member
+
+    post :invite, on: :collection
+
+    delete :invitation_destroy, on: :member
+    delete :batch_destroy, on: :collection
+  end
+
   namespace :api do
   	namespace :v1 do
       post '/tokens', to: 'tokens#create'
@@ -10,7 +29,4 @@ Rails.application.routes.draw do
 	 end
   end
 
-
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
