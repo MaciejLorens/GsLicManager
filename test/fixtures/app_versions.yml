@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: MyString
+  is_deleted: false
+  is_active: false
+  app: one
+
+two:
+  value: MyString
+  is_deleted: false
+  is_active: false
+  app: two

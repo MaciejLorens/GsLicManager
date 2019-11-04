@@ -1,0 +1,27 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: gslicmanager_dev
+  host: i-scl.com
+  username: gslicmanager
+  password: 6DpL9MJhoqZZQEKe
+  port: 3306
+
+  #test:
+  #  <<: *default
+  #  database: GsLicManagerDEV_test
+
+production:
+  <<: *default
+  database: <%= ENV['GS_LIC_MANAGER_DB_NAME'] %>
+  host: i-scl.com
+  username: <%= ENV['GS_LIC_MANAGER_USER'] %>
+  password: <%= ENV['GS_LIC_MANAGER_PASSW'] %>
+  port: 3306

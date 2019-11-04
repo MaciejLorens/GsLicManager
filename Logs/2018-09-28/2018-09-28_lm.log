@@ -1,0 +1,26 @@
+2018-09-28 06:29:19 UTC => INFO: User m@m.pl found
+2018-09-28 06:29:19 UTC => INFO: User m@m.pl is valid
+2018-09-28 06:29:20 UTC => INFO: Token 747adf30e26168779414 generated for m@m.pl
+2018-09-28 06:29:31 UTC => INFO: App data downloaded by m@m.pl
+2018-09-28 06:29:55 UTC => INFO: Current_limit = 0 for m@m.pl
+2018-09-28 06:29:56 UTC => EXCEPTION: undefined method `+' for nil:NilClass
+2018-09-28 06:32:11 UTC => EXCEPTION: undefined method `+' for nil:NilClass
+2018-09-28 06:37:03 UTC => ERROR: User or token not valid, cannot log out by m@m.pl
+2018-09-28 06:37:10 UTC => INFO: Log out successful by m@m.pl
+2018-09-28 06:43:01 UTC => INFO: User m@m.pl found
+2018-09-28 06:43:01 UTC => INFO: User m@m.pl is valid
+2018-09-28 06:43:01 UTC => INFO: Token 3ec32c5cc5e0933337be generated for m@m.pl
+2018-09-28 06:43:08 UTC => INFO: App data downloaded by m@m.pl
+2018-09-28 06:43:16 UTC => EXCEPTION: undefined method `+' for nil:NilClass
+2018-09-28 06:45:23 UTC => EXCEPTION: undefined method `+' for nil:NilClass
+2018-09-28 06:47:48 UTC => INFO: Pref lang for m@m.pl is ["en"]
+2018-09-28 06:47:49 UTC => INFO: New app code 110949a0fa42eb generated for m@m.pl
+2018-09-28 06:47:55 UTC => ERROR: User or token not valid, cannot log out by m@m.pl
+2018-09-28 06:48:14 UTC => INFO: Log out successful by m@m.pl
+2018-09-28 06:55:24 UTC => INFO: User m@m.pl found
+2018-09-28 06:55:24 UTC => INFO: User m@m.pl is valid
+2018-09-28 06:55:24 UTC => INFO: Token bbbf3168d9a543587939 generated for m@m.pl
+2018-09-28 06:55:39 UTC => INFO: App data downloaded by m@m.pl
+2018-09-28 06:55:45 UTC => INFO: Pref lang for m@m.pl is ["en"]
+2018-09-28 06:55:46 UTC => INFO: New app code 110949a0fa42eb generated for m@m.pl
+2018-09-28 06:55:51 UTC => INFO: Log out successful by m@m.pl

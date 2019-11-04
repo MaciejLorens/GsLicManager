@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  val_pl: MyString
+  val_en: MyString
+  is_deleted: 1
+
+two:
+  val_pl: MyString
+  val_en: MyString
+  is_deleted: 1
