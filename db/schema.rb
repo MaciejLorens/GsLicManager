@@ -14,12 +14,12 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
 
   create_table "app_versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "value"
+    t.integer "version_no"
     t.boolean "is_deleted"
     t.boolean "is_active"
     t.bigint "app_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "version_no"
     t.index ["app_id"], name: "index_app_versions_on_app_id"
   end
 
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
     t.integer "scales_amount"
     t.integer "license_type_id"
     t.string "old_app_code"
-    t.string "register_key"
+    t.string "end_client_desc"
     t.string "description"
     t.string "new_app_code"
     t.datetime "created_at", null: false
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "send_to"
+    t.string "pref_lang"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -100,10 +102,8 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
     t.string "company_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "send_to"
-    t.string "pref_lang"
-    t.integer "limit", default: 3
-    t.integer "current_limit_counter", default: 0
+    t.integer "limit"
+    t.integer "current_limit"
     t.date "limit_change_date"
     t.integer "is_blocked", default: 0
     t.integer "is_active", default: 1

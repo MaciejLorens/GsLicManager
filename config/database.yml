@@ -6,7 +6,13 @@ default: &default
   password:
   host: localhost
 
+
 development:
+  <<: *default
+  database: gs_lic_manager_development
+
+
+staging:
   <<: *default
   database: gslicmanager_dev
   host: i-scl.com
@@ -14,9 +20,6 @@ development:
   password: 6DpL9MJhoqZZQEKe
   port: 3306
 
-  #test:
-  #  <<: *default
-  #  database: GsLicManagerDEV_test
 
 production:
   <<: *default
