@@ -13,5 +13,16 @@ class User < ApplicationRecord
 
   ROLES = %w(user admin super_admin).freeze
 
+  def super_admin?
+    role == 'super_admin'
+  end
+
+  def admin?
+    role == 'admin'
+  end
+
+  def user?
+    role == 'user'
+  end
 
 end
