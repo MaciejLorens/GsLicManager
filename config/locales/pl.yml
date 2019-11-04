@@ -1,0 +1,338 @@
+pl:
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+    order: [ year, month, day ]
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
+
+  common:
+    _yes: Tak
+    _no: Nie
+    active: Aktywne
+    inactive: Nieaktywne
+    hidden: Ukryte
+    visible: Widoczne
+    indefinite: Bezterminowe
+    finite: Terminowe
+    actions: Akcje
+    view: Podgląd
+    edit: Edycja
+    delete: Usuń
+    are_you_sure: Czy jesteś pewny?
+    refresh: Odśwież
+    cancel: Odrzuć
+    save: Zapisz
+    no_results_found: brak wyników
+    errors: błędy
+
+
+  menu:
+    notifies: Awizacje
+    clients: Klienci
+    products: Produkty
+    drivers: Kierowcy
+    users: Użytkownicy
+    admins: Administratorzy
+    companies: Firmy
+    settings: Ustawienia
+
+  locale:
+    locale_was_successfully_updated: Language was successfully edited.
+
+  notify:
+    navbar:
+      list: Lista
+      edit_notify: Edycja awizacji
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń awizacje
+      pdf: Eksport do PDF
+      print: Drukuj
+    filters:
+      created: Stowrzono
+    list:
+      header: Lista awizacji
+    show:
+      view_notify: Podgląd awizacji
+    new:
+      new_notify: Nowa awizacja
+    errors:
+      prohibited: uniemożliwiły zapisanie awizacji
+    notify_pdf_was_successfully_created: PDF Awizacji pomyślnie utworzony.
+    notify_was_successfully_created: Awizacja pomyślnie utworzona.
+    notify_was_successfully_edited: Awizacja pomyślnie uaktualniona.
+    notify_was_successfully_deleted: Awizacja pomyślnie usunięta.
+    notifys_was_successfully_deleted: Awizacje pomyślnie usunięte.
+
+
+  client:
+    navbar:
+      list: Lista
+      edit_client: Edycja klienta
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń klientów
+    list:
+      header: Lista klientów
+    new:
+      new_client: Nowy klient
+    errors:
+      prohibited: uniemożliwiły zapisanie klienta
+    client_was_successfully_created: Klient pomyślnie utworzony.
+    client_was_successfully_edited: Klient pomyślnie uaktualniony.
+    client_was_successfully_deleted: Klient pomyślnie usunięty.
+    clients_was_successfully_deleted: Klienci pomyślnie usunięci.
+
+
+  product:
+    navbar:
+      list: Lista
+      edit_product: Edycja produktu
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń produkty
+    filters:
+      created: Stowrzono
+    list:
+      header: Lista produktów
+    new:
+      new_product: Nowy produkt
+    errors:
+      prohibited: uniemożliwiły zapisanie produktu
+    product_was_successfully_created: Produkt pomyślnie utworzony.
+    product_was_successfully_edited: Produkt pomyślnie uaktualniony.
+    product_was_successfully_deleted: Produkt pomyślnie usunięty.
+    products_was_successfully_deleted: Produkty pomyślnie usunięte.
+
+
+  driver:
+    navbar:
+      list: Lista
+      edit_driver: Edycja kierowcy
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń kierowców
+    list:
+      header: Lista kierowców
+    new:
+      new_driver: Nowy kierowca
+    errors:
+      prohibited: uniemożliwiły zapisanie kierowcy
+    driver_was_successfully_created: Kierowca pomyślnie utworzony.
+    driver_was_successfully_edited: Kierowca pomyślnie uaktualniony.
+    driver_was_successfully_deleted: Kierowca pomyślnie usunięty.
+    drivers_was_successfully_deleted: Kierowy pomyślnie usunięci.
+
+
+  user:
+    navbar:
+      list: Lista
+      invitations: Zaproszenia
+      add_invitation: Dodaj zaproszenie
+      edit_user: Edycja użytkownika
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń użytkowników
+    list:
+      header: Lista użytkowników
+    invitation:
+      list:
+        header: Lista zaproszeń użytkowników
+        resend: Wyślij ponownie
+      new:
+        new_user_invitation: Nowe zaproszenie użytkownika
+    new:
+      new_user: Nowy użytkownik
+    errors:
+      prohibited: uniemożliwiły zapisanie użytkownika
+    user_was_successfully_invited: Użytkownik pomyślnie zaproszony.
+    user_was_successfully_edited: Użytkownik pomyślnie uaktualniony.
+    user_was_successfully_deleted: Użytkownik pomyślnie usunięty.
+    invitation_was_successfully_deleted: Zaproszenie pomyślnie usunięte.
+    users_was_successfully_deleted: Użytkownicy pomyślnie usunięci.
+
+
+  admin:
+    navbar:
+      list: Lista
+      invitations: Zaproszenia
+      add_invitation: Dodaj zaproszenie
+      edit_admin: Edycja admina
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń adminów
+    list:
+      header: Lista administratorów
+    invitation:
+      list:
+        header: Lista zaproszeń administratorów
+        resend: Wyślij ponownie
+      new:
+        new_admin_invitation: Nowe zaproszenie admina
+    new:
+      new_admin: Nowy admin
+    errors:
+      prohibited: uniemożliwiły zapisanie admina
+    admin_was_successfully_invited: Admin pomyślnie zaproszony.
+    admin_was_successfully_edited: Admin pomyślnie uaktualniony.
+    admin_was_successfully_deleted: Admin pomyślnie usunięty.
+    invitation_was_successfully_deleted: Zaproszenie pomyślnie usunięte.
+    admins_was_successfully_deleted: Admini pomyślnie usunięci.
+
+
+  company:
+    navbar:
+      list: Lista
+      edit_company: Edycja firmy
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń firmy
+    list:
+      header: Lista firm
+    new:
+      new_company: Nowa firma
+    errors:
+      prohibited: uniemożliwiły zapisanie firmy
+    company_was_successfully_created: Firma pomyślnie utworzona.
+    company_was_successfully_edited: Firma pomyślnie uaktualniona.
+    company_was_successfully_deleted: Firma pomyślnie usunięta.
+    companys_was_successfully_deleted: Firmy pomyślnie usunięte.
+
+  setting:
+    navbar:
+      list: Lista
+    list:
+      header: Ustawienia
+    errors:
+      prohibited: uniemożliwiły zapisanie api tokena
+    setting_was_successfully_edited: Ustawienie pomyślnie uaktualnione.
+
+
+  errors:
+    messages:
+      not_saved: Nie udało się zapisać zmian
+      must_be_valid_date: musi być większa od Ważność od
+
+
+  activerecord:
+    models:
+      notify: Awizacja
+      client: Klient
+      product: Produkt
+      driver: Kierowca
+      company: Firma
+      user: Użytkownik
+      admin: Admin
+      setting: Ustawienie
+    errors:
+      models:
+        notify:
+          attributes:
+            product:
+              required: jest wymagany
+            client:
+              required: jest wymagany
+        user:
+          attributes:
+            email:
+              blank: jest wymagany
+              invalid: jest błędny
+            first_name:
+              blank: jest wymagane
+            last_name:
+              blank: jest wymagane
+            password:
+              blank: jest wymagane
+              too_short: za krótkie
+            password_confirmation:
+              confirmation: nie zgadza się
+        client:
+          attributes:
+            company:
+              required: jest wymagana
+        product:
+          attributes:
+            company:
+              required: jest wymagana
+        driver:
+          attributes:
+            company:
+              required: jest wymagana
+    attributes:
+      notify:
+        pin: PIN
+        number: Numer
+        car_number: Nr pojazdu
+        trailer_number: Nr naczepy
+        expiration_from: Ważność od
+        indefinite: Terminowość
+        expiration_to: Ważność do
+        client_id: Klient
+        product_id: Produkt
+        driver_id: Kierowca
+        active: Aktywność
+        hidden: Widoczność
+        user_id: Tworzący
+        company_id: Firma
+        editor: Edytor
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      client:
+        code: Kod
+        name: Nazwa
+        address: Adres
+        postcode: Kod pocztowy
+        city: Miasto
+        country: Kraj
+        hidden: Widoczność
+        company_id: Firma
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      user:
+        email: Email
+        first_name: Imię
+        last_name: Nazwisko
+        password: Hasło
+        password_confirmation: Potwierdzenie hasła
+        remember_me: Zapamiętaj mnie
+        hidden: Widoczność
+        client_id: Klient
+        company_id: Firma
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      invitation:
+        email: Email
+        sent_at: Data wysłania
+        client_id: Klient
+        company_id: Firma
+        created_at: Data utworzenia
+      product:
+        code: Kod
+        name: Nazwa
+        hidden: Widoczność
+        company_id: Firma
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      driver:
+        first_name: Imię
+        last_name: Nazwisko
+        hidden: Widoczność
+        client_id: Klient
+        company_id: Firma
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      company:
+        name: Nazwa
+        address: Adres
+        postcode: Kod pocztowy
+        city: Miasto
+        country: Kraj
+        email: Email
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      api_token:
+        value: Wartość

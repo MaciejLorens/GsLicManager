@@ -6,12 +6,10 @@ class UsersController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    # @users = current_users.users
-    #            .where(filter_query)
-    #            .includes(:client, :company)
-    #            .order(sorting_query('last_name ASC'))
-
-    @users = User.all
+    @users = current_users
+               .where(filter_query)
+               .includes(:client)
+               .order(sorting_query('last_name ASC'))
   end
 
   def invitations

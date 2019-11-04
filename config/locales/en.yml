@@ -1,33 +1,339 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+    order: [ year, month, day ]
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+
+
+  common:
+    _yes: Yes
+    _no: No
+    active: Active
+    inactive: Inactive
+    hidden: Hidden
+    visible: Visible
+    indefinite: Indefinite
+    finite: Finite
+    actions: Actions
+    view: View
+    edit: Edit
+    delete: Delete
+    are_you_sure: Are you sure?
+    refresh: Refresh
+    cancel: Cancel
+    save: Save
+    no_results_found: No results found
+    errors: errors
+
+
+  menu:
+    notifies: Notifies
+    clients: Clients
+    products: Products
+    drivers: Drivers
+    users: Users
+    admins: Admins
+    companies: Companies
+    settings: Settings
+
+
+  locale:
+    locale_was_successfully_updated: Język pomyślnie uaktualniony.
+
+
+  notify:
+    navbar:
+      list: List
+      edit_notify: Edit Notify
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Delete notifies
+      pdf: PDF export
+      print: Print
+    filters:
+      created: Created
+    list:
+      header: List of notifies
+    show:
+      view_notify: View Notify
+    new:
+      new_notify: New Notify
+    errors:
+      prohibited: prohibited this notify from being saved
+    notify_pdf_was_successfully_created: Notify PDF was successfully created.
+    notify_was_successfully_created: Notify was successfully created.
+    notify_was_successfully_edited: Notify was successfully edited.
+    notify_was_successfully_deleted: Notify was successfully deleted.
+    notifys_was_successfully_deleted: Notifys was successfully deleted.
+
+  client:
+    navbar:
+      list: List
+      edit_client: Edit client
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted clients
+    list:
+      header: List of clients
+    new:
+      new_client: New client
+    errors:
+      prohibited: prohibited this client from being saved
+    client_was_successfully_created: Client was successfully invited.
+    client_was_successfully_edited: Client was successfully edited.
+    client_was_successfully_deleted: Client was successfully deleted.
+    clients_was_successfully_deleted: Clients was successfully deleted.
+
+  product:
+    navbar:
+      list: List
+      edit_product: Edit product
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted items
+    filters:
+      created: Created
+    list:
+      header: List of products
+    new:
+      new_product: New product
+    errors:
+      prohibited: prohibited this product from being saved
+    product_was_successfully_created: Product was successfully created.
+    product_was_successfully_edited: Product was successfully edited.
+    product_was_successfully_deleted: Product was successfully deleted.
+    products_was_successfully_deleted: Products was successfully deleted.
+
+
+  driver:
+    navbar:
+      list: List
+      edit_driver: Edit driver
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted items
+    list:
+      header: List of drivers
+    new:
+      new_driver: New driver
+    errors:
+      prohibited: prohibited this driver from being saved
+    driver_was_successfully_created: Driver was successfully created.
+    driver_was_successfully_edited: Driver was successfully edited.
+    driver_was_successfully_deleted: Driver was successfully deleted.
+    drivers_was_successfully_deleted: Drivers was successfully deleted.
+
+
+  user:
+    navbar:
+      list: List
+      invitations: Invitations
+      add_invitation: Add invitation
+      edit_user: Edit user
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted users
+    list:
+      header: List of users
+    invitation:
+      list:
+        header: List of users invitations
+        resend: Resend
+      new:
+        new_user_invitation: New user invitation
+    new:
+      new_user: New user
+    errors:
+      prohibited: prohibited this user from being saved
+    user_was_successfully_invited: User was successfully invited.
+    user_was_successfully_edited: User was successfully edited.
+    user_was_successfully_deleted: User was successfully deleted.
+    invitation_was_successfully_deleted: Invitation was successfully deleted.
+    users_was_successfully_deleted: Users was successfully deleted.
+
+
+  admin:
+    navbar:
+      list: List
+      invitations: Invitations
+      add_invitation: Add invitation
+      edit_admin: Edit admin
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted admins
+    list:
+      header: List of admins
+    invitation:
+      list:
+        header: List of admins invitations
+        resend: Resend
+      new:
+        new_admin_invitation: New admin invitation
+    new:
+      new_admin: New admin
+    errors:
+      prohibited: prohibited this admin from being saved
+    admin_was_successfully_invited: Admin was successfully invited.
+    admin_was_successfully_edited: Admin was successfully edited.
+    admin_was_successfully_deleted: Admin was successfully deleted.
+    invitation_was_successfully_deleted: Invitation was successfully deleted.
+    admins_was_successfully_deleted: Admins was successfully deleted.
+
+
+  company:
+    navbar:
+      list: List
+      edit_company: Edit driver
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted admins
+    list:
+      header: List of companies
+    new:
+      new_company: New company
+    errors:
+      prohibited: prohibited this company from being saved
+    company_was_successfully_created: Company was successfully invited.
+    company_was_successfully_edited: Company was successfully edited.
+    company_was_successfully_deleted: Company was successfully deleted.
+    companys_was_successfully_deleted: Companies was successfully deleted.
+
+
+  setting:
+    navbar:
+      list: List
+    list:
+      header: Settings
+    errors:
+      prohibited: prohibited this api token from being saved
+    setting_was_successfully_edited: Setting was successfully edited.
+
+
+  errors:
+    messages:
+      not_saved: Failed to save the update
+      must_be_valid_date: must be grater then Expiry from
+
+
+  activerecord:
+    models:
+      notify: Notifies
+      client: Client
+      product: Product
+      driver: Driver
+      company: Company
+      user: User
+      admin: Admin
+      setting: Setting
+    errors:
+      models:
+        notify:
+          attributes:
+            product:
+              required: is required
+            client:
+              required: is required
+        user:
+          attributes:
+            email:
+              blank: is required
+              invalid: is invalid
+            first_name:
+              blank: is required
+            last_name:
+              blank: is required
+            password:
+              blank: is blank
+              too_short: is too short
+            password_confirmation:
+              confirmation: does not match
+        client:
+          attributes:
+            company:
+              required: is required
+        product:
+          attributes:
+            company:
+              required: is required
+        driver:
+          attributes:
+            company:
+              required: is required
+    attributes:
+      notify:
+        pin: PIN
+        number: Number
+        car_number: Car number
+        trailer_number: Trailer number
+        expiration_from: Expiration from
+        indefinite: Indefinite
+        expiration_to: Expiration to
+        client_id: Client
+        product_id: Product
+        driver_id: Driver
+        active: Activity
+        hidden: Visibility
+        user_id: Creator
+        company_id: Company
+        editor: Editor
+        updated_at: Updated at
+        created_at: Created at
+      client:
+        code: Code
+        name: Name
+        address: Address
+        postcode: Postcode
+        city: City
+        country: Country
+        hidden: Visibility
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      user:
+        email: Email
+        first_name: First name
+        last_name: Last name
+        password: Password
+        password_confirmation: Password confirmation
+        remember_me: Remember me
+        hidden: Visibility
+        client_id: Client
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      invitation:
+        email: Email
+        sent_at: Sent at
+        client_id: Client
+        company_id: Company
+        created_at: Created at
+      product:
+        code: Code
+        name: Name
+        hidden: Visibility
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      driver:
+        first_name: First name
+        last_name: Last name
+        hidden: Visibility
+        client_id: Client
+        company_id: Company
+        updated_at: Updated at
+        created_at: Created at
+      company:
+        name: Name
+        address: Address
+        postcode: Postcode
+        city: City
+        country: Country
+        email: Email
+        updated_at: Updated at
+        created_at: Created at
+      api_token:
+        value: Value

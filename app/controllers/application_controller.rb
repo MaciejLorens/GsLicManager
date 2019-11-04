@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  include QueryHelper
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
@@ -7,14 +10,22 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def super_admin?
+    current_user&.super_admin?
+  end
+
+  def admin?
+    current_user && (current_user.super_admin? || current_user.admin?)
+  end
+
   def authorize_super_admin
-    unless current_user&.super_admin?
+    unless super_admin?
       redirect_to(root_path)
     end
   end
 
   def authorize_admin
-    unless current_user && (current_user.super_admin? || current_user.admin?)
+    unless admin?
       redirect_to(root_path)
     end
   end
@@ -45,5 +56,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :send_to])
   end
 
-  helper_method :current_clients, :current_users, :current_users
+  helper_method :current_clients, :current_users, :current_users, :super_admin?, :admin?
 end
