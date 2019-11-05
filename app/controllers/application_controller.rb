@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
-  attr_accessor :current_company
+  attr_accessor :current_client
 
   protected
 
@@ -18,8 +18,12 @@ class ApplicationController < ActionController::Base
     current_user && (current_user.super_admin? || current_user.admin?)
   end
 
+  def current_client
+    @current_client || current_user.client
+  end
+
   def current_invitations
-    @current_invitations = super_admin? ? Invitation.all : current_company.invitations
+    @current_invitations = super_admin? ? Invitation.all : current_client.invitations
   end
 
   def authorize_super_admin
@@ -38,7 +42,7 @@ class ApplicationController < ActionController::Base
     @current_clients = if super_admin?
        Client.all.order(:name)
      else
-       current_company.clients.visible.order(:name)
+       Client.all.visible.order(:name)
      end
   end
 
@@ -46,7 +50,7 @@ class ApplicationController < ActionController::Base
     @current_users = if super_admin?
        User.all
      elsif admin?
-       current_company.users.visible
+       User.all
      else
        current_user.client.users.visible
      end

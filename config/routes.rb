@@ -8,6 +8,17 @@ Rails.application.routes.draw do
 
   resources :licenses
 
+  resources :admins, except: [:show] do
+    get :invitations, on: :collection
+
+    patch :resend, on: :member
+
+    post :invite, on: :collection
+
+    delete :invitation_destroy, on: :member
+    delete :batch_destroy, on: :collection
+  end
+
   resources :users, except: [:show] do
     get :invitations, on: :collection
 

@@ -1,6 +1,6 @@
 <div class='well'>
 
-  <%= form_tag(users_path, method: :get, class: 'filter-form') do %>
+  <%= form_tag(admins_path, method: :get, class: 'filter-form') do %>
 
     <div class="filter-field form-inline">
 
@@ -22,12 +22,7 @@
                          placeholder: t('activerecord.attributes.user.last_name'),
                          class: 'form-control filter' %>
 
-      <%= select_tag :f_client_id,
-                     options_for_select(options_for_clients, params[:f_client_id]),
-                     include_blank: t('activerecord.attributes.user.client_id'),
-                     class: 'form-control filter' %>
-
-      <%= link_to fa_icon('times'), users_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
+      <%= link_to fa_icon('times'), admins_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
         <%= fa_icon('retweet', text: t('common.refresh')) %>
