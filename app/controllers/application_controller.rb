@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     current_user && (current_user.super_admin? || current_user.admin?)
   end
 
+  def current_invitations
+    @current_invitations = super_admin? ? Invitation.all : current_company.invitations
+  end
+
   def authorize_super_admin
     unless super_admin?
       redirect_to(root_path)

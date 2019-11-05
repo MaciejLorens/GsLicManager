@@ -1,0 +1,15 @@
+<p>
+  Wiadomość została wysłana do Państwa z serwisu GS-Lic-Manager celem dokończenia procesu rejestracji w systemie licencji bezobsługowego ważenia na wadze samochodowej.
+</p>
+
+<p>
+  Aby dokończyć rejestrację konta, proszę kliknąć poniższy link i wypełnić dane na formularzu.
+</p>
+
+<p>
+  <%= link_to 'personalny-link-rejestracyjny',
+              controller: 'registrations',
+              action: 'new',
+              email: @email,
+              token: @token %>
+</p>

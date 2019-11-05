@@ -1,26 +1,43 @@
-<h2>Log in</h2>
+<div class="page-header">
+  <h1><%= t('devise.login') %></h1>
+</div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal denser'}) do |form| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <div class="fieldset">
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="form-group control-group">
+      <%= form.label :email, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
+      </div>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+    <div class="form-group control-group">
+      <%= form.label :password, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :remember_me, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.check_box :remember_me, class: 'check-box' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <div class=' col-sm-2'></div>
+      <div class=' col-sm-10'>
+        <%= form.submit t('devise.login'), class: 'btn btn-primary btn-save' %>
+
+        <br>
+        <br>
+        <%= render 'devise/shared/links' %>
+      </div>
+    </div>
+
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+<% end %>

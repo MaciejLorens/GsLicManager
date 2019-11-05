@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   patch 'locale/set'
 
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'registrations'}
 
   resources :licenses
 

@@ -32,13 +32,6 @@
                       'data-field' => 'client_id',
                       class: "sort-link #{sort_class('client_id')}" %>
         </th>
-        <% if super_admin? %>
-          <th>
-            <%= link_to t('activerecord.attributes.invitation.company_id'), '#',
-                        'data-field' => 'company_id',
-                        class: "sort-link #{sort_class('company_id')}" %>
-          </th>
-        <% end %>
         <th><%= t('common.actions') %></th>
       </tr>
       </thead>
@@ -50,9 +43,6 @@
           <td><%= date_format(invitation.sent_at) %></td>
           <td><%= date_format(invitation.created_at) %></td>
           <td><%= invitation.client.name %></td>
-          <% if super_admin? %>
-            <td><%= invitation.company.name %></td>
-          <% end %>
           <td class="action-links">
             <%= link_to fa_icon('envelope', text: t('user.invitation.list.resend')), resend_user_path(invitation), method: :patch, class: 'action-link' %><br>
             <%= link_to fa_icon('times', text: t('common.delete')), invitation_destroy_user_path(invitation), method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
