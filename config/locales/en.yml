@@ -283,12 +283,7 @@ en:
         updated_at: Updated at
         created_at: Created at
       client:
-        code: Code
         name: Name
-        address: Address
-        postcode: Postcode
-        city: City
-        country: Country
         hidden: Visibility
         company_id: Company
         updated_at: Updated at

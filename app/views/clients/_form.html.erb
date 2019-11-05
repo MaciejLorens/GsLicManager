@@ -1,0 +1,52 @@
+<%= form_with(model: client, local: true, class: 'form-horizontal denser') do |form| %>
+
+  <div class="fieldset">
+
+    <% if client.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(client.errors.count, 'error') %>
+          <%= t('client.errors.prohibited') %>
+        </h2>
+
+        <ul>
+        <% client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :name, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :name, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <% if super_admin? %>
+      <div class="form-group control-group">
+        <%= form.label :hidden, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10 controls">
+          <%= form.select :hidden, options_for_hidden, {}, class: 'form-control' %>
+        </div>
+      </div>
+
+      <%= hidden_field_tag :'client[hidden_at]', client.hidden_at %>
+
+    <% end %>
+
+    <div class="form-group control-group">
+      <div class='col-sm-2'></div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: t('common.save')) %>
+        <% end %>
+
+        <%= link_to fa_icon('times', text: t('common.cancel')), clients_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

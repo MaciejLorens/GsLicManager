@@ -48,11 +48,11 @@ module QueryHelper
     # if params[:f_code].present?
     #   query += " AND code LIKE '%#{params[:f_code].gsub('*', '')}%'"
     # end
-    #
-    # if params[:f_name].present?
-    #   query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"
-    # end
-    #
+
+    if params[:f_name].present?
+      query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"
+    end
+
     # if params[:f_number].present?
     #   query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
     # end

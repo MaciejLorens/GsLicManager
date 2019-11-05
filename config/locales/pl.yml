@@ -282,12 +282,7 @@ pl:
         updated_at: Data edycji
         created_at: Data utworzenia
       client:
-        code: Kod
         name: Nazwa
-        address: Adres
-        postcode: Kod pocztowy
-        city: Miasto
-        country: Kraj
         hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji

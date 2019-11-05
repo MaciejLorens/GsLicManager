@@ -7,7 +7,6 @@ class ClientsController < ApplicationController
   def index
     @clients = current_clients
                  .where(filter_query)
-                 .includes(:company)
                  .order(sorting_query('name ASC'))
   end
 
@@ -64,8 +63,7 @@ class ClientsController < ApplicationController
       :city,
       :country,
       :hidden,
-      :hidden_at,
-      :company_id
+      :hidden_at
     )
   end
 

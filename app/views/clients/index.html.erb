@@ -1,0 +1,64 @@
+<div class="page-header">
+  <h1><%= t('client.list.header') %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<%= render partial: 'filter' %>
+
+<% if @clients.empty? %>
+  <p> - <%= t('common.no_results_found') %> - </p>
+<% else %>
+
+  <div class="col-sm-12 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>
+          <%= link_to t('activerecord.attributes.client.name'), '#',
+                      'data-field' => 'name',
+                      class: "sort-link #{sort_class('name')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.client.updated_at'), '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.client.created_at'), '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.client.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+        <% end %>
+        <th><%= t('common.actions') %></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => client.id %></td>
+          <td><%= client.name %></td>
+          <td><%= date_format(client.updated_at) %></td>
+          <td><%= date_format(client.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= fa_icon(client.hidden ? 'times' : 'check') %></td>
+          <% end %>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_client_path(client), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), client, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>
