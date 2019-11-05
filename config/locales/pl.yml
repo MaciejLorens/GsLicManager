@@ -28,6 +28,8 @@ pl:
     save: Zapisz
     no_results_found: brak wyników
     errors: błędy
+    polish: Polski
+    english: Angielski
 
 
   menu:
@@ -283,6 +285,7 @@ pl:
         created_at: Data utworzenia
       client:
         name: Nazwa
+        locale: Język
         hidden: Widoczność
         company_id: Firma
         updated_at: Data edycji

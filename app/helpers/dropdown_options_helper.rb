@@ -20,4 +20,11 @@ module DropdownOptionsHelper
     ]
   end
 
+  def options_for_locale
+    [
+      [t('common.english'), 'en'],
+      [t('common.polish'), 'pl'],
+    ]
+  end
+
 end

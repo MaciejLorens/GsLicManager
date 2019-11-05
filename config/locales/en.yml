@@ -28,6 +28,8 @@ en:
     save: Save
     no_results_found: No results found
     errors: errors
+    polish: Polish
+    english: English
 
 
   menu:
@@ -284,6 +286,7 @@ en:
         created_at: Created at
       client:
         name: Name
+        locale: Locale
         hidden: Visibility
         company_id: Company
         updated_at: Updated at
