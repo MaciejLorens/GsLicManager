@@ -44,3 +44,42 @@ end
   )
 end
 
+App.create(name: 'ScaleProgram')
+App.create(name: 'ManagementProgram')
+App.create(name: 'CMSProgram')
+
+App.all.each do |app|
+  app.types.create(value_en: 'basic', value_pl: 'podstawowa')
+  app.types.create(value_en: 'optimum', value_pl: 'optymalna')
+  app.types.create(value_en: 'advenced', value_pl: 'zaawansowana')
+end
+
+
+20.times do |index|
+  app = App.all.to_a.sample
+
+  app.versions.create(
+    value: "value_#{SecureRandom.hex(2)}",
+    number: "number_#{SecureRandom.hex(2)}",
+    created_at: rand(100).days.ago
+  )
+end
+
+100.times do |index|
+  version = Version.all.to_a.sample
+  user = User.all.to_a.sample
+  type = version.app.types.sample
+
+  user.licenses.create(
+    end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
+    end_client_address: "end_client_address_#{SecureRandom.hex(2)}",
+    status: "end_client_address_#{SecureRandom.hex(2)}",
+    description: "description_#{SecureRandom.hex(2)}",
+    order_number: "order_number_#{SecureRandom.hex(2)}",
+    registration_key: "registration_key_#{SecureRandom.hex(2)}",
+    unlock_key: "unlock_key_#{SecureRandom.hex(2)}",
+    type_id: type.id,
+    version_id: version.id,
+    created_at: rand(100).days.ago
+  )
+end

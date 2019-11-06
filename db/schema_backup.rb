@@ -70,13 +70,13 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
   create_table "user_licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "app_id"
     t.bigint "app_version_id"
-    t.string "version_no"
-    t.integer "scales_amount"
+    t.string "version_no"                 # duplication from app_verison
+    t.integer "scales_amount"             # whats that
     t.integer "license_type_id"
-    t.string "old_app_code"
-    t.string "end_client_desc"
+    t.string "old_app_code"               # whats that
+    t.string "end_client_desc"            # moved to end_client_name and end_client_address
     t.string "description"
-    t.string "new_app_code"
+    t.string "new_app_code"               # is it registration_key or unlock_key
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"

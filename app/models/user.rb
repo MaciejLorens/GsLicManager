@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # has_many :user_apps
   # has_many :apps, :through => :user_apps
 
+  has_many :licenses
+  has_many :versions, through: :license
+
   belongs_to :client, optional: true
 
   devise :database_authenticatable, :registerable, :recoverable,
