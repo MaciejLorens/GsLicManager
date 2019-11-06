@@ -33,42 +33,14 @@ pl:
 
 
   menu:
-    notifies: Awizacje
     clients: Klienci
-    products: Produkty
-    drivers: Kierowcy
     users: Użytkownicy
     admins: Administratorzy
-    companies: Firmy
-    settings: Ustawienia
+    apps: Aplikacje
+
 
   locale:
     locale_was_successfully_updated: Language was successfully edited.
-
-  notify:
-    navbar:
-      list: Lista
-      edit_notify: Edycja awizacji
-      add_new: Dodaj
-      selected_items: Zaznaczone rekordy
-      deleted_items: Usuń awizacje
-      pdf: Eksport do PDF
-      print: Drukuj
-    filters:
-      created: Stowrzono
-    list:
-      header: Lista awizacji
-    show:
-      view_notify: Podgląd awizacji
-    new:
-      new_notify: Nowa awizacja
-    errors:
-      prohibited: uniemożliwiły zapisanie awizacji
-    notify_pdf_was_successfully_created: PDF Awizacji pomyślnie utworzony.
-    notify_was_successfully_created: Awizacja pomyślnie utworzona.
-    notify_was_successfully_edited: Awizacja pomyślnie uaktualniona.
-    notify_was_successfully_deleted: Awizacja pomyślnie usunięta.
-    notifys_was_successfully_deleted: Awizacje pomyślnie usunięte.
 
 
   client:
@@ -90,44 +62,23 @@ pl:
     clients_was_successfully_deleted: Klienci pomyślnie usunięci.
 
 
-  product:
+  app:
     navbar:
       list: Lista
-      edit_product: Edycja produktu
+      edit_app: Edycja aplikacji
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń produkty
-    filters:
-      created: Stowrzono
+      deleted_items: Usuń aplikacje
     list:
-      header: Lista produktów
+      header: Lista aplikacji
     new:
-      new_product: Nowy produkt
+      new_app: Nowa aplikacja
     errors:
-      prohibited: uniemożliwiły zapisanie produktu
-    product_was_successfully_created: Produkt pomyślnie utworzony.
-    product_was_successfully_edited: Produkt pomyślnie uaktualniony.
-    product_was_successfully_deleted: Produkt pomyślnie usunięty.
-    products_was_successfully_deleted: Produkty pomyślnie usunięte.
-
-
-  driver:
-    navbar:
-      list: Lista
-      edit_driver: Edycja kierowcy
-      add_new: Dodaj
-      selected_items: Zaznaczone rekordy
-      deleted_items: Usuń kierowców
-    list:
-      header: Lista kierowców
-    new:
-      new_driver: Nowy kierowca
-    errors:
-      prohibited: uniemożliwiły zapisanie kierowcy
-    driver_was_successfully_created: Kierowca pomyślnie utworzony.
-    driver_was_successfully_edited: Kierowca pomyślnie uaktualniony.
-    driver_was_successfully_deleted: Kierowca pomyślnie usunięty.
-    drivers_was_successfully_deleted: Kierowy pomyślnie usunięci.
+      prohibited: uniemożliwiły zapisanie aplikacji
+    app_was_successfully_created: Aplikacja pomyślnie utworzona.
+    app_was_successfully_edited: Aplikacja pomyślnie uaktualniona.
+    app_was_successfully_deleted: Aplikacja pomyślnie usunięta.
+    apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
 
 
   user:
@@ -186,34 +137,6 @@ pl:
     admins_was_successfully_deleted: Admini pomyślnie usunięci.
 
 
-  company:
-    navbar:
-      list: Lista
-      edit_company: Edycja firmy
-      add_new: Dodaj
-      selected_items: Zaznaczone rekordy
-      deleted_items: Usuń firmy
-    list:
-      header: Lista firm
-    new:
-      new_company: Nowa firma
-    errors:
-      prohibited: uniemożliwiły zapisanie firmy
-    company_was_successfully_created: Firma pomyślnie utworzona.
-    company_was_successfully_edited: Firma pomyślnie uaktualniona.
-    company_was_successfully_deleted: Firma pomyślnie usunięta.
-    companys_was_successfully_deleted: Firmy pomyślnie usunięte.
-
-  setting:
-    navbar:
-      list: Lista
-    list:
-      header: Ustawienia
-    errors:
-      prohibited: uniemożliwiły zapisanie api tokena
-    setting_was_successfully_edited: Ustawienie pomyślnie uaktualnione.
-
-
   errors:
     messages:
       not_saved: Nie udało się zapisać zmian
@@ -222,20 +145,14 @@ pl:
 
   activerecord:
     models:
-      notify: Awizacja
+      app: Aplikacja
       client: Klient
-      product: Produkt
-      driver: Kierowca
-      company: Firma
       user: Użytkownik
       admin: Admin
-      setting: Ustawienie
     errors:
       models:
         notify:
           attributes:
-            product:
-              required: jest wymagany
             client:
               required: jest wymagany
         user:
@@ -252,42 +169,20 @@ pl:
               too_short: za krótkie
             password_confirmation:
               confirmation: nie zgadza się
-        client:
+        app:
           attributes:
-            company:
-              required: jest wymagana
-        product:
-          attributes:
-            company:
-              required: jest wymagana
-        driver:
-          attributes:
-            company:
+            name:
               required: jest wymagana
     attributes:
-      notify:
-        pin: PIN
-        number: Numer
-        car_number: Nr pojazdu
-        trailer_number: Nr naczepy
-        expiration_from: Ważność od
-        indefinite: Terminowość
-        expiration_to: Ważność do
-        client_id: Klient
-        product_id: Produkt
-        driver_id: Kierowca
-        active: Aktywność
+      app:
+        name: Nazwa
         hidden: Widoczność
-        user_id: Tworzący
-        company_id: Firma
-        editor: Edytor
         updated_at: Data edycji
         created_at: Data utworzenia
       client:
         name: Nazwa
         locale: Język
         hidden: Widoczność
-        company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
       user:
@@ -299,38 +194,10 @@ pl:
         remember_me: Zapamiętaj mnie
         hidden: Widoczność
         client_id: Klient
-        company_id: Firma
         updated_at: Data edycji
         created_at: Data utworzenia
       invitation:
         email: Email
         sent_at: Data wysłania
         client_id: Klient
-        company_id: Firma
         created_at: Data utworzenia
-      product:
-        code: Kod
-        name: Nazwa
-        hidden: Widoczność
-        company_id: Firma
-        updated_at: Data edycji
-        created_at: Data utworzenia
-      driver:
-        first_name: Imię
-        last_name: Nazwisko
-        hidden: Widoczność
-        client_id: Klient
-        company_id: Firma
-        updated_at: Data edycji
-        created_at: Data utworzenia
-      company:
-        name: Nazwa
-        address: Adres
-        postcode: Kod pocztowy
-        city: Miasto
-        country: Kraj
-        email: Email
-        updated_at: Data edycji
-        created_at: Data utworzenia
-      api_token:
-        value: Wartość

@@ -12,6 +12,8 @@ class CreateLicenses < ActiveRecord::Migration[5.2]
       t.integer :version_id,          null: false
       t.integer :client_id,           null: false
       t.integer :user_id,             null: false
+      t.boolean :hidden,            null: false, default: false
+      t.datetime :hidden_at,        null: true
 
       t.timestamps
     end

@@ -24,7 +24,7 @@ module QueryHelper
     if params[:f_last_name].present?
       query += " AND last_name LIKE '%#{params[:f_last_name].gsub('*', '')}%'"
     end
-    #
+
     # if params[:f_address].present?
     #   query += " AND address LIKE '%#{params[:f_address].gsub('*', '')}%'"
     # end
@@ -68,11 +68,11 @@ module QueryHelper
     # if params[:f_active].present?
     #   query += " AND active = #{params[:f_active]}"
     # end
-    #
-    # if params[:f_hidden].present?
-    #   query += " AND hidden = #{params[:f_hidden]}"
-    # end
-    #
+
+    if params[:f_hidden].present?
+      query += " AND hidden = #{params[:f_hidden]}"
+    end
+
     # if params[:f_driver_id].present?
     #   query += " AND driver_id = #{params[:f_driver_id]}"
     # end

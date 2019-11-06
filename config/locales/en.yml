@@ -33,44 +33,15 @@ en:
 
 
   menu:
-    notifies: Notifies
     clients: Clients
-    products: Products
-    drivers: Drivers
     users: Users
     admins: Admins
-    companies: Companies
-    settings: Settings
+    apps: Apps
 
 
   locale:
     locale_was_successfully_updated: Język pomyślnie uaktualniony.
 
-
-  notify:
-    navbar:
-      list: List
-      edit_notify: Edit Notify
-      add_new: Add new
-      selected_items: Selected items
-      deleted_items: Delete notifies
-      pdf: PDF export
-      print: Print
-    filters:
-      created: Created
-    list:
-      header: List of notifies
-    show:
-      view_notify: View Notify
-    new:
-      new_notify: New Notify
-    errors:
-      prohibited: prohibited this notify from being saved
-    notify_pdf_was_successfully_created: Notify PDF was successfully created.
-    notify_was_successfully_created: Notify was successfully created.
-    notify_was_successfully_edited: Notify was successfully edited.
-    notify_was_successfully_deleted: Notify was successfully deleted.
-    notifys_was_successfully_deleted: Notifys was successfully deleted.
 
   client:
     navbar:
@@ -90,44 +61,24 @@ en:
     client_was_successfully_deleted: Client was successfully deleted.
     clients_was_successfully_deleted: Clients was successfully deleted.
 
-  product:
+
+  app:
     navbar:
       list: List
-      edit_product: Edit product
+      edit_app: Edit app
       add_new: Add new
       selected_items: Selected items
-      deleted_items: Deleted items
-    filters:
-      created: Created
+      deleted_items: Deleted apps
     list:
-      header: List of products
+      header: List of apps
     new:
-      new_product: New product
+      new_app: New app
     errors:
-      prohibited: prohibited this product from being saved
-    product_was_successfully_created: Product was successfully created.
-    product_was_successfully_edited: Product was successfully edited.
-    product_was_successfully_deleted: Product was successfully deleted.
-    products_was_successfully_deleted: Products was successfully deleted.
-
-
-  driver:
-    navbar:
-      list: List
-      edit_driver: Edit driver
-      add_new: Add new
-      selected_items: Selected items
-      deleted_items: Deleted items
-    list:
-      header: List of drivers
-    new:
-      new_driver: New driver
-    errors:
-      prohibited: prohibited this driver from being saved
-    driver_was_successfully_created: Driver was successfully created.
-    driver_was_successfully_edited: Driver was successfully edited.
-    driver_was_successfully_deleted: Driver was successfully deleted.
-    drivers_was_successfully_deleted: Drivers was successfully deleted.
+      prohibited: prohibited this app from being saved
+    app_was_successfully_created: App was successfully invited.
+    app_was_successfully_edited: App was successfully edited.
+    app_was_successfully_deleted: App was successfully deleted.
+    apps_was_successfully_deleted: Apps was successfully deleted.
 
 
   user:
@@ -186,35 +137,6 @@ en:
     admins_was_successfully_deleted: Admins was successfully deleted.
 
 
-  company:
-    navbar:
-      list: List
-      edit_company: Edit driver
-      add_new: Add new
-      selected_items: Selected items
-      deleted_items: Deleted admins
-    list:
-      header: List of companies
-    new:
-      new_company: New company
-    errors:
-      prohibited: prohibited this company from being saved
-    company_was_successfully_created: Company was successfully invited.
-    company_was_successfully_edited: Company was successfully edited.
-    company_was_successfully_deleted: Company was successfully deleted.
-    companys_was_successfully_deleted: Companies was successfully deleted.
-
-
-  setting:
-    navbar:
-      list: List
-    list:
-      header: Settings
-    errors:
-      prohibited: prohibited this api token from being saved
-    setting_was_successfully_edited: Setting was successfully edited.
-
-
   errors:
     messages:
       not_saved: Failed to save the update
@@ -223,20 +145,14 @@ en:
 
   activerecord:
     models:
-      notify: Notifies
+      app: App
       client: Client
-      product: Product
-      driver: Driver
-      company: Company
       user: User
       admin: Admin
-      setting: Setting
     errors:
       models:
         notify:
           attributes:
-            product:
-              required: is required
             client:
               required: is required
         user:
@@ -253,42 +169,20 @@ en:
               too_short: is too short
             password_confirmation:
               confirmation: does not match
-        client:
+        app:
           attributes:
-            company:
-              required: is required
-        product:
-          attributes:
-            company:
-              required: is required
-        driver:
-          attributes:
-            company:
+            name:
               required: is required
     attributes:
-      notify:
-        pin: PIN
-        number: Number
-        car_number: Car number
-        trailer_number: Trailer number
-        expiration_from: Expiration from
-        indefinite: Indefinite
-        expiration_to: Expiration to
-        client_id: Client
-        product_id: Product
-        driver_id: Driver
-        active: Activity
+      app:
+        name: Name
         hidden: Visibility
-        user_id: Creator
-        company_id: Company
-        editor: Editor
         updated_at: Updated at
         created_at: Created at
       client:
         name: Name
         locale: Locale
         hidden: Visibility
-        company_id: Company
         updated_at: Updated at
         created_at: Created at
       user:
@@ -300,38 +194,10 @@ en:
         remember_me: Remember me
         hidden: Visibility
         client_id: Client
-        company_id: Company
         updated_at: Updated at
         created_at: Created at
       invitation:
         email: Email
         sent_at: Sent at
         client_id: Client
-        company_id: Company
         created_at: Created at
-      product:
-        code: Code
-        name: Name
-        hidden: Visibility
-        company_id: Company
-        updated_at: Updated at
-        created_at: Created at
-      driver:
-        first_name: First name
-        last_name: Last name
-        hidden: Visibility
-        client_id: Client
-        company_id: Company
-        updated_at: Updated at
-        created_at: Created at
-      company:
-        name: Name
-        address: Address
-        postcode: Postcode
-        city: City
-        country: Country
-        email: Email
-        updated_at: Updated at
-        created_at: Created at
-      api_token:
-        value: Value

@@ -4,6 +4,8 @@ class CreateVersions < ActiveRecord::Migration[5.2]
       t.string :value,                null: false
       t.string :number,               null: false
       t.integer :app_id,              null: false
+      t.boolean :hidden,            null: false, default: false
+      t.datetime :hidden_at,        null: true
 
       t.timestamps
     end

@@ -14,15 +14,17 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
 
   create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "locale", default: "en", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
-    t.string "locale", default: "en", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.integer "version_id", null: false
     t.integer "client_id", null: false
     t.integer "user_id", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +61,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "value_pl", null: false
     t.string "value_en", null: false
     t.integer "app_id", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,6 +103,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "value", null: false
     t.string "number", null: false
     t.integer "app_id", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

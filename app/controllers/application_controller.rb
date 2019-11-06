@@ -26,6 +26,12 @@ class ApplicationController < ActionController::Base
     @current_invitations = super_admin? ? Invitation.all : current_client.invitations
   end
 
+  def current_apps
+    @current_apps = if super_admin?
+      App.all.order(:name)
+    end
+  end
+
   def authorize_super_admin
     unless super_admin?
       redirect_to(root_path)
