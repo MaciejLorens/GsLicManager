@@ -9,22 +9,14 @@
     <% end %>
 
     <% if admin? %>
-      <%= link_to t('menu.clients'), clients_path, class: 'link' %>
-      <%#= link_to t('menu.products'), products_path, class: 'link' %>
-    <% end %>
-
-    <%# if user_signed_in? %>
-      <%#= link_to t('menu.drivers'), drivers_path, class: 'link' %>
-    <%# end %>
-
-    <%# if admin? %>
       <%= link_to t('menu.users'), users_path, class: 'link' %>
-    <%# end %>
+      <%= link_to t('menu.clients'), clients_path, class: 'link' %>
+    <% end %>
 
     <% if super_admin? %>
       <%= link_to t('menu.admins'), admins_path, class: 'link' %>
+      <%= link_to t('menu.versions'), versions_path, class: 'link' %>
       <%= link_to t('menu.apps'), apps_path, class: 'link' %>
-      <%#= link_to t('menu.settings'), settings_path, class: 'link' %>
     <% end %>
 
   </div>

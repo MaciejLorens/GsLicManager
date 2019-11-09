@@ -1,0 +1,66 @@
+<%= form_with(model: version, local: true, class: 'form-horizontal denser') do |form| %>
+
+  <div class="fieldset">
+
+    <% if version.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(version.errors.count, 'error') %>
+          <%= t('version.errors.prohibited') %>
+        </h2>
+
+        <ul>
+        <% version.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :value, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :value, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :number, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :number, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :app_id, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.select :app_id, options_for_apps, {}, class: 'form-control' %>
+      </div>
+    </div>
+
+    <% if super_admin? %>
+      <div class="form-group control-group">
+        <%= form.label :hidden, class: 'col-sm-2 control-label' %>
+        <div class="col-sm-10 controls">
+          <%= form.select :hidden, options_for_hidden, {}, class: 'form-control' %>
+        </div>
+      </div>
+
+      <%= hidden_field_tag :'version[hidden_at]', version.hidden_at %>
+
+    <% end %>
+
+    <div class="form-group control-group">
+      <div class='col-sm-2'></div>
+      <div class='col-sm-8'>
+        <%= form.button :submit, class: 'btn btn-primary btn-save' do %>
+          <%= fa_icon('check', text: t('common.save')) %>
+        <% end %>
+
+        <%= link_to fa_icon('times', text: t('common.cancel')), versions_path, class: 'btn btn-secondary' %>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

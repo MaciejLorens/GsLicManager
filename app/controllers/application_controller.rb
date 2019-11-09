@@ -28,7 +28,13 @@ class ApplicationController < ActionController::Base
 
   def current_apps
     @current_apps = if super_admin?
-      App.all.order(:name)
+      App.all
+    end
+  end
+
+  def current_versions
+    @current_versions = if super_admin?
+      Version.all
     end
   end
 
@@ -70,5 +76,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :send_to])
   end
 
-  helper_method :current_clients, :current_users, :current_users, :super_admin?, :admin?
+  helper_method :current_clients, :current_apps, :current_users, :current_users, :super_admin?, :admin?
 end

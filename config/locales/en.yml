@@ -28,14 +28,16 @@ en:
     save: Save
     no_results_found: No results found
     errors: errors
-    polish: Polish
-    english: English
+    locales:
+      en: English
+      pl: Polish
 
 
   menu:
     clients: Clients
     users: Users
     admins: Admins
+    versions: Versions
     apps: Apps
 
 
@@ -62,6 +64,25 @@ en:
     clients_was_successfully_deleted: Clients was successfully deleted.
 
 
+  version:
+    navbar:
+      list: List
+      edit_version: Edit version
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted versions
+    list:
+      header: List of versions
+    new:
+      new_version: New version
+    errors:
+      prohibited: prohibited this version from being saved
+    version_was_successfully_created: Version was successfully created.
+    version_was_successfully_edited: Version was successfully edited.
+    version_was_successfully_deleted: Version was successfully deleted.
+    versions_was_successfully_deleted: Versions was successfully deleted.
+
+
   app:
     navbar:
       list: List
@@ -75,7 +96,7 @@ en:
       new_app: New app
     errors:
       prohibited: prohibited this app from being saved
-    app_was_successfully_created: App was successfully invited.
+    app_was_successfully_created: App was successfully created.
     app_was_successfully_edited: App was successfully edited.
     app_was_successfully_deleted: App was successfully deleted.
     apps_was_successfully_deleted: Apps was successfully deleted.
@@ -145,10 +166,11 @@ en:
 
   activerecord:
     models:
-      app: App
       client: Client
       user: User
       admin: Admin
+      versions: Version
+      app: App
     errors:
       models:
         notify:
@@ -173,12 +195,13 @@ en:
           attributes:
             name:
               required: is required
+        version:
+          attributes:
+            value:
+              required: is required
+            number:
+              required: is required
     attributes:
-      app:
-        name: Name
-        hidden: Visibility
-        updated_at: Updated at
-        created_at: Created at
       client:
         name: Name
         locale: Locale
@@ -200,4 +223,16 @@ en:
         email: Email
         sent_at: Sent at
         client_id: Client
+        created_at: Created at
+      version:
+        value: Value
+        number: Number
+        app_id: App Name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
+      app:
+        name: Name
+        hidden: Visibility
+        updated_at: Updated at
         created_at: Created at

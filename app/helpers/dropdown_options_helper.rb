@@ -6,6 +6,12 @@ module DropdownOptionsHelper
     end
   end
 
+  def options_for_apps
+    current_apps.map do |app|
+      [app.name, app.id]
+    end
+  end
+
   def options_for_active
     [
       [t('common.active'), true],
@@ -22,8 +28,8 @@ module DropdownOptionsHelper
 
   def options_for_locale
     [
-      [t('common.english'), 'en'],
-      [t('common.polish'), 'pl'],
+      [t('common.locales.en'), 'en'],
+      [t('common.locales.pl'), 'pl'],
     ]
   end
 

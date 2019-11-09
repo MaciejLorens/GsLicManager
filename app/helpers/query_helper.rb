@@ -53,10 +53,18 @@ module QueryHelper
       query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"
     end
 
-    # if params[:f_number].present?
-    #   query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
-    # end
-    #
+    if params[:f_value].present?
+      query += " AND value LIKE '%#{params[:f_value].gsub('*', '')}%'"
+    end
+
+    if params[:f_number].present?
+      query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
+    end
+
+    if params[:f_app_id].present?
+      query += " AND app_id = #{params[:f_app_id]}"
+    end
+
     # if params[:f_car_number].present?
     #   query += " AND car_number LIKE '%#{params[:f_car_number].gsub('*', '')}%'"
     # end

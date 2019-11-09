@@ -19,7 +19,7 @@
                        class: 'form-control filter' %>
       <% end %>
 
-      <%= link_to fa_icon('times'), clients_path(s_field: :created_at, s_order: :desc), class: 'btn btn-info pull-right' %>
+      <%= link_to fa_icon('times'), clients_path, class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
         <%= fa_icon('retweet', text: t('common.refresh')) %>

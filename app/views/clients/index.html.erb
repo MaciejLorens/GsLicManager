@@ -21,6 +21,11 @@
                       class: "sort-link #{sort_class('name')}" %>
         </th>
         <th>
+          <%= link_to t('activerecord.attributes.client.locale'), '#',
+                      'data-field' => 'locale',
+                      class: "sort-link #{sort_class('locale')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.client.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
@@ -46,6 +51,7 @@
         <tr>
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => client.id %></td>
           <td><%= client.name %></td>
+          <td><%= t("common.locales.#{client.locale}") %></td>
           <td><%= date_format(client.updated_at) %></td>
           <td><%= date_format(client.created_at) %></td>
           <% if super_admin? %>

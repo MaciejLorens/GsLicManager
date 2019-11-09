@@ -38,6 +38,10 @@ Rails.application.routes.draw do
     delete :batch_destroy, on: :collection
   end
 
+  resources :versions, except: [:show] do
+    delete :batch_destroy, on: :collection
+  end
+
   namespace :api do
   	namespace :v1 do
       post '/tokens', to: 'tokens#create'
