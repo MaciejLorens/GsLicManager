@@ -39,6 +39,7 @@ en:
     admins: Admins
     versions: Versions
     apps: Apps
+    types: Types
 
 
   locale:
@@ -100,6 +101,25 @@ en:
     app_was_successfully_edited: App was successfully edited.
     app_was_successfully_deleted: App was successfully deleted.
     apps_was_successfully_deleted: Apps was successfully deleted.
+
+
+  type:
+    navbar:
+      list: List
+      edit_type: Edit type
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted types
+    list:
+      header: List of types
+    new:
+      new_type: New type
+    errors:
+      prohibited: prohibited this type from being saved
+    type_was_successfully_created: Type was successfully created.
+    type_was_successfully_edited: Type was successfully edited.
+    type_was_successfully_deleted: Type was successfully deleted.
+    types_was_successfully_deleted: Types was successfully deleted.
 
 
   user:
@@ -227,12 +247,19 @@ en:
       version:
         value: Value
         number: Number
-        app_id: App Name
+        app_id: App name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at
       app:
         name: Name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
+      type:
+        value: Value
+        en: English name
+        pl: Polish name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at

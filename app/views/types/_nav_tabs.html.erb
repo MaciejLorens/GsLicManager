@@ -1,0 +1,30 @@
+<ul class='nav nav-tabs'>
+
+  <li class="icon index_collection_link <%= index_active? %>">
+    <%= link_to fa_icon('th-list', text: t('type.navbar.list')), types_path %>
+  </li>
+
+  <li class="icon new_collection_link <%= new_active? %>">
+    <%= link_to fa_icon('plus', text: t('type.navbar.add_new')), new_type_path %>
+  </li>
+
+  <% if edit_action? %>
+    <li class="icon new_collection_link <%= edit_active? %>">
+      <%= link_to fa_icon('pencil', text: t('common.edit')), '#' %>
+    </li>
+  <% end %>
+
+  <% if index_action? %>
+
+    <li class="dropdown right">
+      <%= link_to t('type.navbar.selected_items'), '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <%= link_to t('type.navbar.deleted_items'), batch_destroy_types_path, class: 'batch-destroy' %>
+        </li>
+      </ul>
+    </li>
+
+  <% end %>
+
+</ul>

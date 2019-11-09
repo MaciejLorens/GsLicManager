@@ -48,11 +48,9 @@ App.create(name: 'ScaleProgram')
 App.create(name: 'ManagementProgram')
 App.create(name: 'CMSProgram')
 
-App.all.each do |app|
-  app.types.create(value_en: 'basic', value_pl: 'podstawowa')
-  app.types.create(value_en: 'optimum', value_pl: 'optymalna')
-  app.types.create(value_en: 'advenced', value_pl: 'zaawansowana')
-end
+Type.create(value: 'basic', en: 'Basic', pl: 'Podstawowy')
+Type.create(value: 'optimum', en: 'Optimum', pl: 'Optymalny')
+Type.create(value: 'advanced', en: 'Advanced', pl: 'Zaawansowany')
 
 
 20.times do |index|
@@ -68,7 +66,7 @@ end
 100.times do |index|
   version = Version.all.to_a.sample
   user = User.all.to_a.sample
-  type = version.app.types.sample
+  type = Type.all.to_a.sample
 
   user.licenses.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",

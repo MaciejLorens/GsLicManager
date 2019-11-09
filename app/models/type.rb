@@ -4,6 +4,4 @@ class Type < ApplicationRecord
 
   has_many :licenses
 
-  belongs_to :app
-
 end

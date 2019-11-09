@@ -1,0 +1,76 @@
+<div class="page-header">
+  <h1><%= t('type.list.header') %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<%= render partial: 'filter' %>
+
+<% if @types.empty? %>
+  <p> - <%= t('common.no_results_found') %> - </p>
+<% else %>
+
+  <div class="col-sm-12 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>
+          <%= link_to t('activerecord.attributes.type.value'), '#',
+                      'data-field' => 'value',
+                      class: "sort-link #{sort_class('value')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.type.en'), '#',
+                      'data-field' => 'en',
+                      class: "sort-link #{sort_class('en')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.type.pl'), '#',
+                      'data-field' => 'pl',
+                      class: "sort-link #{sort_class('pl')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.type.updated_at'), '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.type.created_at'), '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.type.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+        <% end %>
+        <th><%= t('common.actions') %></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @types.each do |type| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => type.id %></td>
+          <td><%= type.value %></td>
+          <td><%= type.en %></td>
+          <td><%= type.pl %></td>
+          <td><%= date_format(type.updated_at) %></td>
+          <td><%= date_format(type.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= fa_icon(type.hidden ? 'times' : 'check') %></td>
+          <% end %>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_type_path(type), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), type, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

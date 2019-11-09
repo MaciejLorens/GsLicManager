@@ -39,6 +39,7 @@ pl:
     admins: Administratorzy
     versions: Wersje
     apps: Aplikacje
+    types: Typy
 
 
   locale:
@@ -100,6 +101,25 @@ pl:
     app_was_successfully_edited: Aplikacja pomyślnie uaktualniona.
     app_was_successfully_deleted: Aplikacja pomyślnie usunięta.
     apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
+
+
+  type:
+    navbar:
+      list: Lista
+      edit_type: Edycja typu
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń typ
+    list:
+      header: Lista typów
+    new:
+      new_type: Nowy typ
+    errors:
+      prohibited: uniemożliwiły zapisanie typu
+    type_was_successfully_created: Typ pomyślnie utworzony.
+    type_was_successfully_edited: Typ pomyślnie uaktualniony.
+    type_was_successfully_deleted: Typ pomyślnie usunięty.
+    types_was_successfully_deleted: Typy pomyślnie usunięte.
 
 
   user:
@@ -227,12 +247,19 @@ pl:
       version:
         value: Wartość
         number: Numer
-        app_id: Nazwa Aplikacji
+        app_id: Nazwa aplikacji
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia
       app:
         name: Nazwa
+        hidden: Widoczność
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      type:
+        value: Wartość
+        en: Nazwa angielska
+        pl: Nazwa polska
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia

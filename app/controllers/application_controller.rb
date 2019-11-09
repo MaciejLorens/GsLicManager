@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_types
+    @current_types = if super_admin?
+      Type.all
+    end
+  end
+
   def current_versions
     @current_versions = if super_admin?
       Version.all

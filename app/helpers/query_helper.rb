@@ -44,10 +44,18 @@ module QueryHelper
     # if params[:f_pin].present?
     #   query += " AND pin LIKE '%#{params[:f_pin].gsub('*', '')}%'"
     # end
-    #
-    # if params[:f_code].present?
-    #   query += " AND code LIKE '%#{params[:f_code].gsub('*', '')}%'"
-    # end
+
+    if params[:f_key].present?
+      query += " AND key LIKE '%#{params[:f_key].gsub('*', '')}%'"
+    end
+
+    if params[:f_en].present?
+      query += " AND en LIKE '%#{params[:f_en].gsub('*', '')}%'"
+    end
+
+    if params[:f_pl].present?
+      query += " AND pl LIKE '%#{params[:f_pl].gsub('*', '')}%'"
+    end
 
     if params[:f_name].present?
       query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"

@@ -27,10 +27,9 @@ module DropdownOptionsHelper
   end
 
   def options_for_locale
-    [
-      [t('common.locales.en'), 'en'],
-      [t('common.locales.pl'), 'pl'],
-    ]
+    t('common.locales').map do |locale, translation|
+      [translation, locale]
+    end
   end
 
 end

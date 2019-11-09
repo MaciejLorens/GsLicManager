@@ -58,9 +58,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
   end
 
   create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "value_pl", null: false
-    t.string "value_en", null: false
-    t.integer "app_id", null: false
+    t.string "value", null: false
+    t.string "pl", null: false
+    t.string "en", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
@@ -102,9 +102,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "value", null: false
     t.string "number", null: false
-    t.integer "app_id", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
+    t.integer "app_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
