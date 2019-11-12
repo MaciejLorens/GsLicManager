@@ -63,21 +63,22 @@ Type.create(value: 'advanced', en: 'Advanced', pl: 'Zaawansowany')
   )
 end
 
-100.times do |index|
+20.times do |index|
   version = Version.all.to_a.sample
-  user = User.all.to_a.sample
+  user = User.where(role: 'user').to_a.sample
   type = Type.all.to_a.sample
 
   user.licenses.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
     end_client_address: "end_client_address_#{SecureRandom.hex(2)}",
-    status: "end_client_address_#{SecureRandom.hex(2)}",
+    status: License::STATUSES.sample,
     description: "description_#{SecureRandom.hex(2)}",
     order_number: "order_number_#{SecureRandom.hex(2)}",
     registration_key: "registration_key_#{SecureRandom.hex(2)}",
     unlock_key: "unlock_key_#{SecureRandom.hex(2)}",
     type_id: type.id,
     version_id: version.id,
+    client_id: user.client.id,
     created_at: rand(100).days.ago
   )
 end

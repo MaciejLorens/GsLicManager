@@ -31,9 +31,13 @@ pl:
     locales:
       en: Angielski
       pl: Polski
+    statuses:
+      active: Aktywna
+      inactive: Nieaktywna
 
 
   menu:
+    licenses: Licencje
     clients: Klienci
     users: Użytkownicy
     admins: Administratorzy
@@ -44,6 +48,25 @@ pl:
 
   locale:
     locale_was_successfully_updated: Language was successfully edited.
+
+
+  license:
+    navbar:
+      list: Lista
+      edit_license: Edycja licencji
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń licencje
+    list:
+      header: Lista licencji
+    new:
+      new_license: Nowa licencja
+    errors:
+      prohibited: uniemożliwiły zapisanie licencji
+    license_was_successfully_created: Licencja pomyślnie utworzona.
+    license_was_successfully_edited: Licencja pomyślnie uaktualniona.
+    license_was_successfully_deleted: Licencja pomyślnie usunięta.
+    licenses_was_successfully_deleted: Licencje pomyślnie usunięte.
 
 
   client:
@@ -71,7 +94,7 @@ pl:
       edit_version: Edycja wersji
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń wersję
+      deleted_items: Usuń wersje
     list:
       header: Lista wersji
     new:
@@ -222,6 +245,20 @@ pl:
             number:
               required: jest wymagany
     attributes:
+      license:
+        end_client_name: Nazwa klienta końcowego
+        end_client_address: Adres klienta końcowego
+        status: Status
+        description: Opis
+        order_number: Numer zamówienia
+        registration_key: Klucz rejestracyjny
+        unlock_key: Klucz odblokowujący
+        type_id: Typ aplikacji
+        version_id: Wersja aplikacji
+        client_id: Klient
+        hidden: Widoczność
+        updated_at: Data edycji
+        created_at: Data utworzenia
       client:
         name: Nazwa
         locale: Język

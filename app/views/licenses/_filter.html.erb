@@ -1,0 +1,72 @@
+<div class='well'>
+
+  <%= form_tag(licenses_path, method: :get, class: 'filter-form') do %>
+
+    <div class="filter-field form-inline">
+
+      <%= hidden_field_tag :s_field, params[:s_field] %>
+      <%= hidden_field_tag :s_order, params[:s_order] %>
+
+      <%= text_field_tag :f_end_client_name,
+                         params[:f_end_client_name],
+                         placeholder: t('activerecord.attributes.license.end_client_name'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_end_client_address,
+                         params[:f_end_client_address],
+                         placeholder: t('activerecord.attributes.license.end_client_address'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_description,
+                         params[:f_description],
+                         placeholder: t('activerecord.attributes.license.description'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_order_number,
+                         params[:f_order_number],
+                         placeholder: t('activerecord.attributes.license.order_number'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_registration_key,
+                         params[:f_registration_key],
+                         placeholder: t('activerecord.attributes.license.registration_key'),
+                         class: 'form-control filter' %>
+
+      <%= select_tag :f_type_id,
+                         options_for_select(options_for_types, params[:f_type_id]),
+                         include_blank: t('activerecord.attributes.license.type_id'),
+                         class: 'form-control filter' %>
+
+      <%= select_tag :f_version_id,
+                         options_for_select(options_for_versions, params[:f_version_id]),
+                         include_blank: t('activerecord.attributes.license.version_id'),
+                         class: 'form-control filter' %>
+
+      <%= select_tag :f_client_id,
+                         options_for_select(options_for_clients, params[:f_client_id]),
+                         include_blank: t('activerecord.attributes.license.client_id'),
+                         class: 'form-control filter' %>
+
+      <%= select_tag :f_status,
+                         options_for_select(options_for_status, params[:f_status]),
+                         include_blank: t('activerecord.attributes.license.status'),
+                         class: 'form-control filter' %>
+
+      <% if super_admin? %>
+        <%= select_tag :f_hidden,
+                       options_for_select(options_for_hidden, params[:f_hidden]),
+                       include_blank: t('activerecord.attributes.license.hidden'),
+                       class: 'form-control filter' %>
+      <% end %>
+
+      <%= link_to fa_icon('times'), licenses_path, class: 'btn btn-info pull-right' %>
+
+      <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
+        <%= fa_icon('retweet', text: t('common.refresh')) %>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
+</div>

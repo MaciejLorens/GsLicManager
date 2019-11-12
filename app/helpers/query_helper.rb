@@ -25,26 +25,6 @@ module QueryHelper
       query += " AND last_name LIKE '%#{params[:f_last_name].gsub('*', '')}%'"
     end
 
-    # if params[:f_address].present?
-    #   query += " AND address LIKE '%#{params[:f_address].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_postcode].present?
-    #   query += " AND postcode LIKE '%#{params[:f_postcode].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_city].present?
-    #   query += " AND city LIKE '%#{params[:f_city].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_country].present?
-    #   query += " AND country LIKE '%#{params[:f_country].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_pin].present?
-    #   query += " AND pin LIKE '%#{params[:f_pin].gsub('*', '')}%'"
-    # end
-
     if params[:f_key].present?
       query += " AND key LIKE '%#{params[:f_key].gsub('*', '')}%'"
     end
@@ -69,21 +49,45 @@ module QueryHelper
       query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
     end
 
+    if params[:f_end_client_name].present?
+      query += " AND end_client_name LIKE '%#{params[:f_end_client_name].gsub('*', '')}%'"
+    end
+
+    if params[:f_end_client_address].present?
+      query += " AND end_client_address LIKE '%#{params[:f_end_client_address].gsub('*', '')}%'"
+    end
+
+    if params[:f_description].present?
+      query += " AND description LIKE '%#{params[:f_description].gsub('*', '')}%'"
+    end
+
+    if params[:f_order_number].present?
+      query += " AND order_number LIKE '%#{params[:f_order_number].gsub('*', '')}%'"
+    end
+
+    if params[:f_registration_key].present?
+      query += " AND registration_key LIKE '%#{params[:f_registration_key].gsub('*', '')}%'"
+    end
+
+    if params[:f_status].present?
+      query += " AND status LIKE '#{params[:f_status]}'"
+    end
+
+    if params[:f_type_id].present?
+      query += " AND type_id = #{params[:f_type_id]}"
+    end
+
+    if params[:f_version_id].present?
+      query += " AND version_id = #{params[:f_version_id]}"
+    end
+
+    if params[:f_client_id].present?
+      query += " AND client_id = #{params[:f_client_id]}"
+    end
+
     if params[:f_app_id].present?
       query += " AND app_id = #{params[:f_app_id]}"
     end
-
-    # if params[:f_car_number].present?
-    #   query += " AND car_number LIKE '%#{params[:f_car_number].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_trailer_number].present?
-    #   query += " AND trailer_number LIKE '%#{params[:f_trailer_number].gsub('*', '')}%'"
-    # end
-    #
-    # if params[:f_active].present?
-    #   query += " AND active = #{params[:f_active]}"
-    # end
 
     if params[:f_hidden].present?
       query += " AND hidden = #{params[:f_hidden]}"
@@ -92,7 +96,7 @@ module QueryHelper
     # if params[:f_driver_id].present?
     #   query += " AND driver_id = #{params[:f_driver_id]}"
     # end
-    #
+
     # if params[:f_client_id].present?
     #   query += " AND client_id = #{params[:f_client_id]}"
     # end

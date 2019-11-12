@@ -5,7 +5,7 @@
     <%= link_to 'GS Lic Manager', root_path, class: 'navbar-brand' %>
 
     <% if user_signed_in? %>
-      <%#= link_to t('menu.notifies'), notifies_path, class: 'link' %>
+      <%= link_to t('menu.licenses'), licenses_path, class: 'link' %>
     <% end %>
 
     <% if admin? %>

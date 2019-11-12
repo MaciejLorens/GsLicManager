@@ -1,0 +1,118 @@
+<div class="page-header">
+  <h1><%= t('license.list.header') %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<%= render partial: 'filter' %>
+
+<% if @licenses.empty? %>
+  <p> - <%= t('common.no_results_found') %> - </p>
+<% else %>
+
+  <div class="col-sm-12 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.end_client_name'), '#',
+                      'data-field' => 'end_client_name',
+                      class: "sort-link #{sort_class('end_client_name')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.end_client_address'), '#',
+                      'data-field' => 'end_client_address',
+                      class: "sort-link #{sort_class('end_client_address')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.status'), '#',
+                      'data-field' => 'status',
+                      class: "sort-link #{sort_class('status')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.description'), '#',
+                      'data-field' => 'description',
+                      class: "sort-link #{sort_class('description')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.order_number'), '#',
+                      'data-field' => 'order_number',
+                      class: "sort-link #{sort_class('order_number')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.registration_key'), '#',
+                      'data-field' => 'registration_key',
+                      class: "sort-link #{sort_class('registration_key')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.unlock_key'), '#',
+                      'data-field' => 'unlock_key',
+                      class: "sort-link #{sort_class('unlock_key')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.type_id'), '#',
+                      'data-field' => 'type_id',
+                      class: "sort-link #{sort_class('type_id')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.version_id'), '#',
+                      'data-field' => 'version_id',
+                      class: "sort-link #{sort_class('version_id')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.client_id'), '#',
+                      'data-field' => 'client_id',
+                      class: "sort-link #{sort_class('client_id')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.updated_at'), '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.created_at'), '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.license.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+        <% end %>
+        <th><%= t('common.actions') %></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @licenses.each do |license| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => license.id %></td>
+          <td><%= license.end_client_name %></td>
+          <td><%= license.end_client_address %></td>
+          <td><%= t("common.statuses.#{license.status}") %></td>
+          <td><%= license.description %></td>
+          <td><%= license.order_number %></td>
+          <td><%= license.registration_key %></td>
+          <td><%= license.unlock_key %></td>
+          <td><%= license.type.send(I18n.locale) %></td>
+          <td><%= license.version.value %></td>
+          <td><%= license.client.name %></td>
+          <td><%= date_format(license.updated_at) %></td>
+          <td><%= date_format(license.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= fa_icon(license.hidden ? 'times' : 'check') %></td>
+          <% end %>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_path(license), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), license, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

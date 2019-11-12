@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'registrations'}
 
-  resources :licenses
+  resources :licenses, except: [:show] do
+    delete :batch_destroy, on: :collection
+  end
 
   resources :admins, except: [:show] do
     get :invitations, on: :collection

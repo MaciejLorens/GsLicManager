@@ -26,6 +26,31 @@ module DropdownOptionsHelper
     ]
   end
 
+  def options_for_status
+    [
+      [t('common.statuses.active'), 'active'],
+      [t('common.statuses.inactive'), 'inactive'],
+    ]
+  end
+
+  def options_for_types
+    current_types.map do |type|
+      [type.value, type.id]
+    end
+  end
+
+  def options_for_versions
+    current_versions.map do |version|
+      [version.value, version.id]
+    end
+  end
+
+  def options_for_users
+    current_users.map do |user|
+      [user.full_name, user.id]
+    end
+  end
+
   def options_for_locale
     t('common.locales').map do |locale, translation|
       [translation, locale]

@@ -31,9 +31,13 @@ en:
     locales:
       en: English
       pl: Polish
+    statuses:
+      active: Active
+      inactive: Inactive
 
 
   menu:
+    licenses: Licenses
     clients: Clients
     users: Users
     admins: Admins
@@ -44,6 +48,25 @@ en:
 
   locale:
     locale_was_successfully_updated: Język pomyślnie uaktualniony.
+
+
+  license:
+    navbar:
+      list: List
+      edit_license: Edit license
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted licenses
+    list:
+      header: List of licenses
+    new:
+      new_license: New license
+    errors:
+      prohibited: prohibited this license from being saved
+    license_was_successfully_created: License was successfully invited.
+    license_was_successfully_edited: License was successfully edited.
+    license_was_successfully_deleted: License was successfully deleted.
+    licenses_was_successfully_deleted: Licenses was successfully deleted.
 
 
   client:
@@ -222,6 +245,20 @@ en:
             number:
               required: is required
     attributes:
+      license:
+        end_client_name: End client name
+        end_client_address: End client address
+        status: Status
+        description: Description
+        order_number: Order number
+        registration_key: Registration key
+        unlock_key: Unlock key
+        type_id: App type
+        version_id: App version
+        client_id: Client
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
       client:
         name: Name
         locale: Locale

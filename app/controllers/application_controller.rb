@@ -32,6 +32,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_licenses
+    @current_apps = if super_admin?
+      License.all
+    elsif admin?
+      License.all
+    else
+      current_client.licenses
+    end
+  end
+
   def current_types
     @current_types = if super_admin?
       Type.all
@@ -82,5 +92,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :send_to])
   end
 
-  helper_method :current_clients, :current_apps, :current_users, :current_users, :super_admin?, :admin?
+  helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses, :current_types,
+                :current_versions, :super_admin?, :admin?
 end

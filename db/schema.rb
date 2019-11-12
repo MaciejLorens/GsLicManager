@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "unlock_key", null: false
     t.integer "type_id", null: false
     t.integer "version_id", null: false
-    t.integer "client_id", null: false
     t.integer "user_id", null: false
+    t.integer "client_id", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.datetime "locked_at"
     t.string "first_name"
     t.string "last_name"
-    t.boolean "active", default: false, null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.string "locale"
@@ -91,7 +90,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["active"], name: "index_users_on_active"
     t.index ["client_id"], name: "index_users_on_client_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["hidden"], name: "index_users_on_hidden"

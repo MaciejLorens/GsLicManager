@@ -21,7 +21,6 @@ class DeviceCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :first_name
       t.string :last_name
-      t.boolean :active,                null: false, default: false
       t.boolean :hidden,                null: false, default: false
       t.datetime :hidden_at,            null: true
       t.string :locale,                 null: true
@@ -31,7 +30,6 @@ class DeviceCreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps null: false
     end
 
-    add_index :users, :active, unique: false
     add_index :users, :hidden, unique: false
     add_index :users, :unlock_token, unique: true
     add_index :users, :email, unique: true
