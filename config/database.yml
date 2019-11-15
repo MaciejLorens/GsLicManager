@@ -6,6 +6,10 @@ default: &default
   password:
   host: localhost
 
+test:
+  <<: *default
+  database: gs_lic_manager_test
+
 
 development:
   <<: *default

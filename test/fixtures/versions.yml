@@ -1,0 +1,8 @@
+one:
+  value: special-value-321
+  number: special-number-123
+  hidden: false
+  hidden_at: nil
+  app_id: 1
+  created_at: 01-01-2010
+  updated_at: 01-01-2010
