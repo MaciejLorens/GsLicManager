@@ -1,15 +1,16 @@
 <p>
-  Wiadomość została wysłana do Państwa z serwisu GS-Lic-Manager celem dokończenia procesu rejestracji w systemie licencji bezobsługowego ważenia na wadze samochodowej.
+  <%= t('invitations.header1', locale: @locale) %>
 </p>
 
 <p>
-  Aby dokończyć rejestrację konta, proszę kliknąć poniższy link i wypełnić dane na formularzu.
+  <%= t('invitations.header2', locale: @locale) %>
 </p>
 
 <p>
-  <%= link_to 'personalny-link-rejestracyjny',
+  <%= link_to t('invitations.link', locale: @locale),
               controller: 'registrations',
               action: 'new',
               email: @email,
-              token: @token %>
+              token: @token,
+              locale: @locale %>
 </p>

@@ -1,7 +1,5 @@
 class LicensesController < ApplicationController
 
-  before_action :authorize_admin
-
   before_action :set_license, only: [:show, :edit, :update, :destroy, :generate_unlock_code]
 
   def index

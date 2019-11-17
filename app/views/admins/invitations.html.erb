@@ -18,6 +18,11 @@
                       class: "sort-link #{sort_class('email')}" %>
         </th>
         <th>
+          <%= link_to t('activerecord.attributes.user.locale'), '#',
+                      'data-field' => 'locale',
+                      class: "sort-link #{sort_class('email')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.invitation.sent_at'), '#',
                       'data-field' => 'sent_at',
                       class: "sort-link #{sort_class('sent_at')}" %>
@@ -36,6 +41,7 @@
       <% @invitations.each do |invitation| %>
         <tr>
           <td><%= invitation.email %></td>
+          <td><%= t("common.locales.#{invitation.locale}") %></td>
           <td><%= date_format(invitation.sent_at) %></td>
           <td><%= date_format(invitation.created_at) %></td>
           <td class="action-links">

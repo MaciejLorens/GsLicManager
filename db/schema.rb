@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
 
   create_table "invitations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", null: false
+    t.string "locale", null: false
     t.string "token", null: false
     t.string "role", null: false
     t.integer "client_id"

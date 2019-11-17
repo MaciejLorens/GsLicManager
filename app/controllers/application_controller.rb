@@ -23,35 +23,55 @@ class ApplicationController < ActionController::Base
   end
 
   def current_invitations
-    @current_invitations = super_admin? ? Invitation.all : current_client.invitations
-  end
-
-  def current_apps
-    @current_apps = if super_admin?
-      App.all
-    end
+    @current_invitations = if super_admin?
+                             Invitation.all
+                           elsif admin?
+                             Invitation.all
+                           end
   end
 
   def current_licenses
     @current_apps = if super_admin?
-      License.all
-    elsif admin?
-      License.all
-    else
-      current_client.licenses
-    end
+                      License.all
+                    elsif admin?
+                      License.all
+                    else
+                      current_client.licenses
+                    end
   end
 
   def current_types
     @current_types = if super_admin?
-      Type.all
-    end
+                       Type.all
+                     elsif admin?
+                       Type.all
+                     else
+                       type_ids = current_licenses.pluck(:type_id).uniq
+                       Type.where(id: type_ids)
+                     end
   end
 
   def current_versions
     @current_versions = if super_admin?
-      Version.all
-    end
+                          Version.all
+                        elsif admin?
+                          Version.all
+                        else
+                          version_ids = current_licenses.pluck(:version_id).uniq
+                          Version.where(id: version_ids)
+                        end
+  end
+
+  def current_apps
+    @current_apps = if super_admin?
+                      App.all
+                    elsif admin?
+                      App.all
+                    else
+                      version_ids = current_licenses.map(&:version_id).uniq
+                      app_ids = Version.where(id: version_ids).pluck(:app_id).uniq
+                      App.where(id: app_ids)
+                    end
   end
 
   def authorize_super_admin
@@ -68,20 +88,20 @@ class ApplicationController < ActionController::Base
 
   def current_clients
     @current_clients = if super_admin?
-       Client.all
-     else
-       Client.all.visible
-     end
+                         Client.all
+                       else
+                         Client.all.visible
+                       end
   end
 
   def current_users
     @current_users = if super_admin?
-       User.all
-     elsif admin?
-       User.all
-     else
-       current_user.client.users.visible
-     end
+                       User.all
+                     elsif admin?
+                       User.all
+                     else
+                       current_user.client.users.visible
+                     end
   end
 
   def set_locale

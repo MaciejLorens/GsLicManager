@@ -205,6 +205,12 @@ pl:
     admins_was_successfully_deleted: Admini pomyślnie usunięci.
 
 
+  invitations:
+    header1: Wiadomość została wysłana do Państwa z serwisu GS-Lic-Manager celem dokończenia procesu rejestracji w systemie licencji bezobsługowego ważenia na wadze samochodowej.
+    header2: Aby dokończyć rejestrację konta, proszę kliknąć poniższy link i wypełnić dane na formularzu.
+    link: personalny-link-rejestracyjny
+
+
   errors:
     messages:
       not_saved: Nie udało się zapisać zmian
@@ -286,6 +292,7 @@ pl:
         email: Email
         first_name: Imię
         last_name: Nazwisko
+        locale: Język
         password: Hasło
         password_confirmation: Potwierdzenie hasła
         remember_me: Zapamiętaj mnie
@@ -295,6 +302,7 @@ pl:
         created_at: Data utworzenia
       invitation:
         email: Email
+        locale: Język
         sent_at: Data wysłania
         client_id: Klient
         created_at: Data utworzenia

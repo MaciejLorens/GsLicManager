@@ -6,14 +6,14 @@ class UsersController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    @users = current_users.users
+    @users = current_users.users.visible
                .where(filter_query)
                .includes(:client)
                .order(sorting_query('last_name ASC'))
   end
 
   def invitations
-    @invitations = current_invitations.users.order(created_at: :desc)
+    @invitations = current_invitations.users.order(sorting_query)
   end
 
   def new
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def invite
-    @invitation = current_invitations.create(invitation_params)
+    @invitation = current_invitations.new(invitation_params)
 
     if @invitation.save
       redirect_to invitations_users_path, notice: t('user.user_was_successfully_invited')
@@ -77,26 +77,24 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:user).permit(
       :email,
       :first_name,
       :last_name,
+      :locale,
       :password,
       :password_confirmation,
       :hidden,
       :hidden_at,
       :client_id,
-      :company_id
     ).merge(role: 'user')
   end
 
   def invitation_params
-    # === TODO:Maciej: merge company_id only if super_admin?
     params.require(:invitation).permit(
       :email,
+      :locale,
       :client_id,
-      :company_id
     ).merge(role: 'user')
   end
 

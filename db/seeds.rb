@@ -81,3 +81,15 @@ end
     created_at: rand(100).days.ago
   )
 end
+
+
+12.times do |index|
+  client = Client.all.to_a.sample
+
+  Invitation.create(
+    email: "maciej.lorens+#{index}@gmail.com",
+    locale: %w(en pl).sample,
+    client_id: client.id,
+    role: %w(user admin).sample
+  )
+end

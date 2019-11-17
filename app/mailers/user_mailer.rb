@@ -5,6 +5,7 @@ class UserMailer < ApplicationMailer
   def invitation_email(invitation)
     @token = invitation.token
     @email = invitation.email
+    @locale = invitation.locale
 
     mail(to: @email, from: 'robert@gs-software.pl', subject: 'Zaproszenie z GS-Lic-Manager')
   end

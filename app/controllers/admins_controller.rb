@@ -6,18 +6,18 @@ class AdminsController < ApplicationController
   before_action :set_invitation, only: [:resend, :invitation_destroy]
 
   def index
-    @admins = User.admins.visible
+    @admins = current_users.admins.visible
                 .where(filter_query)
+                .includes(:client)
                 .order(sorting_query('last_name ASC'))
   end
 
   def invitations
-    @invitations = Invitation.all.admins
-                      .order(sorting_query)
+    @invitations = current_invitations.admins.order(sorting_query)
   end
 
   def new
-    @invitation = Invitation.new
+    @invitation = current_invitations.new
   end
 
   def edit
@@ -30,7 +30,7 @@ class AdminsController < ApplicationController
   end
 
   def invite
-    @invitation = Invitation.new(invitation_params)
+    @invitation = current_invitations.new(invitation_params)
 
     if @invitation.save
       redirect_to invitations_admins_path, notice: t('admin.admin_was_successfully_invited')
@@ -60,7 +60,7 @@ class AdminsController < ApplicationController
   end
 
   def batch_destroy
-    @admins = User.admins.where(id: params[:ids])
+    @admins = current_users.where(id: params[:ids])
     @admins.each { |admin| admin.hide! }
 
     redirect_to admins_url, notice: t('admin.admins_was_successfully_deleted')
@@ -69,11 +69,11 @@ class AdminsController < ApplicationController
   private
 
   def set_admin
-    @admin = User.admins.find(params[:id])
+    @admin = current_users.find(params[:id])
   end
 
   def set_invitation
-    @invitation = Invitation.find(params[:id])
+    @invitation = current_invitations.find(params[:id])
   end
 
   def admin_params
@@ -81,14 +81,20 @@ class AdminsController < ApplicationController
       :email,
       :first_name,
       :last_name,
+      :locale,
       :password,
-      :password_confirmation
+      :password_confirmation,
+      :hidden,
+      :hidden_at,
+      :client_id,
     ).merge(role: 'admin')
   end
 
   def invitation_params
     params.require(:invitation).permit(
-      :email
+      :email,
+      :locale,
+      :client_id,
     ).merge(role: 'admin')
   end
 

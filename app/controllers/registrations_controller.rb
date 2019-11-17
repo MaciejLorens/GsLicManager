@@ -41,6 +41,7 @@ class RegistrationsController < Devise::RegistrationsController
       :email,
       :first_name,
       :last_name,
+      :locale,
       :password,
       :password_confirmation
     ).merge(
