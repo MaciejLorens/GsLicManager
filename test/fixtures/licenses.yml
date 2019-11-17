@@ -1,0 +1,16 @@
+one:
+  id: 1
+  end_client_name: spacex-name
+  end_client_address: spacex-address
+  status: active
+  description: lorem impus dolor
+  order_number: special-order-number-123
+  registration_key: special-registration-key-321
+  unlock_key: special-unlock-key-567
+  type_id: 1
+  version_id: 1
+  user_id: 1
+  client_id: 1
+  hidden: false
+  created_at: 01-01-2010
+  updated_at: 01-01-2010

@@ -75,7 +75,6 @@ end
     description: "description_#{SecureRandom.hex(2)}",
     order_number: "order_number_#{SecureRandom.hex(2)}",
     registration_key: "registration_key_#{SecureRandom.hex(2)}",
-    unlock_key: "unlock_key_#{SecureRandom.hex(2)}",
     type_id: type.id,
     version_id: version.id,
     client_id: user.client.id,

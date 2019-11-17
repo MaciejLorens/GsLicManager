@@ -1,4 +1,5 @@
 one:
+  id: 1
   value: special-value-321
   number: special-number-123
   hidden: false

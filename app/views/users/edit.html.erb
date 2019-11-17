@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= t('user.navbar.edit_user') %> <%= @user.full_name %></h1>
+  <h1><%= t('user.navbar.edit_user') %> Id: <%= @user.id %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -22,6 +22,13 @@
         </ul>
       </div>
     <% end %>
+
+    <div class="form-group control-group">
+      <%= form.label :id, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :id, class: 'form-control', disabled: true %>
+      </div>
+    </div>
 
     <div class="form-group control-group">
       <%= form.label :email, class: 'col-sm-2 control-label' %>

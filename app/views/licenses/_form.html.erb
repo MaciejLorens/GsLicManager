@@ -18,6 +18,13 @@
     <% end %>
 
     <div class="form-group control-group">
+      <%= form.label :id, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :id, required: true, class: 'form-control', disabled: true %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
       <%= form.label :end_client_name, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
         <%= form.text_field :end_client_name, required: true, class: 'form-control' %>
@@ -56,13 +63,6 @@
       <%= form.label :registration_key, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
         <%= form.text_field :registration_key, required: true, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="form-group control-group">
-      <%= form.label :unlock_key, class: 'col-sm-2 control-label' %>
-      <div class="col-sm-10 controls">
-        <%= form.text_field :unlock_key, required: true, class: 'form-control' %>
       </div>
     </div>
 

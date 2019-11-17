@@ -18,9 +18,30 @@
     <% end %>
 
     <div class="form-group control-group">
-      <%= form.label :name, class: 'col-sm-2 control-label' %>
+      <%= form.label :id, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10 controls">
-        <%= form.text_field :name, required: true, class: 'form-control' %>
+        <%= form.text_field :id, class: 'form-control', disabled: true %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :value, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :value, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :pl, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :pl, required: true, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group control-group">
+      <%= form.label :en, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10 controls">
+        <%= form.text_field :en, required: true, class: 'form-control' %>
       </div>
     </div>
 
