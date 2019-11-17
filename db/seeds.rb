@@ -44,9 +44,9 @@ end
   )
 end
 
-App.create(name: 'ScaleProgram')
-App.create(name: 'ManagementProgram')
-App.create(name: 'CMSProgram')
+App.create(name: 'Scale')
+App.create(name: 'Management')
+App.create(name: 'CMS')
 
 Type.create(value: 'basic', en: 'Basic', pl: 'Podstawowy')
 Type.create(value: 'optimum', en: 'Optimum', pl: 'Optymalny')
@@ -58,7 +58,7 @@ Type.create(value: 'advanced', en: 'Advanced', pl: 'Zaawansowany')
 
   app.versions.create(
     value: "value_#{SecureRandom.hex(2)}",
-    number: "number_#{SecureRandom.hex(2)}",
+    number: "#{rand(10)}.#{rand(20)}.#{rand(10)}",
     created_at: rand(100).days.ago
   )
 end

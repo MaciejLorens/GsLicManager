@@ -8,6 +8,12 @@
     <%= link_to fa_icon('plus', text: t('license.navbar.add_new')), new_license_path %>
   </li>
 
+  <% if show_action? %>
+    <li class="icon new_collection_link <%= show_active? %>">
+      <%= link_to fa_icon('eye', text: t('common.view')), '#' %>
+    </li>
+  <% end %>
+
   <% if edit_action? %>
     <li class="icon new_collection_link <%= edit_active? %>">
       <%= link_to fa_icon('pencil', text: t('common.edit')), '#' %>

@@ -8,7 +8,7 @@ class VersionsController < ApplicationController
     @versions = current_versions
                  .includes(:app)
                  .where(filter_query)
-                 .order(sorting_query('value asc'))
+                 .order(sorting_query('number DESC'))
   end
 
   def new

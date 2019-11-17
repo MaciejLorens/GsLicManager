@@ -1,17 +1,5 @@
 module DropdownOptionsHelper
 
-  def options_for_clients
-    current_clients.map do |client|
-      [client.name, client.id]
-    end
-  end
-
-  def options_for_apps
-    current_apps.map do |app|
-      [app.name, app.id]
-    end
-  end
-
   def options_for_active
     [
       [t('common.active'), true],
@@ -33,21 +21,33 @@ module DropdownOptionsHelper
     ]
   end
 
+  def options_for_users
+    current_users.order('last_name ASC').map do |user|
+      [user.full_name, user.id]
+    end
+  end
+
+  def options_for_clients
+    current_clients.order('name ASC').map do |client|
+      [client.name, client.id]
+    end
+  end
+
   def options_for_types
-    current_types.map do |type|
+    current_types.order('value ASC').map do |type|
       [type.value, type.id]
     end
   end
 
   def options_for_versions
-    current_versions.map do |version|
-      [version.value, version.id]
+    current_versions.order('number ASC').map do |version|
+      [version.number, version.id]
     end
   end
 
-  def options_for_users
-    current_users.map do |user|
-      [user.full_name, user.id]
+  def options_for_apps
+    current_apps.order('name ASC').map do |app|
+      [app.name, app.id]
     end
   end
 

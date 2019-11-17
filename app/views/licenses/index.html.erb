@@ -31,24 +31,14 @@
                       class: "sort-link #{sort_class('status')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license.description'), '#',
-                      'data-field' => 'description',
-                      class: "sort-link #{sort_class('description')}" %>
-        </th>
-        <th>
-          <%= link_to t('activerecord.attributes.license.order_number'), '#',
-                      'data-field' => 'order_number',
-                      class: "sort-link #{sort_class('order_number')}" %>
-        </th>
-        <th>
           <%= link_to t('activerecord.attributes.license.registration_key'), '#',
                       'data-field' => 'registration_key',
                       class: "sort-link #{sort_class('registration_key')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license.unlock_key'), '#',
-                      'data-field' => 'unlock_key',
-                      class: "sort-link #{sort_class('unlock_key')}" %>
+          <%= link_to t('activerecord.attributes.license.unlock_code'), '#',
+                      'data-field' => 'unlock_code',
+                      class: "sort-link #{sort_class('unlock_code')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.license.type_id'), '#',
@@ -61,19 +51,14 @@
                       class: "sort-link #{sort_class('version_id')}" %>
         </th>
         <th>
+          <%= link_to t('activerecord.attributes.license.app_id'), '#',
+                      'data-field' => 'app_id',
+                      class: "sort-link #{sort_class('app_id')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.license.client_id'), '#',
                       'data-field' => 'client_id',
                       class: "sort-link #{sort_class('client_id')}" %>
-        </th>
-        <th>
-          <%= link_to t('activerecord.attributes.license.updated_at'), '#',
-                      'data-field' => 'updated_at',
-                      class: "sort-link #{sort_class('updated_at')}" %>
-        </th>
-        <th>
-          <%= link_to t('activerecord.attributes.license.created_at'), '#',
-                      'data-field' => 'created_at',
-                      class: "sort-link #{sort_class('created_at')}" %>
         </th>
         <% if super_admin? %>
           <th>
@@ -93,19 +78,18 @@
           <td><%= license.end_client_name %></td>
           <td><%= license.end_client_address %></td>
           <td><%= t("common.statuses.#{license.status}") %></td>
-          <td><%= license.description %></td>
-          <td><%= license.order_number %></td>
           <td><%= license.registration_key %></td>
-          <td><%= license.unlock_key %></td>
+          <td><%= license.unlock_code %></td>
           <td><%= license.type.send(I18n.locale) %></td>
-          <td><%= license.version.value %></td>
+          <td><%= license.version.number %></td>
+          <td><%= license.version.app.name %></td>
           <td><%= license.client.name %></td>
-          <td><%= date_format(license.updated_at) %></td>
-          <td><%= date_format(license.created_at) %></td>
           <% if super_admin? %>
             <td><%= fa_icon(license.hidden ? 'times' : 'check') %></td>
           <% end %>
           <td class="action-links">
+            <%= link_to fa_icon('unlock', text: t('license.generate_code')), generate_unlock_code_license_path(license), class: 'action-link', data: {confirm: t('license.are_you_sure')}, method: :put %><br>
+            <%= link_to fa_icon('eye', text: t('common.view')), license, class: 'action-link' %><br>
             <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_path(license), class: 'action-link' %><br>
             <%= link_to fa_icon('times', text: t('common.delete')), license, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>

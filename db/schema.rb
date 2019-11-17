@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "description"
     t.string "order_number"
     t.string "registration_key", null: false
-    t.string "unlock_key"
+    t.string "unlock_code"
     t.integer "type_id", null: false
     t.integer "version_id", null: false
     t.integer "user_id", null: false

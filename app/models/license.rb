@@ -10,10 +10,10 @@ class License < ApplicationRecord
   STATUSES = %w(active inactive).freeze
   SALT = '+X-ScaleFull+'.freeze
 
-  def generate_unlock_key(amount)
+  def generate_unlock_code(amount)
     result_md5 = Digest::MD5.hexdigest(registration_key + SALT)
-    unlock_key = version.number + '1' + scales(amount) + trim(result_md5, 10)
-    update(unlock_key: unlock_key)
+    unlock_code = version.number + '1' + scales(amount) + trim(result_md5, 10)
+    update(unlock_code: unlock_code)
   end
 
   private

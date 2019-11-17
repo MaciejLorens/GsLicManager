@@ -63,6 +63,10 @@ pl:
       new_license: Nowa licencja
     errors:
       prohibited: uniemożliwiły zapisanie licencji
+    are_you_sure: Czy jesteś pewny że chcesz wygenerować kod odblokowujący dla tej licencji?
+    generate_code: Generuj kod
+    show:
+      view_license: Podgląd licencji
     license_was_successfully_created: Licencja pomyślnie utworzona.
     license_was_successfully_edited: Licencja pomyślnie uaktualniona.
     license_was_successfully_deleted: Licencja pomyślnie usunięta.
@@ -214,6 +218,7 @@ pl:
       admin: Admin
       version: Wersja
       app: Aplikacja
+      license: Licencja
     errors:
       models:
         notify:
@@ -244,17 +249,29 @@ pl:
               required: jest wymagana
             number:
               required: jest wymagany
+        license:
+          attributes:
+            user:
+              required: jest wymagany
+            version:
+              required: jest wymagana
+            type:
+              required: jest wymagany
+            client:
+              required: jest wymagany
     attributes:
       license:
         end_client_name: Nazwa klienta końcowego
         end_client_address: Adres klienta końcowego
         status: Status
-        description: Opis
+        description: Uwagi
         order_number: Numer zamówienia
         registration_key: Klucz rejestracyjny
-        unlock_key: Klucz odblokowujący
+        unlock_code: Kod odblokowujący
         type_id: Typ aplikacji
         version_id: Wersja aplikacji
+        user_id: Nazwa użytkownika
+        app_id: Nazwa aplikacji
         client_id: Klient
         hidden: Widoczność
         updated_at: Data edycji

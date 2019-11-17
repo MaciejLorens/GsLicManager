@@ -2,22 +2,22 @@
 
   <div class="navbar-header">
 
-    <%= link_to 'GS Lic Manager', root_path, class: 'navbar-brand' %>
+    <%= link_to 'GS Lic Manager', licenses_path, class: 'navbar-brand' %>
 
     <% if user_signed_in? %>
-      <%= link_to t('menu.licenses'), licenses_path, class: 'link' %>
+      <%= nav_link t('menu.licenses'), licenses_path %>
     <% end %>
 
     <% if admin? %>
-      <%= link_to t('menu.users'), users_path, class: 'link' %>
-      <%= link_to t('menu.clients'), clients_path, class: 'link' %>
+      <%= nav_link t('menu.users'), users_path %>
+      <%= nav_link t('menu.clients'), clients_path %>
     <% end %>
 
     <% if super_admin? %>
-      <%= link_to t('menu.admins'), admins_path, class: 'link' %>
-      <%= link_to t('menu.versions'), versions_path, class: 'link' %>
-      <%= link_to t('menu.apps'), apps_path, class: 'link' %>
-      <%= link_to t('menu.types'), types_path, class: 'link' %>
+      <%= nav_link t('menu.types'), types_path %>
+      <%= nav_link t('menu.versions'), versions_path %>
+      <%= nav_link t('menu.apps'), apps_path %>
+      <%= nav_link t('menu.admins'), admins_path %>
     <% end %>
 
   </div>

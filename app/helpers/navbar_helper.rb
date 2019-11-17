@@ -4,6 +4,13 @@ module NavbarHelper
     params[:s_field] == field ? params[:s_order] : ''
   end
 
+  def nav_link(link_text, link_path)
+    classes = 'link'
+    classes += ' active' if current_page?(link_path)
+
+    link_to link_text, link_path, class: classes
+  end
+
 
   def index_action?
     controller.action_name == 'index'

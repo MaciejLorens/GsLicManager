@@ -2,13 +2,13 @@ class LicensesController < ApplicationController
 
   before_action :authorize_admin
 
-  before_action :set_license, only: [:edit, :update, :destroy]
+  before_action :set_license, only: [:show, :edit, :update, :destroy, :generate_unlock_code]
 
   def index
     @licenses = current_licenses
                  .includes(:type, :version, :client)
                  .where(filter_query)
-                 .order(sorting_query('created_at ASC'))
+                 .order(sorting_query('created_at DESC'))
   end
 
   def new
@@ -16,6 +16,9 @@ class LicensesController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def create
@@ -49,6 +52,13 @@ class LicensesController < ApplicationController
     redirect_to licenses_url, notice: t('license.licenses_was_successfully_deleted')
   end
 
+  def generate_unlock_code
+    referrer = Rails.application.routes.recognize_path(request.referrer)
+    @license.generate_unlock_code(1)
+
+    redirect_to action: referrer[:action]
+  end
+
   private
 
   def set_license
@@ -57,10 +67,18 @@ class LicensesController < ApplicationController
 
   def license_params
     params.require(:license).permit(
-      :name,
-      :locale,
+      :end_client_name,
+      :end_client_address,
+      :status,
+      :description,
+      :order_number,
+      :registration_key,
+      :type_id,
+      :version_id,
+      :user_id,
+      :client_id,
       :hidden,
-      :hidden_at
+      :hidden_at,
     )
   end
 

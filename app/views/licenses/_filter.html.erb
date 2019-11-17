@@ -17,19 +17,14 @@
                          placeholder: t('activerecord.attributes.license.end_client_address'),
                          class: 'form-control filter' %>
 
-      <%= text_field_tag :f_description,
-                         params[:f_description],
-                         placeholder: t('activerecord.attributes.license.description'),
-                         class: 'form-control filter' %>
-
-      <%= text_field_tag :f_order_number,
-                         params[:f_order_number],
-                         placeholder: t('activerecord.attributes.license.order_number'),
-                         class: 'form-control filter' %>
-
       <%= text_field_tag :f_registration_key,
                          params[:f_registration_key],
                          placeholder: t('activerecord.attributes.license.registration_key'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_unlock_code,
+                         params[:f_unlock_code],
+                         placeholder: t('activerecord.attributes.license.unlock_code'),
                          class: 'form-control filter' %>
 
       <%= select_tag :f_type_id,
@@ -40,6 +35,11 @@
       <%= select_tag :f_version_id,
                          options_for_select(options_for_versions, params[:f_version_id]),
                          include_blank: t('activerecord.attributes.license.version_id'),
+                         class: 'form-control filter' %>
+
+      <%= select_tag :f_app_id,
+                         options_for_select(options_for_apps, params[:f_app_id]),
+                         include_blank: t('activerecord.attributes.license.app_id'),
                          class: 'form-control filter' %>
 
       <%= select_tag :f_client_id,

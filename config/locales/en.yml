@@ -63,6 +63,10 @@ en:
       new_license: New license
     errors:
       prohibited: prohibited this license from being saved
+    are_you_sure: Are you sure you want to generate unlock code for this license?
+    generate_code: Generate code
+    show:
+      view_license: View license
     license_was_successfully_created: License was successfully invited.
     license_was_successfully_edited: License was successfully edited.
     license_was_successfully_deleted: License was successfully deleted.
@@ -214,6 +218,7 @@ en:
       admin: Admin
       versions: Version
       app: App
+      license: License
     errors:
       models:
         notify:
@@ -244,6 +249,16 @@ en:
               required: is required
             number:
               required: is required
+        license:
+          attributes:
+            user:
+              required: is required
+            version:
+              required: is required
+            type:
+              required: is required
+            client:
+              required: is required
     attributes:
       license:
         end_client_name: End client name
@@ -252,9 +267,11 @@ en:
         description: Description
         order_number: Order number
         registration_key: Registration key
-        unlock_key: Unlock key
+        unlock_code: Unlock code
         type_id: App type
         version_id: App version
+        user_id: User name
+        app_id: App name
         client_id: Client
         hidden: Visibility
         updated_at: Updated at

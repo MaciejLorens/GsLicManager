@@ -68,9 +68,9 @@ class ApplicationController < ActionController::Base
 
   def current_clients
     @current_clients = if super_admin?
-       Client.all.order(:name)
+       Client.all
      else
-       Client.all.visible.order(:name)
+       Client.all.visible
      end
   end
 
