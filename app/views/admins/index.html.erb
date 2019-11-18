@@ -31,6 +31,11 @@
                       class: "sort-link #{sort_class('last_name')}" %>
         </th>
         <th>
+          <%= link_to t('activerecord.attributes.user.locale'), '#',
+                      'data-field' => 'locale',
+                      class: "sort-link #{sort_class('locale')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.user.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
@@ -58,6 +63,7 @@
           <td><%= admin.email %></td>
           <td><%= admin.first_name %></td>
           <td><%= admin.last_name %></td>
+          <td><%= t("common.locales.#{admin.locale}") %></td>
           <td><%= date_format(admin.updated_at) %></td>
           <td><%= date_format(admin.created_at) %></td>
           <% if super_admin? %>

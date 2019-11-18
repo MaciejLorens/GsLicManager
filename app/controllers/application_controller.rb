@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     @current_invitations = if super_admin?
                              Invitation.all
                            elsif admin?
-                             Invitation.all
+                             Invitation.all.visible
                            end
   end
 
@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
     @current_apps = if super_admin?
                       License.all
                     elsif admin?
-                      License.all
+                      License.all.visible
                     else
                       current_client.licenses
                     end
@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     @current_types = if super_admin?
                        Type.all
                      elsif admin?
-                       Type.all
+                       Type.all.visible
                      else
                        type_ids = current_licenses.pluck(:type_id).uniq
                        Type.where(id: type_ids)
@@ -55,7 +55,7 @@ class ApplicationController < ActionController::Base
     @current_versions = if super_admin?
                           Version.all
                         elsif admin?
-                          Version.all
+                          Version.all.visible
                         else
                           version_ids = current_licenses.pluck(:version_id).uniq
                           Version.where(id: version_ids)
@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
     @current_apps = if super_admin?
                       App.all
                     elsif admin?
-                      App.all
+                      App.all.visible
                     else
                       version_ids = current_licenses.map(&:version_id).uniq
                       app_ids = Version.where(id: version_ids).pluck(:app_id).uniq
@@ -98,7 +98,7 @@ class ApplicationController < ActionController::Base
     @current_users = if super_admin?
                        User.all
                      elsif admin?
-                       User.all
+                       User.all.visible
                      else
                        current_user.client.users.visible
                      end

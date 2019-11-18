@@ -1,7 +1,7 @@
-Client.create(name: 'Tesla')
-Client.create(name: 'Spacex')
-Client.create(name: 'Solarcity')
-Client.create(name: 'Boring')
+Client.create(name: 'Tesla', locale: %w(pl en).sample)
+Client.create(name: 'Spacex', locale: %w(pl en).sample)
+Client.create(name: 'Solarcity', locale: %w(pl en).sample)
+Client.create(name: 'Boring', locale: %w(pl en).sample)
 
 User.create(
   first_name: "Maciej",
@@ -9,6 +9,7 @@ User.create(
   email: "maciej.lorens@gmail.com",
   password: '1234567890',
   password_confirmation: '1234567890',
+  locale: 'pl',
   role: 'super_admin',
   client_id: nil,
   created_at: rand(100).days.ago
@@ -23,6 +24,7 @@ User.create(
     email: "admin#{index}@gs.com",
     password: '1234567890',
     password_confirmation: '1234567890',
+    locale: %w(pl en).sample,
     role: 'admin',
     client_id: nil,
     created_at: rand(100).days.ago
@@ -38,6 +40,7 @@ end
     email: "user#{index}@gs.com",
     password: '1234567890',
     password_confirmation: '1234567890',
+    locale: %w(pl en).sample,
     role: 'user',
     client_id: client.id,
     created_at: rand(100).days.ago
@@ -81,7 +84,6 @@ end
     created_at: rand(100).days.ago
   )
 end
-
 
 12.times do |index|
   client = Client.all.to_a.sample

@@ -35,7 +35,7 @@ module DropdownOptionsHelper
 
   def options_for_types
     current_types.order('value ASC').map do |type|
-      [type.value, type.id]
+      [type.send(I18n.locale), type.id]
     end
   end
 

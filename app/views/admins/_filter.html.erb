@@ -22,6 +22,18 @@
                          placeholder: t('activerecord.attributes.user.last_name'),
                          class: 'form-control filter' %>
 
+      <%= select_tag :f_locale,
+                     options_for_select(options_for_locale, params[:f_locale]),
+                     include_blank: t('activerecord.attributes.user.locale'),
+                     class: 'form-control filter' %>
+
+      <% if super_admin? %>
+        <%= select_tag :f_hidden,
+                       options_for_select(options_for_hidden, params[:f_hidden]),
+                       include_blank: t('activerecord.attributes.user.hidden'),
+                       class: 'form-control filter' %>
+      <% end %>
+
       <%= link_to fa_icon('times'), admins_path, class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>

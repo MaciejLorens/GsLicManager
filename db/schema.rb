@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "unlock_code"
     t.integer "type_id", null: false
     t.integer "version_id", null: false
+    t.integer "app_id", null: false
     t.integer "user_id", null: false
     t.integer "client_id", null: false
     t.boolean "hidden", default: false, null: false

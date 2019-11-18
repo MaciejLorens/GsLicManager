@@ -12,6 +12,11 @@
                          placeholder: t('activerecord.attributes.client.name'),
                          class: 'form-control filter' %>
 
+      <%= select_tag :f_locale,
+                     options_for_select(options_for_locale, params[:f_client_id]),
+                     include_blank: t('activerecord.attributes.client.locale'),
+                     class: 'form-control filter' %>
+
       <% if super_admin? %>
         <%= select_tag :f_hidden,
                        options_for_select(options_for_hidden, params[:f_hidden]),
