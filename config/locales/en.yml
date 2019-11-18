@@ -280,6 +280,7 @@ en:
         app_id: App name
         client_id: Client
         hidden: Visibility
+        quantity: Quantity
         updated_at: Updated at
         created_at: Created at
       client:

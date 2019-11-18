@@ -3,16 +3,6 @@ module QueryHelper
   def filter_query(default_field = nil)
     query = "id IS NOT NULL"
 
-    # if params[:f_created_at_from].present? || default_field == :created_at
-    #   value = params[:f_created_at_from].try(:to_date) || 1.month.ago
-    #   query += " AND created_at >= '#{value.beginning_of_day}'"
-    # end
-    #
-    # if params[:f_created_at_to].present? || default_field == :created_at
-    #   value = params[:f_created_at_to].try(:to_date) || Date.today
-    #   query += " AND created_at <= '#{value.end_of_day}'"
-    # end
-
     if params[:f_email].present?
       query += " AND email LIKE '%#{params[:f_email].gsub('*', '')}%'"
     end
@@ -23,10 +13,6 @@ module QueryHelper
 
     if params[:f_last_name].present?
       query += " AND last_name LIKE '%#{params[:f_last_name].gsub('*', '')}%'"
-    end
-
-    if params[:f_key].present?
-      query += " AND key LIKE '%#{params[:f_key].gsub('*', '')}%'"
     end
 
     if params[:f_en].present?
@@ -100,22 +86,6 @@ module QueryHelper
     if params[:f_hidden].present?
       query += " AND hidden = #{params[:f_hidden]}"
     end
-
-    # if params[:f_driver_id].present?
-    #   query += " AND driver_id = #{params[:f_driver_id]}"
-    # end
-
-    # if params[:f_client_id].present?
-    #   query += " AND client_id = #{params[:f_client_id]}"
-    # end
-    #
-    # if params[:f_product_id].present?
-    #   query += " AND product_id = #{params[:f_product_id]}"
-    # end
-    #
-    # if params[:f_user_id].present?
-    #   query += " AND user_id = #{params[:f_user_id]}"
-    # end
 
     query
   end

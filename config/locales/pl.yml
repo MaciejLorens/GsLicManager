@@ -280,6 +280,7 @@ pl:
         app_id: Nazwa aplikacji
         client_id: Klient
         hidden: Widoczność
+        quantity: Ilość
         updated_at: Data edycji
         created_at: Data utworzenia
       client:

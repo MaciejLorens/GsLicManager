@@ -20,13 +20,11 @@ class LicensesController < ApplicationController
   end
 
   def create
-    @license = current_licenses.new(license_params)
-
-    if @license.save
-      redirect_to licenses_path, notice: t('license.license_was_successfully_created')
-    else
-      render :new
+    params[:quantity].to_i.times do |index|
+      current_licenses.create(license_params)
     end
+
+    redirect_to licenses_path, notice: t('license.license_was_successfully_created')
   end
 
   def update
@@ -75,6 +73,7 @@ class LicensesController < ApplicationController
       :version_id,
       :user_id,
       :client_id,
+      :quantity,
       :hidden,
       :hidden_at,
     )
