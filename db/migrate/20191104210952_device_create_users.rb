@@ -23,7 +23,7 @@ class DeviceCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.boolean :hidden,                null: false, default: false
       t.datetime :hidden_at,            null: true
-      t.string :locale,                 null: true
+      t.string :locale,                 null: false, default: 'pl'
       t.string :role,                   null: false, default: 'user'
       t.integer :client_id,             null: true, default: nil
 
