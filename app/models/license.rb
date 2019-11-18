@@ -4,7 +4,7 @@ class License < ApplicationRecord
 
   belongs_to :user
   belongs_to :version
-  belongs_to :app
+  belongs_to :app, optional: true
   belongs_to :type
   belongs_to :client
 
@@ -12,6 +12,7 @@ class License < ApplicationRecord
   SALT = '+X-ScaleFull+'.freeze
 
   before_save :set_app_id
+  before_create :set_app_id
 
   def generate_unlock_code(amount)
     result_md5 = Digest::MD5.hexdigest(registration_key + SALT)

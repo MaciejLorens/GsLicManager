@@ -136,7 +136,7 @@ pl:
       edit_type: Edycja typu
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń typ
+      deleted_items: Usuń typy
     list:
       header: Lista typów
     new:
