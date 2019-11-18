@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   include QueryHelper
 
+  before_action :set_locale
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   before_action :authenticate_user!
@@ -107,7 +109,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = current_user&.locale || current_user&.client&.locale || I18n.default_locale
+    I18n.locale = (current_user&.locale || current_user&.client&.locale || I18n.default_locale).to_sym
   end
 
   def configure_permitted_parameters
@@ -115,5 +117,5 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses, :current_types,
-                :current_versions, :super_admin?, :admin?
+                :current_versions, :current_locale, :super_admin?, :admin?
 end

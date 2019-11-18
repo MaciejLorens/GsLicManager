@@ -1,10 +1,12 @@
 class LicensesController < ApplicationController
 
+  before_action :authorize_admin, only: [:new, :edit, :create, :update, :destroy, :batch_destroy]
+
   before_action :set_license, only: [:show, :edit, :update, :destroy, :generate_unlock_code]
 
   def index
     @licenses = current_licenses
-                 .includes(:type, :version, :client)
+                 .includes(:type, :app, :version, :client)
                  .where(filter_query)
                  .order(sorting_query('created_at DESC'))
   end

@@ -27,11 +27,12 @@
       <span class="login-username">
         <%= "#{current_user.first_name} #{current_user.last_name} (#{current_user.email})" %>
       </span>
-      <%# if current_user.locale == 'pl' %>
+      <% if I18n.locale == :pl %>
+        <%= Rails.logger.info "   ===== I18n.locale : #{I18n.locale.inspect}" %>
         <%= link_to image_tag('pl_50.png', class: 'i18n-flag'), locale_set_path(locale: 'en'), method: :patch %>
-      <%# else %>
-        <%#= link_to image_tag('en_50.png', class: 'i18n-flag'), locale_set_path(locale: 'pl'), method: :patch %>
-      <%# end %>
+      <% else %>
+        <%= link_to image_tag('en_50.png', class: 'i18n-flag'), locale_set_path(locale: 'pl'), method: :patch %>
+      <% end %>
       <%= link_to t('devise.logout'), destroy_user_session_path, { method: 'delete', class: 'link' } %>
     <% else %>
       <%= link_to t('devise.login'), new_user_session_path, class: 'link' %>
