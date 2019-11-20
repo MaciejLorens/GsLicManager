@@ -2,33 +2,29 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  min_messages: warning
+  timeout: 5000
   username: root
   password:
-  host: localhost
 
 test:
   <<: *default
   database: gs_lic_manager_test
 
-
 development:
   <<: *default
   database: gs_lic_manager_development
 
-
 staging:
   <<: *default
-  database: gslicmanager_dev
-  host: i-scl.com
-  username: gslicmanager
-  password: 6DpL9MJhoqZZQEKe
-  port: 3306
-
+  host: <%= Rails.application.credentials.staging[:host] %>
+  database: <%= Rails.application.credentials.staging[:database] %>
+  username: <%= Rails.application.credentials.staging[:user] %>
+  password: <%= Rails.application.credentials.staging[:password] %>
 
 production:
   <<: *default
-  database: <%= ENV['GS_LIC_MANAGER_DB_NAME'] %>
-  host: i-scl.com
-  username: <%= ENV['GS_LIC_MANAGER_USER'] %>
-  password: <%= ENV['GS_LIC_MANAGER_PASSW'] %>
-  port: 3306
+  host: <%= Rails.application.credentials.production[:host] %>
+  database: <%= Rails.application.credentials.production[:database] %>
+  username: <%= Rails.application.credentials.production[:user] %>
+  password: <%= Rails.application.credentials.production[:password] %>
