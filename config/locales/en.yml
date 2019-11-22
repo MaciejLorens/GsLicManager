@@ -43,7 +43,7 @@ en:
     admins: Admins
     versions: Versions
     apps: Apps
-    types: Types
+    license_types: License Types
 
 
   locale:
@@ -130,23 +130,23 @@ en:
     apps_was_successfully_deleted: Apps was successfully deleted.
 
 
-  type:
+  license_type:
     navbar:
       list: List
-      edit_type: Edit type
+      edit_license_type: Edit license type
       add_new: Add new
       selected_items: Selected items
-      deleted_items: Deleted types
+      deleted_items: Deleted license types
     list:
-      header: List of types
+      header: List of license types
     new:
-      new_type: New type
+      new_license_type: New license type
     errors:
-      prohibited: prohibited this type from being saved
-    type_was_successfully_created: Type was successfully created.
-    type_was_successfully_edited: Type was successfully edited.
-    type_was_successfully_deleted: Type was successfully deleted.
-    types_was_successfully_deleted: Types was successfully deleted.
+      prohibited: prohibited this license type from being saved
+    license_type_was_successfully_created: License type was successfully created.
+    license_type_was_successfully_edited: License type was successfully edited.
+    license_type_was_successfully_deleted: License type was successfully deleted.
+    license_types_was_successfully_deleted: License types was successfully deleted.
 
 
   user:
@@ -261,7 +261,7 @@ en:
               required: is required
             version:
               required: is required
-            type:
+            license_type:
               required: is required
             client:
               required: is required
@@ -274,7 +274,7 @@ en:
         order_number: Order number
         registration_key: Registration key
         unlock_code: Unlock code
-        type_id: App type
+        license_type_id: License type
         version_id: App version
         user_id: User name
         app_id: App name
@@ -319,10 +319,9 @@ en:
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at
-      type:
-        value: Value
-        en: English name
-        pl: Polish name
+      license_type:
+        val_pl: Polish name
+        val_en: English name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at

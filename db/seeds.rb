@@ -51,9 +51,9 @@ App.create(name: 'Scale')
 App.create(name: 'Management')
 App.create(name: 'CMS')
 
-Type.create(value: 'basic', en: 'Basic', pl: 'Podstawowy')
-Type.create(value: 'optimum', en: 'Optimum', pl: 'Optymalny')
-Type.create(value: 'advanced', en: 'Advanced', pl: 'Zaawansowany')
+LicenseType.create(val_pl: 'Nowa licencja', val_en: 'New license')
+LicenseType.create(val_pl: 'Aktualizacja licencji', val_en: 'License update')
+LicenseType.create(val_pl: 'Transfer licencji', val_en: 'License transfer')
 
 
 20.times do |index|
@@ -69,7 +69,7 @@ end
 20.times do |index|
   version = Version.all.to_a.sample
   user = User.where(role: 'user').to_a.sample
-  type = Type.all.to_a.sample
+  license_type = LicenseType.all.to_a.sample
 
   user.licenses.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
@@ -78,7 +78,7 @@ end
     description: "description_#{SecureRandom.hex(2)}",
     order_number: "order_number_#{SecureRandom.hex(2)}",
     registration_key: "registration_key_#{SecureRandom.hex(2)}",
-    type_id: type.id,
+    license_type_id: license_type.id,
     version_id: version.id,
     client_id: user.client.id,
     created_at: rand(100).days.ago

@@ -6,7 +6,7 @@ class LicensesController < ApplicationController
 
   def index
     @licenses = current_licenses
-                 .includes(:type, :app, :version, :client)
+                 .includes(:license_type, :app, :version, :client)
                  .where(filter_query)
                  .order(sorting_query('created_at DESC'))
   end
@@ -71,7 +71,7 @@ class LicensesController < ApplicationController
       :description,
       :order_number,
       :registration_key,
-      :type_id,
+      :license_type_id,
       :version_id,
       :user_id,
       :client_id,

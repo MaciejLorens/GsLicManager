@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "license_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "val_pl", null: false
+    t.string "val_en", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "end_client_name", null: false
     t.string "end_client_address", null: false
@@ -48,21 +57,11 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "order_number"
     t.string "registration_key", null: false
     t.string "unlock_code"
-    t.integer "type_id", null: false
+    t.integer "license_type_id", null: false
     t.integer "version_id", null: false
     t.integer "app_id", null: false
     t.integer "user_id", null: false
     t.integer "client_id", null: false
-    t.boolean "hidden", default: false, null: false
-    t.datetime "hidden_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "value", null: false
-    t.string "pl", null: false
-    t.string "en", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
@@ -87,16 +86,11 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.string "last_name"
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
-    t.string "locale"
+    t.string "locale", default: "pl", null: false
     t.string "role", default: "user", null: false
     t.integer "client_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_users_on_client_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["hidden"], name: "index_users_on_hidden"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -44,14 +44,14 @@ class ApplicationController < ActionController::Base
                     end
   end
 
-  def current_types
-    @current_types = if super_admin?
-                       Type.all
+  def current_license_types
+    @current_license_types = if super_admin?
+                       LicenseType.all
                      elsif admin?
-                       Type.all.visible
+                       LicenseType.all.visible
                      else
-                       type_ids = current_licenses.pluck(:type_id).uniq
-                       Type.where(id: type_ids)
+                       license_type_ids = current_licenses.pluck(:license_type_id).uniq
+                       LicenseType.where(id: license_type_ids)
                      end
   end
 
@@ -116,6 +116,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :send_to])
   end
 
-  helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses, :current_types,
-                :current_versions, :current_locale, :super_admin?, :admin?
+  helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses, :current_license_types,
+                :current_versions, :super_admin?, :admin?
 end

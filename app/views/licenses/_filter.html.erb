@@ -32,9 +32,9 @@
                          placeholder: t('activerecord.attributes.license.unlock_code'),
                          class: 'form-control filter' %>
 
-      <%= select_tag :f_type_id,
-                     options_for_select(options_for_types, params[:f_type_id]),
-                     include_blank: t('activerecord.attributes.license.type_id'),
+      <%= select_tag :f_license_type_id,
+                     options_for_select(options_for_license_types, params[:f_license_type_id]),
+                     include_blank: t('activerecord.attributes.license.license_type_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_version_id,

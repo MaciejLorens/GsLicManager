@@ -56,9 +56,9 @@
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.type_id'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :pin, t('activerecord.attributes.license.license_type_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :type_id, @license.type.send(I18n.locale), class: 'form-control', readonly: true %>
+      <%= text_field_tag :license_type_id, @license.type.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
     </div>
   </div>
 
@@ -109,10 +109,6 @@
 
 <div class="col-sm-1"></div>
 <div class="col-sm-2 qr-code small">
-  <%#= link_to t('license.generate_code'), generate_unlock_code_license_path(@license), class: 'btn btn-primary btn-save' do %>
-    <%#= fa_icon('check', text: t('common.save')) %>
-  <%# end %>
-
   <%= link_to generate_unlock_code_license_path(@license), class: 'btn btn-primary btn-save', data: {confirm: t('license.are_you_sure')}, method: :put do %>
     <%= fa_icon('unlock', text: t('license.generate_code')) %>
   <% end %>

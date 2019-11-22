@@ -5,7 +5,7 @@ class License < ApplicationRecord
   belongs_to :user
   belongs_to :version
   belongs_to :app, optional: true
-  belongs_to :type
+  belongs_to :license_type
   belongs_to :client
 
   STATUSES = %w(active inactive).freeze

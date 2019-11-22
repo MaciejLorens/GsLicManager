@@ -67,8 +67,8 @@ module QueryHelper
       query += " AND locale LIKE '#{params[:f_locale]}'"
     end
 
-    if params[:f_type_id].present?
-      query += " AND type_id = #{params[:f_type_id]}"
+    if params[:f_license_type_id].present?
+      query += " AND license_type_id = #{params[:f_license_type_id]}"
     end
 
     if params[:f_version_id].present?

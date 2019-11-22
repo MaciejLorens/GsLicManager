@@ -1,4 +1,4 @@
-class Type < ApplicationRecord
+class LicenseType < ApplicationRecord
 
   include Hideable
 

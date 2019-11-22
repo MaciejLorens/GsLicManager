@@ -41,9 +41,9 @@
                       class: "sort-link #{sort_class('unlock_code')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license.type_id'), '#',
-                      'data-field' => 'type_id',
-                      class: "sort-link #{sort_class('type_id')}" %>
+          <%= link_to t('activerecord.attributes.license.license_type_id'), '#',
+                      'data-field' => 'license_type_id',
+                      class: "sort-link #{sort_class('license_type_id')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.license.version_id'), '#',
@@ -84,7 +84,7 @@
           <td><%= t("common.statuses.#{license.status}") %></td>
           <td><%= license.registration_key %></td>
           <td><%= license.unlock_code %></td>
-          <td><%= license.type.send(I18n.locale) %></td>
+          <td><%= license.license_type.send("val_#{I18n.locale}") %></td>
           <td><%= license.version.number %></td>
           <td><%= license.version.app.name %></td>
           <% if admin? %>

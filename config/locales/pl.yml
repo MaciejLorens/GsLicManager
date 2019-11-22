@@ -43,7 +43,7 @@ pl:
     admins: Administratorzy
     versions: Wersje
     apps: Aplikacje
-    types: Typy
+    license_types: Typy licencji
 
 
   locale:
@@ -130,23 +130,23 @@ pl:
     apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
 
 
-  type:
+  license_type:
     navbar:
       list: Lista
-      edit_type: Edycja typu
+      edit_license_type: Edycja typu licencji
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń typy
+      deleted_items: Usuń typy licencji
     list:
-      header: Lista typów
+      header: Lista typów licencji
     new:
-      new_type: Nowy typ
+      new_license_type: Nowy typ licencji
     errors:
-      prohibited: uniemożliwiły zapisanie typu
-    type_was_successfully_created: Typ pomyślnie utworzony.
-    type_was_successfully_edited: Typ pomyślnie uaktualniony.
-    type_was_successfully_deleted: Typ pomyślnie usunięty.
-    types_was_successfully_deleted: Typy pomyślnie usunięte.
+      prohibited: uniemożliwiły zapisanie typu licencji
+    license_type_was_successfully_created: Typ licencji pomyślnie utworzony.
+    license_type_was_successfully_edited: Typ licencji pomyślnie uaktualniony.
+    license_type_was_successfully_deleted: Typ licencji pomyślnie usunięty.
+    license_types_was_successfully_deleted: Typy licencji pomyślnie usunięte.
 
 
   user:
@@ -198,11 +198,11 @@ pl:
       new_admin: Nowy admin
     errors:
       prohibited: uniemożliwiły zapisanie admina
-    admin_was_successfully_invited: Admin pomyślnie zaproszony.
-    admin_was_successfully_edited: Admin pomyślnie uaktualniony.
-    admin_was_successfully_deleted: Admin pomyślnie usunięty.
+    admin_was_successfully_invited: Administrator pomyślnie zaproszony.
+    admin_was_successfully_edited: Administrator pomyślnie uaktualniony.
+    admin_was_successfully_deleted: Administrator pomyślnie usunięty.
     invitation_was_successfully_deleted: Zaproszenie pomyślnie usunięte.
-    admins_was_successfully_deleted: Admini pomyślnie usunięci.
+    admins_was_successfully_deleted: Administratorowie pomyślnie usunięci.
 
 
   invitations:
@@ -261,7 +261,7 @@ pl:
               required: jest wymagany
             version:
               required: jest wymagana
-            type:
+            license_type:
               required: jest wymagany
             client:
               required: jest wymagany
@@ -274,7 +274,7 @@ pl:
         order_number: Numer zamówienia
         registration_key: Klucz rejestracyjny
         unlock_code: Kod odblokowujący
-        type_id: Typ aplikacji
+        license_type_id: Typ licencji
         version_id: Wersja
         user_id: Nazwa użytkownika
         app_id: Nazwa aplikacji
@@ -319,10 +319,9 @@ pl:
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia
-      type:
-        value: Wartość
-        en: Nazwa angielska
-        pl: Nazwa polska
+      license_type:
+        val_pl: Nazwa polska
+        val_en: Nazwa angielska
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia

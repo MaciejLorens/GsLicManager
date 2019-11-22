@@ -33,9 +33,9 @@ module DropdownOptionsHelper
     end
   end
 
-  def options_for_types
-    current_types.visible.order('value ASC').map do |type|
-      [type.send(I18n.locale), type.id]
+  def options_for_license_types
+    current_license_types.visible.order('val_pl ASC').map do |type|
+      [type.send("val_#{I18n.locale}"), type.id]
     end
   end
 
