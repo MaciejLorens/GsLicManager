@@ -1,0 +1,19 @@
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+/usr/local/rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20191122-25487-qk07dt.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling crypt.c
+compiling bcrypt_ext.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20191122-25487-16fmap7

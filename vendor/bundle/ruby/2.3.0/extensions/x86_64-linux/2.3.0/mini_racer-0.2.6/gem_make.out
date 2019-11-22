@@ -1,0 +1,16 @@
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/mini_racer-0.2.6/ext/mini_racer_extension
+/usr/local/rvm/rubies/ruby-2.3.3/bin/ruby -r ./siteconf20191122-25487-1y4kacx.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/mini_racer-0.2.6/ext/mini_racer_extension
+make "DESTDIR=" clean
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/mini_racer-0.2.6/ext/mini_racer_extension
+make "DESTDIR="
+compiling mini_racer_extension.cc
+linking shared-object mini_racer_extension.so
+
+current directory: /var/www/html/GsLicManager/vendor/bundle/ruby/2.3.0/gems/mini_racer-0.2.6/ext/mini_racer_extension
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 mini_racer_extension.so ./.gem.20191122-25487-12yt8jx
