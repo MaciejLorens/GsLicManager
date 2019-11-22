@@ -14,13 +14,6 @@ module DropdownOptionsHelper
     ]
   end
 
-  def options_for_status
-    [
-      [t('common.statuses.active'), 'active'],
-      [t('common.statuses.inactive'), 'inactive'],
-    ]
-  end
-
   def options_for_users
     current_users.visible.order('last_name ASC').map do |user|
       [user.full_name, user.id]
@@ -30,6 +23,12 @@ module DropdownOptionsHelper
   def options_for_clients
     current_clients.visible.order('name ASC').map do |client|
       [client.name, client.id]
+    end
+  end
+
+  def options_for_license_statuses
+    current_license_statuses.visible.order('val_pl ASC').map do |type|
+      [type.send("val_#{I18n.locale}"), type.id]
     end
   end
 

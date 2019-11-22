@@ -31,9 +31,6 @@ pl:
     locales:
       en: Angielski
       pl: Polski
-    statuses:
-      active: Aktywna
-      inactive: Nieaktywna
 
 
   menu:
@@ -44,6 +41,7 @@ pl:
     versions: Wersje
     apps: Aplikacje
     license_types: Typy licencji
+    license_states: Statusy licencji
 
 
   locale:
@@ -128,6 +126,25 @@ pl:
     app_was_successfully_edited: Aplikacja pomyślnie uaktualniona.
     app_was_successfully_deleted: Aplikacja pomyślnie usunięta.
     apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
+
+
+  license_status:
+    navbar:
+      list: Lista
+      edit_license_status: Edycja statusu licencji
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń statusy licencji
+    list:
+      header: Lista statusów licencji
+    new:
+      new_license_status: Nowy status licencji
+    errors:
+      prohibited: uniemożliwiły zapisanie statusu licencji
+    license_status_was_successfully_created: Status licencji pomyślnie utworzony.
+    license_status_was_successfully_edited: Status licencji pomyślnie uaktualniony.
+    license_status_was_successfully_deleted: Status licencji pomyślnie usunięty.
+    license_statuses_was_successfully_deleted: Statusy licencji pomyślnie usunięte.
 
 
   license_type:
@@ -261,6 +278,8 @@ pl:
               required: jest wymagany
             version:
               required: jest wymagana
+            license_status:
+              required: jest wymagany
             license_type:
               required: jest wymagany
             client:
@@ -269,12 +288,12 @@ pl:
       license:
         end_client_name: Nazwa klienta końcowego
         end_client_address: Adres klienta końcowego
-        status: Status
         description: Uwagi
         order_number: Numer zamówienia
         registration_key: Klucz rejestracyjny
         unlock_code: Kod odblokowujący
-        license_type_id: Typ licencji
+        license_status_id: Status
+        license_type_id: Typ
         version_id: Wersja
         user_id: Nazwa użytkownika
         app_id: Nazwa aplikacji
@@ -316,6 +335,12 @@ pl:
         created_at: Data utworzenia
       app:
         name: Nazwa
+        hidden: Widoczność
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      license_status:
+        val_pl: Nazwa polska
+        val_en: Nazwa angielska
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia

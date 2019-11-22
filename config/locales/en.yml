@@ -31,9 +31,6 @@ en:
     locales:
       en: English
       pl: Polish
-    statuses:
-      active: Active
-      inactive: Inactive
 
 
   menu:
@@ -43,11 +40,12 @@ en:
     admins: Admins
     versions: Versions
     apps: Apps
-    license_types: License Types
+    license_types: License types
+    license_states: License statuses
 
 
   locale:
-    locale_was_successfully_updated: Język pomyślnie uaktualniony.
+    locale_was_successfully_updated: Locale was successfully edited.
 
 
   license:
@@ -128,6 +126,25 @@ en:
     app_was_successfully_edited: App was successfully edited.
     app_was_successfully_deleted: App was successfully deleted.
     apps_was_successfully_deleted: Apps was successfully deleted.
+
+
+  license_status:
+    navbar:
+      list: List
+      edit_license_status: Edit license status
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted license statuses
+    list:
+      header: List of license statuses
+    new:
+      new_license_status: New license status
+    errors:
+      prohibited: prohibited this license status from being saved
+    license_status_was_successfully_created: License status was successfully created.
+    license_status_was_successfully_edited: License status was successfully edited.
+    license_status_was_successfully_deleted: License status was successfully deleted.
+    license_statuses_was_successfully_deleted: License statueses was successfully deleted.
 
 
   license_type:
@@ -261,6 +278,8 @@ en:
               required: is required
             version:
               required: is required
+            license_status:
+              required: is required
             license_type:
               required: is required
             client:
@@ -269,12 +288,12 @@ en:
       license:
         end_client_name: End client name
         end_client_address: End client address
-        status: Status
         description: Description
         order_number: Order number
         registration_key: Registration key
         unlock_code: Unlock code
-        license_type_id: License type
+        license_status_id: Status
+        license_type_id: Type
         version_id: App version
         user_id: User name
         app_id: App name
@@ -316,6 +335,12 @@ en:
         created_at: Created at
       app:
         name: Name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
+      license_status:
+        val_pl: Polish name
+        val_en: English name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at

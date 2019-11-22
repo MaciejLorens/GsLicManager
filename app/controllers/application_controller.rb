@@ -55,6 +55,17 @@ class ApplicationController < ActionController::Base
                      end
   end
 
+  def current_license_statuses
+    @current_license_statuses = if super_admin?
+                       LicenseStatus.all
+                     elsif admin?
+                       LicenseStatus.all.visible
+                     else
+                       license_status_ids = current_licenses.pluck(:license_status_id).uniq
+                       LicenseStatus.where(id: license_status_ids)
+                     end
+  end
+
   def current_versions
     @current_versions = if super_admin?
                           Version.all
@@ -116,6 +127,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :company_name, :send_to])
   end
 
-  helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses, :current_license_types,
-                :current_versions, :super_admin?, :admin?
+  helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses,
+                :current_license_types, :current_license_statuses, :current_versions, :super_admin?, :admin?
 end

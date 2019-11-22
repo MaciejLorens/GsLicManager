@@ -26,11 +26,6 @@
                       class: "sort-link #{sort_class('end_client_address')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license.status'), '#',
-                      'data-field' => 'status',
-                      class: "sort-link #{sort_class('status')}" %>
-        </th>
-        <th>
           <%= link_to t('activerecord.attributes.license.registration_key'), '#',
                       'data-field' => 'registration_key',
                       class: "sort-link #{sort_class('registration_key')}" %>
@@ -39,6 +34,11 @@
           <%= link_to t('activerecord.attributes.license.unlock_code'), '#',
                       'data-field' => 'unlock_code',
                       class: "sort-link #{sort_class('unlock_code')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.license_status_id'), '#',
+                      'data-field' => 'license_status_id',
+                      class: "sort-link #{sort_class('license_status_id')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.license.license_type_id'), '#',
@@ -81,9 +81,9 @@
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => license.id %></td>
           <td><%= license.end_client_name %></td>
           <td><%= license.end_client_address %></td>
-          <td><%= t("common.statuses.#{license.status}") %></td>
           <td><%= license.registration_key %></td>
           <td><%= license.unlock_code %></td>
+          <td><%= license.license_status.send("val_#{I18n.locale}") %></td>
           <td><%= license.license_type.send("val_#{I18n.locale}") %></td>
           <td><%= license.version.number %></td>
           <td><%= license.version.app.name %></td>

@@ -17,11 +17,6 @@
                          placeholder: t('activerecord.attributes.license.end_client_address'),
                          class: 'form-control filter' %>
 
-      <%= select_tag :f_status,
-                     options_for_select(options_for_status, params[:f_status]),
-                     include_blank: t('activerecord.attributes.license.status'),
-                     class: 'form-control filter' %>
-
       <%= text_field_tag :f_registration_key,
                          params[:f_registration_key],
                          placeholder: t('activerecord.attributes.license.registration_key'),
@@ -31,6 +26,12 @@
                          params[:f_unlock_code],
                          placeholder: t('activerecord.attributes.license.unlock_code'),
                          class: 'form-control filter' %>
+
+      <%= select_tag :f_license_status_id,
+                     options_for_select(options_for_license_statuses, params[:f_license_status_id]),
+                     include_blank: t('activerecord.attributes.license.license_status_id'),
+                     class: 'form-control filter' %>
+
 
       <%= select_tag :f_license_type_id,
                      options_for_select(options_for_license_types, params[:f_license_type_id]),

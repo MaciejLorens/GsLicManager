@@ -1,16 +1,16 @@
-<%= form_with(model: license_type, local: true, class: 'form-horizontal denser') do |form| %>
+<%= form_with(model: license_status, local: true, class: 'form-horizontal denser') do |form| %>
 
   <div class="fieldset">
 
-    <% if license_type.errors.any? %>
+    <% if license_status.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(type.errors.count, 'error') %>
-          <%= t('license_type.errors.prohibited') %>
+          <%= pluralize(status.errors.count, 'error') %>
+          <%= t('license_status.errors.prohibited') %>
         </h2>
 
         <ul>
-        <% type.errors.full_messages.each do |message| %>
+        <% status.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <%= hidden_field_tag :'license_type[hidden_at]', license_type.hidden_at %>
+      <%= hidden_field_tag :'license_status[hidden_at]', license_status.hidden_at %>
 
     <% end %>
 
@@ -57,7 +57,7 @@
           <%= fa_icon('check', text: t('common.save')) %>
         <% end %>
 
-        <%= link_to fa_icon('times', text: t('common.cancel')), license_types_path, class: 'btn btn-secondary' %>
+        <%= link_to fa_icon('times', text: t('common.cancel')), license_statuses_path, class: 'btn btn-secondary' %>
       </div>
     </div>
 

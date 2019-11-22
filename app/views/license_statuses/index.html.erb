@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h1><%= t('license_status.list.header') %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<%= render partial: 'filter' %>
+
+<% if @license_statuses.empty? %>
+  <p> - <%= t('common.no_results_found') %> - </p>
+<% else %>
+
+  <div class="col-sm-12 without-padding">
+    <table class="table table-condensed table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>
+          <%= link_to t('activerecord.attributes.license_status.val_pl'), '#',
+                      'data-field' => 'val_pl',
+                      class: "sort-link #{sort_class('val_pl')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license_status.val_en'), '#',
+                      'data-field' => 'val_en',
+                      class: "sort-link #{sort_class('val_en')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license_status.updated_at'), '#',
+                      'data-field' => 'updated_at',
+                      class: "sort-link #{sort_class('updated_at')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license_status.created_at'), '#',
+                      'data-field' => 'created_at',
+                      class: "sort-link #{sort_class('created_at')}" %>
+        </th>
+        <% if super_admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.license_status.hidden'), '#',
+                        'data-field' => 'hidden',
+                        class: "sort-link #{sort_class('hidden')}" %>
+          </th>
+        <% end %>
+        <th><%= t('common.actions') %></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @license_statuses.each do |license_status| %>
+        <tr>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => license_status.id %></td>
+          <td><%= license_status.val_pl %></td>
+          <td><%= license_status.val_en %></td>
+          <td><%= date_format(license_status.updated_at) %></td>
+          <td><%= date_format(license_status.created_at) %></td>
+          <% if super_admin? %>
+            <td><%= fa_icon(license_status.hidden ? 'times' : 'check') %></td>
+          <% end %>
+          <td class="action-links">
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_status_path(license_status), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), license_status, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

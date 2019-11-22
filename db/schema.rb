@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_162615) do
+ActiveRecord::Schema.define(version: 2019_11_22_171916) do
 
   create_table "apps", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "license_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "val_pl", null: false
+    t.string "val_en", null: false
+    t.boolean "hidden", default: false, null: false
+    t.datetime "hidden_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "license_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "val_pl", null: false
     t.string "val_en", null: false
@@ -52,11 +61,11 @@ ActiveRecord::Schema.define(version: 2019_11_06_162615) do
   create_table "licenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "end_client_name", null: false
     t.string "end_client_address", null: false
-    t.string "status", null: false
     t.string "description"
     t.string "order_number"
     t.string "registration_key", null: false
     t.string "unlock_code"
+    t.integer "license_status_id", null: false
     t.integer "license_type_id", null: false
     t.integer "version_id", null: false
     t.integer "app_id", null: false

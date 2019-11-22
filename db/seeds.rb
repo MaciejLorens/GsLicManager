@@ -15,6 +15,18 @@ User.create(
   created_at: rand(100).days.ago
 )
 
+User.create(
+  first_name: "Robert",
+  last_name: "Trawiński",
+  email: "robert@gs-software.pl",
+  password: '1234567890',
+  password_confirmation: '1234567890',
+  locale: 'pl',
+  role: 'super_admin',
+  client_id: nil,
+  created_at: rand(100).days.ago
+)
+
 6.times do |index|
   client = Client.all.to_a.sample
 
@@ -55,6 +67,9 @@ LicenseType.create(val_pl: 'Nowa licencja', val_en: 'New license')
 LicenseType.create(val_pl: 'Aktualizacja licencji', val_en: 'License update')
 LicenseType.create(val_pl: 'Transfer licencji', val_en: 'License transfer')
 
+LicenseStatus.create(val_pl: 'Nowa', val_en: 'New')
+LicenseStatus.create(val_pl: 'Zarejestrowana', val_en: 'Registered')
+LicenseStatus.create(val_pl: 'Zablokowana', val_en: 'Blocked')
 
 20.times do |index|
   app = App.all.to_a.sample
@@ -70,14 +85,15 @@ end
   version = Version.all.to_a.sample
   user = User.where(role: 'user').to_a.sample
   license_type = LicenseType.all.to_a.sample
+  license_status = LicenseStatus.all.to_a.sample
 
   user.licenses.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
     end_client_address: "end_client_address_#{SecureRandom.hex(2)}",
-    status: License::STATUSES.sample,
     description: "description_#{SecureRandom.hex(2)}",
     order_number: "order_number_#{SecureRandom.hex(2)}",
     registration_key: "registration_key_#{SecureRandom.hex(2)}",
+    license_status_id: license_status.id,
     license_type_id: license_type.id,
     version_id: version.id,
     client_id: user.client.id,

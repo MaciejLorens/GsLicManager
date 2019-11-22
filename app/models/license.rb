@@ -6,9 +6,9 @@ class License < ApplicationRecord
   belongs_to :version
   belongs_to :app, optional: true
   belongs_to :license_type
+  belongs_to :license_status
   belongs_to :client
 
-  STATUSES = %w(active inactive).freeze
   SALT = '+X-ScaleFull+'.freeze
 
   before_save :set_app_id

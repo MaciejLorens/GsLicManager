@@ -59,12 +59,12 @@ module QueryHelper
       query += " AND unlock_code LIKE '%#{params[:f_unlock_code].gsub('*', '')}%'"
     end
 
-    if params[:f_status].present?
-      query += " AND status LIKE '#{params[:f_status]}'"
-    end
-
     if params[:f_locale].present?
       query += " AND locale LIKE '#{params[:f_locale]}'"
+    end
+
+    if params[:f_license_status_id].present?
+      query += " AND license_status_id = #{params[:f_license_status_id]}"
     end
 
     if params[:f_license_type_id].present?
