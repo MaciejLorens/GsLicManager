@@ -7,11 +7,6 @@
       <%= hidden_field_tag :s_field, params[:s_field] %>
       <%= hidden_field_tag :s_order, params[:s_order] %>
 
-      <%= text_field_tag :f_value,
-                         params[:f_value],
-                         placeholder: t('activerecord.attributes.version.value'),
-                         class: 'form-control filter' %>
-
       <%= text_field_tag :f_number,
                          params[:f_number],
                          placeholder: t('activerecord.attributes.version.number'),

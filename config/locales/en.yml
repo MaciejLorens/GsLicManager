@@ -288,8 +288,6 @@ en:
               required: is required
         version:
           attributes:
-            value:
-              required: is required
             number:
               required: is required
         license:
@@ -350,7 +348,6 @@ en:
         client_id: Client
         created_at: Created at
       version:
-        value: Value
         number: Number
         app_id: App name
         hidden: Visibility

@@ -57,7 +57,6 @@ class VersionsController < ApplicationController
 
   def version_params
     params.require(:version).permit(
-      :value,
       :number,
       :app_id,
       :hidden,

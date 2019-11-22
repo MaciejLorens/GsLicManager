@@ -27,10 +27,6 @@ module QueryHelper
       query += " AND name LIKE '%#{params[:f_name].gsub('*', '')}%'"
     end
 
-    if params[:f_value].present?
-      query += " AND value LIKE '%#{params[:f_value].gsub('*', '')}%'"
-    end
-
     if params[:f_number].present?
       query += " AND number LIKE '%#{params[:f_number].gsub('*', '')}%'"
     end

@@ -79,7 +79,6 @@ LicenseType.create(val_pl: 'Transfer', val_en: 'Transfer')
   app = App.all.to_a.sample
 
   app.versions.create(
-    value: "value_#{SecureRandom.hex(2)}",
     number: "#{rand(10)}.#{rand(20)}.#{rand(10)}",
     created_at: rand(100).days.ago
   )
@@ -87,12 +86,12 @@ end
 
 20.times do |index|
   version = Version.all.to_a.sample
-  user = User.where(role: 'user').to_a.sample
+  client = Client.all.to_a.sample
   license_plan = LicensePlan.all.to_a.sample
   license_status = LicenseStatus.all.to_a.sample
   license_type = LicenseType.all.to_a.sample
 
-  user.licenses.create(
+  License.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
     end_client_address: "end_client_address_#{SecureRandom.hex(2)}",
     description: "description_#{SecureRandom.hex(2)}",
@@ -103,7 +102,7 @@ end
     license_type_id: license_type.id,
     version_id: version.id,
     app_id: version.app.id,
-    client_id: user.client.id,
+    client_id: client.id,
     created_at: rand(100).days.ago
   )
 end

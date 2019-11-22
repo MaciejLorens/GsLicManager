@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(version: 2019_11_22_194716) do
   end
 
   create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "value", null: false
     t.string "number", null: false
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"

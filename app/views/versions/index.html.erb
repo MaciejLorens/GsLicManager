@@ -16,11 +16,6 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to t('activerecord.attributes.version.value'), '#',
-                      'data-field' => 'value',
-                      class: "sort-link #{sort_class('value')}" %>
-        </th>
-        <th>
           <%= link_to t('activerecord.attributes.version.number'), '#',
                       'data-field' => 'number',
                       class: "sort-link #{sort_class('number')}" %>
@@ -55,7 +50,6 @@
       <% @versions.each do |version| %>
         <tr>
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => version.id %></td>
-          <td><%= version.value %></td>
           <td><%= version.number %></td>
           <td><%= version.app.name %></td>
           <td><%= date_format(version.updated_at) %></td>
