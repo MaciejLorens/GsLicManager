@@ -14,6 +14,7 @@
     <% end %>
 
     <% if super_admin? %>
+      <%= nav_link t('menu.license_plans'), license_plans_path %>
       <%= nav_link t('menu.license_states'), license_statuses_path %>
       <%= nav_link t('menu.license_types'), license_types_path %>
       <%= nav_link t('menu.versions'), versions_path %>

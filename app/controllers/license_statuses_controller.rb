@@ -28,7 +28,7 @@ class LicenseStatusesController < ApplicationController
   end
 
   def update
-    if @license_status.update(status_params)
+    if @license_status.update(license_status_params)
       redirect_to license_statuses_path, notice: t('license_status.license_status_was_successfully_edited')
     else
       render :edit

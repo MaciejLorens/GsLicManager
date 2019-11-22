@@ -2,29 +2,25 @@ class License < ApplicationRecord
 
   include Hideable
 
-  belongs_to :user
-  belongs_to :version
-  belongs_to :app, optional: true
-  belongs_to :license_type
-  belongs_to :license_status
+  belongs_to :user, optional: true
   belongs_to :client
+
+  belongs_to :version
+  belongs_to :app
+
+  belongs_to :license_plan
+  belongs_to :license_status
+  belongs_to :license_type
 
   SALT = '+X-ScaleFull+'.freeze
 
-  before_save :set_app_id
-  before_create :set_app_id
-
-  def generate_unlock_code(amount)
+  def generate_unlock_code(user, amount)
     result_md5 = Digest::MD5.hexdigest(registration_key + SALT)
     unlock_code = version.number + '1' + scales(amount) + trim(result_md5, 10)
-    update(unlock_code: unlock_code)
+    update(unlock_code: unlock_code, user_id: user.id)
   end
 
   private
-
-  def set_app_id
-    self.app_id = version.app_id
-  end
 
   def scales(amount)
     amount.to_i < 10 ? "0#{amount}" : amount.to_s

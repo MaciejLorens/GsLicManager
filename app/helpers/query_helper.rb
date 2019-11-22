@@ -15,12 +15,12 @@ module QueryHelper
       query += " AND last_name LIKE '%#{params[:f_last_name].gsub('*', '')}%'"
     end
 
-    if params[:f_en].present?
-      query += " AND en LIKE '%#{params[:f_en].gsub('*', '')}%'"
+    if params[:f_val_pl].present?
+      query += " AND val_pl LIKE '%#{params[:f_val_pl].gsub('*', '')}%'"
     end
 
-    if params[:f_pl].present?
-      query += " AND pl LIKE '%#{params[:f_pl].gsub('*', '')}%'"
+    if params[:f_val_en].present?
+      query += " AND val_en LIKE '%#{params[:f_val_en].gsub('*', '')}%'"
     end
 
     if params[:f_name].present?
@@ -63,6 +63,10 @@ module QueryHelper
       query += " AND locale LIKE '#{params[:f_locale]}'"
     end
 
+    if params[:f_license_plan_id].present?
+      query += " AND license_plan_id = #{params[:f_license_plan_id]}"
+    end
+
     if params[:f_license_status_id].present?
       query += " AND license_status_id = #{params[:f_license_status_id]}"
     end
@@ -73,6 +77,10 @@ module QueryHelper
 
     if params[:f_version_id].present?
       query += " AND version_id = #{params[:f_version_id]}"
+    end
+
+    if params[:f_user_id].present?
+      query += " AND user_id = #{params[:f_user_id]}"
     end
 
     if params[:f_client_id].present?

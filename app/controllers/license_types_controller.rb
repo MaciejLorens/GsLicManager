@@ -28,7 +28,7 @@ class LicenseTypesController < ApplicationController
   end
 
   def update
-    if @license_type.update(type_params)
+    if @license_type.update(license_type_params)
       redirect_to license_types_path, notice: t('license_type.license_type_was_successfully_edited')
     else
       render :edit

@@ -40,8 +40,9 @@ pl:
     admins: Administratorzy
     versions: Wersje
     apps: Aplikacje
-    license_types: Typy licencji
+    license_plans: Plany licencji
     license_states: Statusy licencji
+    license_types: Typy licencji
 
 
   locale:
@@ -126,6 +127,25 @@ pl:
     app_was_successfully_edited: Aplikacja pomyślnie uaktualniona.
     app_was_successfully_deleted: Aplikacja pomyślnie usunięta.
     apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
+
+
+  license_plan:
+    navbar:
+      list: Lista
+      edit_license_plan: Edycja planu licencji
+      add_new: Dodaj
+      selected_items: Zaznaczone rekordy
+      deleted_items: Usuń plany licencji
+    list:
+      header: Lista planów licencji
+    new:
+      new_license_plan: Nowy plan licencji
+    errors:
+      prohibited: uniemożliwiły zapisanie planu licencji
+    license_plan_was_successfully_created: Plan licencji pomyślnie utworzony.
+    license_plan_was_successfully_edited: Plan licencji pomyślnie uaktualniony.
+    license_plan_was_successfully_deleted: Plan licencji pomyślnie usunięty.
+    license_plans_was_successfully_deleted: Plany licencji pomyślnie usunięte.
 
 
   license_status:
@@ -278,9 +298,11 @@ pl:
               required: jest wymagany
             version:
               required: jest wymagana
+            license_plans:
+              required: jest wymagany
             license_status:
               required: jest wymagany
-            license_type:
+            license_types:
               required: jest wymagany
             client:
               required: jest wymagany
@@ -291,12 +313,13 @@ pl:
         description: Uwagi
         order_number: Numer zamówienia
         registration_key: Klucz rejestracyjny
-        unlock_code: Kod odblokowujący
+        unlock_code: Kod
+        license_plan_id: Plan
         license_status_id: Status
         license_type_id: Typ
         version_id: Wersja
-        user_id: Nazwa użytkownika
         app_id: Nazwa aplikacji
+        user_id: Aktywujący
         client_id: Klient
         hidden: Widoczność
         quantity: Ilość
@@ -335,6 +358,12 @@ pl:
         created_at: Data utworzenia
       app:
         name: Nazwa
+        hidden: Widoczność
+        updated_at: Data edycji
+        created_at: Data utworzenia
+      license_plan:
+        val_pl: Nazwa polska
+        val_en: Nazwa angielska
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia

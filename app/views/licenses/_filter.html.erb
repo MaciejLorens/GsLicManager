@@ -17,6 +17,16 @@
                          placeholder: t('activerecord.attributes.license.end_client_address'),
                          class: 'form-control filter' %>
 
+      <%= text_field_tag :f_description,
+                         params[:f_description],
+                         placeholder: t('activerecord.attributes.license.description'),
+                         class: 'form-control filter' %>
+
+      <%= text_field_tag :f_order_number,
+                         params[:f_order_number],
+                         placeholder: t('activerecord.attributes.license.order_number'),
+                         class: 'form-control filter' %>
+
       <%= text_field_tag :f_registration_key,
                          params[:f_registration_key],
                          placeholder: t('activerecord.attributes.license.registration_key'),
@@ -27,20 +37,19 @@
                          placeholder: t('activerecord.attributes.license.unlock_code'),
                          class: 'form-control filter' %>
 
+      <%= select_tag :f_license_plan_id,
+                     options_for_select(options_for_license_plans, params[:f_license_plan_id]),
+                     include_blank: t('activerecord.attributes.license.license_plan_id'),
+                     class: 'form-control filter' %>
+
       <%= select_tag :f_license_status_id,
                      options_for_select(options_for_license_statuses, params[:f_license_status_id]),
                      include_blank: t('activerecord.attributes.license.license_status_id'),
                      class: 'form-control filter' %>
 
-
       <%= select_tag :f_license_type_id,
                      options_for_select(options_for_license_types, params[:f_license_type_id]),
                      include_blank: t('activerecord.attributes.license.license_type_id'),
-                     class: 'form-control filter' %>
-
-      <%= select_tag :f_version_id,
-                     options_for_select(options_for_versions, params[:f_version_id]),
-                     include_blank: t('activerecord.attributes.license.version_id'),
                      class: 'form-control filter' %>
 
       <%= select_tag :f_app_id,
@@ -48,7 +57,17 @@
                      include_blank: t('activerecord.attributes.license.app_id'),
                      class: 'form-control filter' %>
 
+      <%= select_tag :f_version_id,
+                     options_for_select(options_for_versions, params[:f_version_id]),
+                     include_blank: t('activerecord.attributes.license.version_id'),
+                     class: 'form-control filter' %>
+
       <% if admin? %>
+        <%= select_tag :f_user_id,
+                       options_for_select(options_for_users, params[:f_user_id]),
+                       include_blank: t('activerecord.attributes.license.user_id'),
+                       class: 'form-control filter' %>
+
         <%= select_tag :f_client_id,
                        options_for_select(options_for_clients, params[:f_client_id]),
                        include_blank: t('activerecord.attributes.license.client_id'),

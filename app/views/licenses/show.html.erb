@@ -21,13 +21,6 @@
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.status'), class: 'col-sm-4 control-label' %>
-    <div class="col-sm-8 controls">
-      <%= text_field_tag :status, @license.status, class: 'form-control', readonly: true %>
-    </div>
-  </div>
-
-  <div class="form-group control-group">
     <%= label_tag :pin, t('activerecord.attributes.license.description'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :description, @license.description, class: 'form-control', readonly: true %>
@@ -56,9 +49,23 @@
   </div>
 
   <div class="form-group control-group">
+    <%= label_tag :pin, t('activerecord.attributes.license.license_plan_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :license_plans_id, @license.license_plan.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
+    <%= label_tag :pin, t('activerecord.attributes.license.license_status_id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :license_status_id, @license.license_status.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <div class="form-group control-group">
     <%= label_tag :pin, t('activerecord.attributes.license.license_type_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
-      <%= text_field_tag :license_type_id, @license.type.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
+      <%= text_field_tag :license_type_id, @license.license_type.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
     </div>
   </div>
 

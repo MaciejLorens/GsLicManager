@@ -28,65 +28,76 @@ class ApplicationController < ActionController::Base
 
   def current_invitations
     @current_invitations = if super_admin?
-                             Invitation.all
-                           elsif admin?
-                             Invitation.all.visible
-                           end
+      Invitation.all
+    elsif admin?
+      Invitation.all.visible
+    end
   end
 
   def current_licenses
     @current_apps = if super_admin?
-                      License.all
-                    elsif admin?
-                      License.all.visible
-                    else
-                      current_client.licenses
-                    end
+      License.all
+    elsif admin?
+      License.all.visible
+    else
+      current_client.licenses
+    end
   end
 
-  def current_license_types
-    @current_license_types = if super_admin?
-                       LicenseType.all
-                     elsif admin?
-                       LicenseType.all.visible
-                     else
-                       license_type_ids = current_licenses.pluck(:license_type_id).uniq
-                       LicenseType.where(id: license_type_ids)
-                     end
+  def current_license_plans
+    @current_license_plans = if super_admin?
+      LicensePlan.all
+    elsif admin?
+      LicensePlan.all.visible
+    else
+      license_plan_ids = current_licenses.distinct(:license_plan_id)
+      LicensePlan.where(id: license_plan_ids)
+    end
   end
 
   def current_license_statuses
     @current_license_statuses = if super_admin?
-                       LicenseStatus.all
-                     elsif admin?
-                       LicenseStatus.all.visible
-                     else
-                       license_status_ids = current_licenses.pluck(:license_status_id).uniq
-                       LicenseStatus.where(id: license_status_ids)
-                     end
+      LicenseStatus.all
+    elsif admin?
+      LicenseStatus.all.visible
+    else
+      license_status_ids = current_licenses.distinct(:license_status_id)
+      LicenseStatus.where(id: license_status_ids)
+    end
+  end
+
+  def current_license_types
+    @current_license_types = if super_admin?
+      LicenseType.all
+    elsif admin?
+      LicenseType.all.visible
+    else
+      license_type_ids = current_licenses.distinct(:license_type_id)
+      LicenseType.where(id: license_type_ids)
+    end
   end
 
   def current_versions
     @current_versions = if super_admin?
-                          Version.all
-                        elsif admin?
-                          Version.all.visible
-                        else
-                          version_ids = current_licenses.pluck(:version_id).uniq
-                          Version.where(id: version_ids)
-                        end
+      Version.all
+    elsif admin?
+      Version.all.visible
+    else
+      version_ids = current_licenses.distinct(:version_id)
+      Version.where(id: version_ids)
+    end
   end
 
   def current_apps
     @current_apps = if super_admin?
-                      App.all
-                    elsif admin?
-                      App.all.visible
-                    else
-                      version_ids = current_licenses.map(&:version_id).uniq
-                      app_ids = Version.where(id: version_ids).pluck(:app_id).uniq
-                      App.where(id: app_ids)
-                    end
+      App.all
+    elsif admin?
+      App.all.visible
+    else
+      version_ids = current_licenses.map(&:version_id).uniq
+      app_ids = Version.where(id: version_ids).distinct(:app_id)
+      App.where(id: app_ids)
+    end
   end
 
   def authorize_super_admin
@@ -128,5 +139,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses,
-                :current_license_types, :current_license_statuses, :current_versions, :super_admin?, :admin?
+                :current_license_types, :current_license_plans, :current_license_statuses, :current_versions,
+                :super_admin?, :admin?
 end

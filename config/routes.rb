@@ -45,11 +45,15 @@ Rails.application.routes.draw do
     delete :batch_destroy, on: :collection
   end
 
-  resources :license_types, except: [:show] do
+  resources :license_plans, except: [:show] do
     delete :batch_destroy, on: :collection
   end
 
   resources :license_statuses, except: [:show] do
+    delete :batch_destroy, on: :collection
+  end
+
+  resources :license_types, except: [:show] do
     delete :batch_destroy, on: :collection
   end
 

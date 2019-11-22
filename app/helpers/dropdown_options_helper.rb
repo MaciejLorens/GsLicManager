@@ -26,6 +26,12 @@ module DropdownOptionsHelper
     end
   end
 
+  def options_for_license_plans
+    current_license_plans.visible.order('val_pl ASC').map do |type|
+      [type.send("val_#{I18n.locale}"), type.id]
+    end
+  end
+
   def options_for_license_statuses
     current_license_statuses.visible.order('val_pl ASC').map do |type|
       [type.send("val_#{I18n.locale}"), type.id]

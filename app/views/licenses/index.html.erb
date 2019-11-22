@@ -26,6 +26,16 @@
                       class: "sort-link #{sort_class('end_client_address')}" %>
         </th>
         <th>
+          <%= link_to t('activerecord.attributes.license.description'), '#',
+                      'data-field' => 'description',
+                      class: "sort-link #{sort_class('description')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.order_number'), '#',
+                      'data-field' => 'order_number',
+                      class: "sort-link #{sort_class('order_number')}" %>
+        </th>
+        <th>
           <%= link_to t('activerecord.attributes.license.registration_key'), '#',
                       'data-field' => 'registration_key',
                       class: "sort-link #{sort_class('registration_key')}" %>
@@ -34,6 +44,11 @@
           <%= link_to t('activerecord.attributes.license.unlock_code'), '#',
                       'data-field' => 'unlock_code',
                       class: "sort-link #{sort_class('unlock_code')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.license_plan_id'), '#',
+                      'data-field' => 'license_plan_id',
+                      class: "sort-link #{sort_class('license_plan_id')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.license.license_status_id'), '#',
@@ -46,17 +61,22 @@
                       class: "sort-link #{sort_class('license_type_id')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license.version_id'), '#',
-                      'data-field' => 'version_id',
-                      class: "sort-link #{sort_class('version_id')}" %>
-        </th>
-        <th>
           <%= link_to t('activerecord.attributes.license.app_id'), '#',
                       'data-field' => 'app_id',
                       class: "sort-link #{sort_class('app_id')}" %>
         </th>
+        <th>
+          <%= link_to t('activerecord.attributes.license.version_id'), '#',
+                      'data-field' => 'version_id',
+                      class: "sort-link #{sort_class('version_id')}" %>
+        </th>
 
         <% if admin? %>
+          <th>
+            <%= link_to t('activerecord.attributes.license.user_id'), '#',
+                        'data-field' => 'user_id',
+                        class: "sort-link #{sort_class('user_id')}" %>
+          </th>
           <th>
             <%= link_to t('activerecord.attributes.license.client_id'), '#',
                         'data-field' => 'client_id',
@@ -81,13 +101,17 @@
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => license.id %></td>
           <td><%= license.end_client_name %></td>
           <td><%= license.end_client_address %></td>
+          <td><%= license.description %></td>
+          <td><%= license.order_number %></td>
           <td><%= license.registration_key %></td>
           <td><%= license.unlock_code %></td>
+          <td><%= license.license_plan.send("val_#{I18n.locale}") %></td>
           <td><%= license.license_status.send("val_#{I18n.locale}") %></td>
           <td><%= license.license_type.send("val_#{I18n.locale}") %></td>
-          <td><%= license.version.number %></td>
           <td><%= license.version.app.name %></td>
+          <td><%= license.version.number %></td>
           <% if admin? %>
+            <td><%= license.user&.full_name %></td>
             <td><%= license.client.name %></td>
           <% end %>
           <% if super_admin? %>

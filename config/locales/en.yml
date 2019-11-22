@@ -40,8 +40,9 @@ en:
     admins: Admins
     versions: Versions
     apps: Apps
-    license_types: License types
+    license_plans: License plans
     license_states: License statuses
+    license_types: License types
 
 
   locale:
@@ -126,6 +127,25 @@ en:
     app_was_successfully_edited: App was successfully edited.
     app_was_successfully_deleted: App was successfully deleted.
     apps_was_successfully_deleted: Apps was successfully deleted.
+
+
+  license_plan:
+    navbar:
+      list: List
+      edit_license_plan: Edit license plan
+      add_new: Add new
+      selected_items: Selected items
+      deleted_items: Deleted license plans
+    list:
+      header: List of license plans
+    new:
+      new_license_plan: New license plan
+    errors:
+      prohibited: prohibited this license plan from being saved
+    license_plan_was_successfully_created: License plan was successfully created.
+    license_plan_was_successfully_edited: License plan was successfully edited.
+    license_plan_was_successfully_deleted: License plan was successfully deleted.
+    license_plans_was_successfully_deleted: License plans was successfully deleted.
 
 
   license_status:
@@ -278,9 +298,11 @@ en:
               required: is required
             version:
               required: is required
+            license_plans:
+              required: is required
             license_status:
               required: is required
-            license_type:
+            license_types:
               required: is required
             client:
               required: is required
@@ -291,12 +313,13 @@ en:
         description: Description
         order_number: Order number
         registration_key: Registration key
-        unlock_code: Unlock code
+        unlock_code: Code
+        license_plan_id: Plan
         license_status_id: Status
         license_type_id: Type
         version_id: App version
-        user_id: User name
         app_id: App name
+        user_id: Activation
         client_id: Client
         hidden: Visibility
         quantity: Quantity
@@ -335,6 +358,12 @@ en:
         created_at: Created at
       app:
         name: Name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
+      license_plan:
+        val_pl: Polish name
+        val_en: English name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at

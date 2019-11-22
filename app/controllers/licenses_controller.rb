@@ -52,7 +52,7 @@ class LicensesController < ApplicationController
 
   def generate_unlock_code
     referrer = Rails.application.routes.recognize_path(request.referrer)
-    @license.generate_unlock_code(1)
+    @license.generate_unlock_code(current_user, 1)
 
     redirect_to action: referrer[:action]
   end
@@ -67,11 +67,13 @@ class LicensesController < ApplicationController
     params.require(:license).permit(
       :end_client_name,
       :end_client_address,
-      :status,
       :description,
       :order_number,
       :registration_key,
+      :license_plan_id,
+      :license_status_id,
       :license_type_id,
+      :app_id,
       :version_id,
       :user_id,
       :client_id,

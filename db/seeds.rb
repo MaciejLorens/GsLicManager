@@ -59,17 +59,21 @@ end
   )
 end
 
-App.create(name: 'Scale')
-App.create(name: 'Management')
-App.create(name: 'CMS')
+App.create(name: 'Allscales SW software')
+App.create(name: 'Allscales EW software')
+App.create(name: 'Allscales BW software')
 
-LicenseType.create(val_pl: 'Nowa licencja', val_en: 'New license')
-LicenseType.create(val_pl: 'Aktualizacja licencji', val_en: 'License update')
-LicenseType.create(val_pl: 'Transfer licencji', val_en: 'License transfer')
+LicensePlan.create(val_pl: 'Podstawowy', val_en: 'Basic')
+LicensePlan.create(val_pl: 'Premium', val_en: 'Premium')
+LicensePlan.create(val_pl: 'Premium Plus', val_en: 'Premium Plus')
 
 LicenseStatus.create(val_pl: 'Nowa', val_en: 'New')
 LicenseStatus.create(val_pl: 'Zarejestrowana', val_en: 'Registered')
 LicenseStatus.create(val_pl: 'Zablokowana', val_en: 'Blocked')
+
+LicenseType.create(val_pl: 'Nowa', val_en: 'New')
+LicenseType.create(val_pl: 'Aktualizacja', val_en: 'Update')
+LicenseType.create(val_pl: 'Transfer', val_en: 'Transfer')
 
 20.times do |index|
   app = App.all.to_a.sample
@@ -84,8 +88,9 @@ end
 20.times do |index|
   version = Version.all.to_a.sample
   user = User.where(role: 'user').to_a.sample
-  license_type = LicenseType.all.to_a.sample
+  license_plan = LicensePlan.all.to_a.sample
   license_status = LicenseStatus.all.to_a.sample
+  license_type = LicenseType.all.to_a.sample
 
   user.licenses.create(
     end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
@@ -93,9 +98,11 @@ end
     description: "description_#{SecureRandom.hex(2)}",
     order_number: "order_number_#{SecureRandom.hex(2)}",
     registration_key: "registration_key_#{SecureRandom.hex(2)}",
+    license_plan_id: license_plan.id,
     license_status_id: license_status.id,
     license_type_id: license_type.id,
     version_id: version.id,
+    app_id: version.app.id,
     client_id: user.client.id,
     created_at: rand(100).days.ago
   )
