@@ -16,14 +16,14 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to t('activerecord.attributes.version.number'), '#',
-                      'data-field' => 'number',
-                      class: "sort-link #{sort_class('number')}" %>
-        </th>
-        <th>
           <%= link_to t('activerecord.attributes.version.app_id'), '#',
                       'data-field' => 'app_id',
                       class: "sort-link #{sort_class('app_id')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.version.number'), '#',
+                      'data-field' => 'number',
+                      class: "sort-link #{sort_class('number')}" %>
         </th>
         <th>
           <%= link_to t('activerecord.attributes.version.updated_at'), '#',
@@ -50,8 +50,8 @@
       <% @versions.each do |version| %>
         <tr>
           <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => version.id %></td>
-          <td><%= version.number %></td>
           <td><%= version.app.name %></td>
+          <td><%= version.number %></td>
           <td><%= date_format(version.updated_at) %></td>
           <td><%= date_format(version.created_at) %></td>
           <% if super_admin? %>

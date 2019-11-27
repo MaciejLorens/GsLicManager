@@ -1,30 +1,35 @@
 <div class='well'>
 
-  <%= form_tag(license_plans_path, method: :get, class: 'filter-form') do %>
+  <%= form_tag(plans_path, method: :get, class: 'filter-form') do %>
 
     <div class="filter-field form-inline">
 
       <%= hidden_field_tag :s_field, params[:s_field] %>
       <%= hidden_field_tag :s_order, params[:s_order] %>
 
+      <%= select_tag :f_app_id,
+                     options_for_select(options_for_apps, params[:f_app_id]),
+                     include_blank: t('activerecord.attributes.version.app_id'),
+                     class: 'form-control filter' %>
+
       <%= text_field_tag :f_val_pl,
                          params[:f_val_pl],
-                         placeholder: t('activerecord.attributes.license_plan.val_pl'),
+                         placeholder: t('activerecord.attributes.plan.val_pl'),
                          class: 'form-control filter' %>
 
       <%= text_field_tag :f_val_en,
                          params[:f_val_en],
-                         placeholder: t('activerecord.attributes.license_plan.val_en'),
+                         placeholder: t('activerecord.attributes.plan.val_en'),
                          class: 'form-control filter' %>
 
       <% if super_admin? %>
         <%= select_tag :f_hidden,
                        options_for_select(options_for_hidden, params[:f_hidden]),
-                       include_blank: t('activerecord.attributes.license_plan.hidden'),
+                       include_blank: t('activerecord.attributes.plan.hidden'),
                        class: 'form-control filter' %>
       <% end %>
 
-      <%= link_to fa_icon('times'), license_plans_path, class: 'btn btn-info pull-right' %>
+      <%= link_to fa_icon('times'), plans_path, class: 'btn btn-info pull-right' %>
 
       <%= button_tag :submit, class: 'btn btn-primary pull-right' do %>
         <%= fa_icon('retweet', text: t('common.refresh')) %>

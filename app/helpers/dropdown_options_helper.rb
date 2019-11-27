@@ -26,15 +26,15 @@ module DropdownOptionsHelper
     end
   end
 
-  def options_for_license_plans
-    current_license_plans.visible.order('val_pl ASC').map do |type|
-      [type.send("val_#{I18n.locale}"), type.id]
+  def options_for_plans
+    current_plans.visible.order('val_pl ASC').map do |plan|
+      [plan.send("val_#{I18n.locale}"), plan.id]
     end
   end
 
   def options_for_license_statuses
-    current_license_statuses.visible.order('val_pl ASC').map do |type|
-      [type.send("val_#{I18n.locale}"), type.id]
+    current_license_statuses.visible.order('val_pl ASC').map do |status|
+      [status.send("val_#{I18n.locale}"), status.id]
     end
   end
 

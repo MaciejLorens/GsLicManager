@@ -38,9 +38,9 @@ pl:
     clients: Klienci
     users: Użytkownicy
     admins: Administratorzy
-    versions: Wersje
     apps: Aplikacje
-    license_plans: Plany licencji
+    versions: Wersje
+    plans: Plany
     license_states: Statusy licencji
     license_types: Typy licencji
 
@@ -129,23 +129,23 @@ pl:
     apps_was_successfully_deleted: Aplikacje pomyślnie usunięte.
 
 
-  license_plan:
+  plan:
     navbar:
       list: Lista
-      edit_license_plan: Edycja planu licencji
+      edit_plan: Edycja planu
       add_new: Dodaj
       selected_items: Zaznaczone rekordy
-      deleted_items: Usuń plany licencji
+      deleted_items: Usuń plany
     list:
-      header: Lista planów licencji
+      header: Lista planów
     new:
-      new_license_plan: Nowy plan licencji
+      new_plan: Nowy plan
     errors:
-      prohibited: uniemożliwiły zapisanie planu licencji
-    license_plan_was_successfully_created: Plan licencji pomyślnie utworzony.
-    license_plan_was_successfully_edited: Plan licencji pomyślnie uaktualniony.
-    license_plan_was_successfully_deleted: Plan licencji pomyślnie usunięty.
-    license_plans_was_successfully_deleted: Plany licencji pomyślnie usunięte.
+      prohibited: uniemożliwiły zapisanie planu
+    plan_was_successfully_created: Plan pomyślnie utworzony.
+    plan_was_successfully_edited: Plan pomyślnie uaktualniony.
+    plan_was_successfully_deleted: Plan pomyślnie usunięty.
+    plans_was_successfully_deleted: Plany pomyślnie usunięte.
 
 
   license_status:
@@ -292,35 +292,37 @@ pl:
               required: jest wymagany
         license:
           attributes:
-            user:
+            client:
               required: jest wymagany
+            app:
+              required: jest wymagana
             version:
               required: jest wymagana
-            license_plans:
-              required: jest wymagany
-            license_status:
+            plans:
               required: jest wymagany
             license_types:
               required: jest wymagany
-            client:
+            license_status:
+              required: jest wymagany
+            user:
               required: jest wymagany
     attributes:
       license:
-        end_client_name: Nazwa klienta końcowego
-        end_client_address: Adres klienta końcowego
-        description: Uwagi
+        client_id: Klient
+        app_id: Nazwa aplikacji
+        version_id: Wersja
+        plan_id: Plan
+        license_type_id: Typ
+        license_status_id: Status
         order_number: Numer zamówienia
+        end_client_name: Nazwa klienta końcowego
+        installation_address: Adres instalacji
+        description: Uwagi
         registration_key: Klucz rejestracyjny
         unlock_code: Kod
-        license_plan_id: Plan
-        license_status_id: Status
-        license_type_id: Typ
-        version_id: Wersja
-        app_id: Nazwa aplikacji
         user_id: Aktywujący
-        client_id: Klient
-        hidden: Widoczność
         quantity: Ilość
+        hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia
       client:
@@ -347,18 +349,18 @@ pl:
         sent_at: Data wysłania
         client_id: Klient
         created_at: Data utworzenia
+      app:
+        name: Nazwa
+        hidden: Widoczność
+        updated_at: Data edycji
+        created_at: Data utworzenia
       version:
         number: Numer
         app_id: Nazwa aplikacji
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia
-      app:
-        name: Nazwa
-        hidden: Widoczność
-        updated_at: Data edycji
-        created_at: Data utworzenia
-      license_plan:
+      plan:
         val_pl: Nazwa polska
         val_en: Nazwa angielska
         hidden: Widoczność

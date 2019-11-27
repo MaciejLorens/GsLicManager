@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_124026) do
     t.integer "scales_amount"             # whats that
     t.integer "license_type_id"
     t.string "old_app_code"               # whats that
-    t.string "end_client_desc"            # moved to end_client_name and end_client_address
+    t.string "end_client_desc"            # moved to end_client_name and installation_address
     t.string "description"
     t.string "new_app_code"               # is it registration_key or unlock_key
     t.datetime "created_at", null: false

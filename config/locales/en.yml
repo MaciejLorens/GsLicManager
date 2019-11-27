@@ -38,9 +38,9 @@ en:
     clients: Clients
     users: Users
     admins: Admins
-    versions: Versions
     apps: Apps
-    license_plans: License plans
+    versions: Versions
+    plans: Plans
     license_states: License statuses
     license_types: License types
 
@@ -129,23 +129,23 @@ en:
     apps_was_successfully_deleted: Apps was successfully deleted.
 
 
-  license_plan:
+  plan:
     navbar:
       list: List
-      edit_license_plan: Edit license plan
+      edit_plan: Edit plan
       add_new: Add new
       selected_items: Selected items
-      deleted_items: Deleted license plans
+      deleted_items: Deleted plans
     list:
-      header: List of license plans
+      header: List of plans
     new:
-      new_license_plan: New license plan
+      new_plan: New plan
     errors:
-      prohibited: prohibited this license plan from being saved
-    license_plan_was_successfully_created: License plan was successfully created.
-    license_plan_was_successfully_edited: License plan was successfully edited.
-    license_plan_was_successfully_deleted: License plan was successfully deleted.
-    license_plans_was_successfully_deleted: License plans was successfully deleted.
+      prohibited: prohibited this plan from being saved
+    plan_was_successfully_created: Plan was successfully created.
+    plan_was_successfully_edited: Plan was successfully edited.
+    plan_was_successfully_deleted: Plan was successfully deleted.
+    plans_was_successfully_deleted: Plans was successfully deleted.
 
 
   license_status:
@@ -292,35 +292,37 @@ en:
               required: is required
         license:
           attributes:
-            user:
+            client:
+              required: is required
+            app:
               required: is required
             version:
               required: is required
-            license_plans:
-              required: is required
-            license_status:
+            plans:
               required: is required
             license_types:
               required: is required
-            client:
+            license_status:
+              required: is required
+            user:
               required: is required
     attributes:
       license:
-        end_client_name: End client name
-        end_client_address: End client address
-        description: Description
+        client_id: Client
+        app_id: App name
+        version_id: App version
+        plan_id: Plan
+        license_type_id: Type
+        license_status_id: Status
         order_number: Order number
+        end_client_name: End client name
+        installation_address: Installation address
+        description: Description
         registration_key: Registration key
         unlock_code: Code
-        license_plan_id: Plan
-        license_status_id: Status
-        license_type_id: Type
-        version_id: App version
-        app_id: App name
         user_id: Activation
-        client_id: Client
-        hidden: Visibility
         quantity: Quantity
+        hidden: Visibility
         updated_at: Updated at
         created_at: Created at
       client:
@@ -347,30 +349,30 @@ en:
         sent_at: Sent at
         client_id: Client
         created_at: Created at
+      app:
+        name: Name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
       version:
         number: Number
         app_id: App name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at
-      app:
-        name: Name
-        hidden: Visibility
-        updated_at: Updated at
-        created_at: Created at
-      license_plan:
-        val_pl: Polish name
-        val_en: English name
-        hidden: Visibility
-        updated_at: Updated at
-        created_at: Created at
-      license_status:
+      plan:
         val_pl: Polish name
         val_en: English name
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at
       license_type:
+        val_pl: Polish name
+        val_en: English name
+        hidden: Visibility
+        updated_at: Updated at
+        created_at: Created at
+      license_status:
         val_pl: Polish name
         val_en: English name
         hidden: Visibility

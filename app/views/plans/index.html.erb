@@ -1,12 +1,12 @@
 <div class="page-header">
-  <h1><%= t('license_plan.list.header') %></h1>
+  <h1><%= t('plan.list.header') %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
 
 <%= render partial: 'filter' %>
 
-<% if @license_plans.empty? %>
+<% if @plans.empty? %>
   <p> - <%= t('common.no_results_found') %> - </p>
 <% else %>
 
@@ -16,28 +16,33 @@
       <tr>
         <th></th>
         <th>
-          <%= link_to t('activerecord.attributes.license_plan.val_pl'), '#',
+          <%= link_to t('activerecord.attributes.version.app_id'), '#',
+                      'data-field' => 'app_id',
+                      class: "sort-link #{sort_class('app_id')}" %>
+        </th>
+        <th>
+          <%= link_to t('activerecord.attributes.plan.val_pl'), '#',
                       'data-field' => 'val_pl',
                       class: "sort-link #{sort_class('val_pl')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license_plan.val_en'), '#',
+          <%= link_to t('activerecord.attributes.plan.val_en'), '#',
                       'data-field' => 'val_en',
                       class: "sort-link #{sort_class('val_en')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license_plan.updated_at'), '#',
+          <%= link_to t('activerecord.attributes.plan.updated_at'), '#',
                       'data-field' => 'updated_at',
                       class: "sort-link #{sort_class('updated_at')}" %>
         </th>
         <th>
-          <%= link_to t('activerecord.attributes.license_plan.created_at'), '#',
+          <%= link_to t('activerecord.attributes.plan.created_at'), '#',
                       'data-field' => 'created_at',
                       class: "sort-link #{sort_class('created_at')}" %>
         </th>
         <% if super_admin? %>
           <th>
-            <%= link_to t('activerecord.attributes.license_plan.hidden'), '#',
+            <%= link_to t('activerecord.attributes.plan.hidden'), '#',
                         'data-field' => 'hidden',
                         class: "sort-link #{sort_class('hidden')}" %>
           </th>
@@ -47,19 +52,20 @@
       </thead>
 
       <tbody>
-      <% @license_plans.each do |license_plan| %>
+      <% @plans.each do |plan| %>
         <tr>
-          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => license_plan.id %></td>
-          <td><%= license_plan.val_pl %></td>
-          <td><%= license_plan.val_en %></td>
-          <td><%= date_format(license_plan.updated_at) %></td>
-          <td><%= date_format(license_plan.created_at) %></td>
+          <td><%= check_box_tag 'select', 'yes', false, class: 'list-checkbox', 'data-id' => plan.id %></td>
+          <td><%= plan.app.name %></td>
+          <td><%= plan.val_pl %></td>
+          <td><%= plan.val_en %></td>
+          <td><%= date_format(plan.updated_at) %></td>
+          <td><%= date_format(plan.created_at) %></td>
           <% if super_admin? %>
-            <td><%= fa_icon(license_plan.hidden ? 'times' : 'check') %></td>
+            <td><%= fa_icon(plan.hidden ? 'times' : 'check') %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_plan_path(license_plan), class: 'action-link' %><br>
-            <%= link_to fa_icon('times', text: t('common.delete')), license_plan, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_plan_path(plan), class: 'action-link' %><br>
+            <%= link_to fa_icon('times', text: t('common.delete')), plan, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
           </td>
         </tr>
       <% end %>

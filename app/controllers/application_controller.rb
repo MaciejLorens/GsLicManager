@@ -44,14 +44,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_license_plans
-    @current_license_plans = if super_admin?
-      LicensePlan.all
+  def current_plans
+    @current_plans = if super_admin?
+      Plan.all
     elsif admin?
-      LicensePlan.all.visible
+      Plan.all.visible
     else
-      license_plan_ids = current_licenses.distinct(:license_plan_id)
-      LicensePlan.where(id: license_plan_ids)
+      plan_ids = current_licenses.distinct(:plan_id)
+      Plan.where(id: plan_ids)
     end
   end
 
@@ -139,6 +139,6 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_clients, :current_apps, :current_users, :current_users, :current_licenses,
-                :current_license_types, :current_license_plans, :current_license_statuses, :current_versions,
+                :current_license_types, :current_plans, :current_license_statuses, :current_versions,
                 :super_admin?, :admin?
 end

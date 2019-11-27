@@ -59,13 +59,14 @@ end
   )
 end
 
-App.create(name: 'Allscales SW software')
-App.create(name: 'Allscales EW software')
-App.create(name: 'Allscales BW software')
+app1 = App.create(name: 'Allscales SW software')
+app2 = App.create(name: 'Allscales EW software')
+app3 = App.create(name: 'Allscales BW software')
 
-LicensePlan.create(val_pl: 'Podstawowy', val_en: 'Basic')
-LicensePlan.create(val_pl: 'Premium', val_en: 'Premium')
-LicensePlan.create(val_pl: 'Premium Plus', val_en: 'Premium Plus')
+app1.plans.create(val_pl: 'Podstawowy', val_en: 'Basic')
+app1.plans.create(val_pl: 'Premium', val_en: 'Premium')
+app2.plans.create(val_pl: 'Premium Plus', val_en: 'Premium Plus')
+app3.plans.create(val_pl: 'Zaawansowany', val_en: 'Advanced')
 
 LicenseStatus.create(val_pl: 'Nowa', val_en: 'New')
 LicenseStatus.create(val_pl: 'Zarejestrowana', val_en: 'Registered')
@@ -85,24 +86,22 @@ LicenseType.create(val_pl: 'Transfer', val_en: 'Transfer')
 end
 
 20.times do |index|
-  version = Version.all.to_a.sample
   client = Client.all.to_a.sample
-  license_plan = LicensePlan.all.to_a.sample
+  app = App.all.to_a.sample
   license_status = LicenseStatus.all.to_a.sample
   license_type = LicenseType.all.to_a.sample
 
   License.create(
-    end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
-    end_client_address: "end_client_address_#{SecureRandom.hex(2)}",
-    description: "description_#{SecureRandom.hex(2)}",
-    order_number: "order_number_#{SecureRandom.hex(2)}",
-    registration_key: "registration_key_#{SecureRandom.hex(2)}",
-    license_plan_id: license_plan.id,
-    license_status_id: license_status.id,
-    license_type_id: license_type.id,
-    version_id: version.id,
-    app_id: version.app.id,
     client_id: client.id,
+    app_id: app.id,
+    version_id: app.versions.sample.id,
+    plan_id: app.plans.sample.id,
+    license_type_id: license_type.id,
+    license_status_id: license_status.id,
+    order_number: "order_number_#{SecureRandom.hex(2)}",
+    end_client_name: "end_client_name_#{SecureRandom.hex(2)}",
+    installation_address: "installation_address_#{SecureRandom.hex(2)}",
+    description: "description_#{SecureRandom.hex(2)}",
     created_at: rand(100).days.ago
   )
 end

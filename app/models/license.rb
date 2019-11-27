@@ -2,13 +2,13 @@ class License < ApplicationRecord
 
   include Hideable
 
-  belongs_to :user, optional: true
   belongs_to :client
+  belongs_to :user, optional: true
 
+  belongs_to :plan
   belongs_to :version
   belongs_to :app
 
-  belongs_to :license_plan
   belongs_to :license_status
   belongs_to :license_type
 
