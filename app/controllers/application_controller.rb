@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     @current_invitations = if super_admin?
       Invitation.all
     elsif admin?
-      Invitation.all.visible
+      Invitation.all
     end
   end
 

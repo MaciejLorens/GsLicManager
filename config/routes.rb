@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'registrations'}
 
   resources :licenses do
+    get :register, on: :member
+    patch :registration, on: :member
     put :generate_unlock_code, on: :member
     delete :batch_destroy, on: :collection
   end

@@ -104,12 +104,16 @@
             <td><%= fa_icon(license.hidden ? 'times' : 'check') %></td>
           <% end %>
           <td class="action-links">
-            <%= link_to fa_icon('unlock', text: t('license.generate_code')), generate_unlock_code_license_path(license), class: 'action-link', data: { confirm: t('license.are_you_sure') }, method: :put %>
-            <br>
+            <% if license.license_status.val_en == 'New' %>
+              <%= link_to fa_icon('unlock', text: t('license.register')), register_license_path(license), class: 'action-link' %>
+              <br>
+            <% end %>
             <%= link_to fa_icon('eye', text: t('common.view')), license, class: 'action-link' %><br>
-            <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_path(license), class: 'action-link' %>
-            <br>
-            <%= link_to fa_icon('times', text: t('common.delete')), license, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+            <% if admin? %>
+              <%= link_to fa_icon('pencil', text: t('common.edit')), edit_license_path(license), class: 'action-link' %>
+              <br>
+              <%= link_to fa_icon('times', text: t('common.delete')), license, method: :delete, data: { confirm: t('common.are_you_sure') }, class: 'action-link' %>
+            <% end %>
           </td>
         </tr>
       <% end %>

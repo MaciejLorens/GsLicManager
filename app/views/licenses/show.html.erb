@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= t('license.show.view_license') %> Id: <%= @license.id %></h1>
+  <h1><%= t('license.show.view_license') %> <%= @license.id %></h1>
 </div>
 
 <%= render partial: 'nav_tabs' %>
@@ -7,88 +7,90 @@
 <form class="form-horizontal denser fieldset col-sm-5 show-action">
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.end_client_name'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :end_client_name, t('activerecord.attributes.license.end_client_name'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :end_client_name, @license.end_client_name, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.installation_address'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :installation_address, t('activerecord.attributes.license.installation_address'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :installation_address, @license.installation_address, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.description'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :description, t('activerecord.attributes.license.description'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :description, @license.description, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.order_number'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :order_number, t('activerecord.attributes.license.order_number'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :order_number, @license.order_number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.registration_key'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :registration_key, t('activerecord.attributes.license.registration_key'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :registration_key, @license.registration_key, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.unlock_code'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :unlock_code, t('activerecord.attributes.license.unlock_code'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :unlock_code, @license.unlock_code, class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.plan_id'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :plans_id, t('activerecord.attributes.license.plan_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :plans_id, @license.plan.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.license_status_id'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :license_status_id, t('activerecord.attributes.license.license_status_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :license_status_id, @license.license_status.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :pin, t('activerecord.attributes.license.license_type_id'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :license_type_id, t('activerecord.attributes.license.license_type_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :license_type_id, @license.license_type.send("val_#{I18n.locale}"), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :client, t('activerecord.attributes.license.version_id'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :version_id, t('activerecord.attributes.license.version_id'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :version_id, @license.version.number, class: 'form-control', readonly: true %>
     </div>
   </div>
 
-  <div class="form-group control-group">
-    <%= label_tag :client, t('activerecord.attributes.license.user_id'), class: 'col-sm-4 control-label' %>
-    <div class="col-sm-8 controls">
-      <%= text_field_tag :user_id, @license.user&.full_name, class: 'form-control', readonly: true %>
+  <% if admin? %>
+    <div class="form-group control-group">
+      <%= label_tag :user_id, t('activerecord.attributes.license.user_id'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :user_id, @license.user&.full_name, class: 'form-control', readonly: true %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-group control-group">
-    <%= label_tag :client, t('activerecord.attributes.license.client_id'), class: 'col-sm-4 control-label' %>
-    <div class="col-sm-8 controls">
-      <%= text_field_tag :client_id, @license.client.name, class: 'form-control', readonly: true %>
+    <div class="form-group control-group">
+      <%= label_tag :client_id, t('activerecord.attributes.license.client_id'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :client_id, @license.client.name, class: 'form-control', readonly: true %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <% if super_admin? %>
     <div class="form-group control-group">
@@ -100,14 +102,14 @@
   <% end %>
 
   <div class="form-group control-group">
-    <%= label_tag :hidden, t('activerecord.attributes.license.updated_at'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :updated_at, t('activerecord.attributes.license.updated_at'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :updated_at, date_format(@license.updated_at), class: 'form-control', readonly: true %>
     </div>
   </div>
 
   <div class="form-group control-group">
-    <%= label_tag :hidden, t('activerecord.attributes.license.created_at'), class: 'col-sm-4 control-label' %>
+    <%= label_tag :created_at, t('activerecord.attributes.license.created_at'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_field_tag :created_at, date_format(@license.created_at), class: 'form-control', readonly: true %>
     </div>
@@ -116,7 +118,7 @@
 
 <div class="col-sm-1"></div>
 <div class="col-sm-2 qr-code small">
-  <%= link_to generate_unlock_code_license_path(@license), class: 'btn btn-primary btn-save', data: {confirm: t('license.are_you_sure')}, method: :put do %>
-    <%= fa_icon('unlock', text: t('license.generate_code')) %>
+  <%= link_to register_license_path(@license), class: 'btn btn-primary btn-save' do %>
+    <%= fa_icon('unlock', text: t('license.register')) %>
   <% end %>
 </div>

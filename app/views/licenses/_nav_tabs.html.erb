@@ -4,9 +4,11 @@
     <%= link_to fa_icon('th-list', text: t('license.navbar.list')), licenses_path %>
   </li>
 
-  <li class="icon new_collection_link <%= new_active? %>">
-    <%= link_to fa_icon('plus', text: t('license.navbar.add_new')), new_license_path %>
-  </li>
+  <% if admin? %>
+    <li class="icon new_collection_link <%= new_active? %>">
+      <%= link_to fa_icon('plus', text: t('license.navbar.add_new')), new_license_path %>
+    </li>
+  <% end %>
 
   <% if show_action? %>
     <li class="icon new_collection_link <%= show_active? %>">
@@ -20,7 +22,13 @@
     </li>
   <% end %>
 
-  <% if index_action? %>
+  <% if register_action? %>
+    <li class="icon new_collection_link <%= register_active? %>">
+      <%= link_to fa_icon('unlock', text: t('common.register')), '#' %>
+    </li>
+  <% end %>
+
+  <% if admin? && index_action? %>
 
     <li class="dropdown right">
       <%= link_to t('license.navbar.selected_items'), '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' %>

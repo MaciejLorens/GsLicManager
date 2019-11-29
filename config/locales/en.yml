@@ -21,6 +21,7 @@ en:
     actions: Actions
     view: View
     edit: Edit
+    register: Register
     delete: Delete
     are_you_sure: Are you sure?
     refresh: Refresh
@@ -53,6 +54,7 @@ en:
     navbar:
       list: List
       edit_license: Edit license
+      register_license: Register license
       add_new: Add new
       selected_items: Selected items
       deleted_items: Deleted licenses
@@ -63,11 +65,12 @@ en:
     errors:
       prohibited: prohibited this license from being saved
     are_you_sure: Are you sure you want to generate unlock code for this license?
-    generate_code: Generate code
+    register: Register
     show:
       view_license: View license
     license_was_successfully_created: License was successfully invited.
     license_was_successfully_edited: License was successfully edited.
+    license_was_successfully_registered: License was successfully registered.
     license_was_successfully_deleted: License was successfully deleted.
     licenses_was_successfully_deleted: Licenses was successfully deleted.
 
@@ -319,7 +322,7 @@ en:
         installation_address: Installation address
         description: Description
         registration_key: Registration key
-        unlock_code: Code
+        unlock_code: Unlock code
         user_id: Activation
         quantity: Quantity
         hidden: Visibility

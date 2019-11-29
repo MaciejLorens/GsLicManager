@@ -12,6 +12,7 @@
     <table class="table table-condensed table-striped">
       <thead>
       <tr>
+        <th></th>
         <th>
           <%= link_to t('activerecord.attributes.user.email'), '#',
                       'data-field' => 'email',
@@ -40,6 +41,7 @@
       <tbody>
       <% @invitations.each do |invitation| %>
         <tr>
+          <td></td>
           <td><%= invitation.email %></td>
           <td><%= t("common.locales.#{invitation.locale}") %></td>
           <td><%= date_format(invitation.sent_at) %></td>

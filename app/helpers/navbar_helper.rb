@@ -28,6 +28,10 @@ module NavbarHelper
     controller.action_name == 'edit'
   end
 
+  def register_action?
+    controller.action_name == 'register'
+  end
+
 
   def index_active?
     controller.action_name == 'index' ? 'active' : ''
@@ -47,6 +51,10 @@ module NavbarHelper
 
   def edit_active?
     controller.action_name == 'edit' ? 'active' : ''
+  end
+
+  def register_active?
+    controller.action_name == 'register' ? 'active' : ''
   end
 
 end

@@ -17,7 +17,7 @@ class License < ApplicationRecord
   def generate_unlock_code(user, amount)
     result_md5 = Digest::MD5.hexdigest(registration_key + SALT)
     unlock_code = version.number + '1' + scales(amount) + trim(result_md5, 10)
-    update(unlock_code: unlock_code, user_id: user.id)
+    update(unlock_code: unlock_code, user_id: user.id, license_status_id: LicenseStatus.find_by(val_en: 'Registered').id)
   end
 
   private
