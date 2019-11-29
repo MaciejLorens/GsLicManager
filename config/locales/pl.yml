@@ -65,7 +65,7 @@ pl:
     errors:
       prohibited: uniemożliwiły zapisanie licencji
     are_you_sure: Czy jesteś pewny że chcesz wygenerować kod odblokowujący dla tej licencji?
-    register: Zarejestruj
+    registration: Rejestracja
     show:
       view_license: Podgląd licencji
     license_was_successfully_created: Licencja pomyślnie utworzona.

@@ -105,7 +105,7 @@
           <% end %>
           <td class="action-links">
             <% if license.license_status.val_en == 'New' %>
-              <%= link_to fa_icon('unlock', text: t('license.register')), register_license_path(license), class: 'action-link' %>
+              <%= link_to fa_icon('unlock', text: t('license.registration')), register_license_path(license), class: 'action-link' %>
               <br>
             <% end %>
             <%= link_to fa_icon('eye', text: t('common.view')), license, class: 'action-link' %><br>

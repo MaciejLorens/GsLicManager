@@ -65,7 +65,7 @@ en:
     errors:
       prohibited: prohibited this license from being saved
     are_you_sure: Are you sure you want to generate unlock code for this license?
-    register: Register
+    registration: Registration
     show:
       view_license: View license
     license_was_successfully_created: License was successfully invited.
