@@ -6,6 +6,7 @@ class PlansController < ApplicationController
 
   def index
     @plans = current_plans
+               .includes(:app)
                .where(filter_query)
                .order(sorting_query('val_pl ASC'))
   end

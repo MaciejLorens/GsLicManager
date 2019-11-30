@@ -1,4 +1,4 @@
-module DropdownOptionsHelper
+  module DropdownOptionsHelper
 
   def options_for_active
     [
@@ -27,13 +27,13 @@ module DropdownOptionsHelper
   end
 
   def options_for_versions
-    current_versions.visible.order('number DESC').map do |version|
+    current_versions.includes(:app).visible.order('number DESC').map do |version|
       [version.number, version.id, 'data-app_id' => version.app.id]
     end
   end
 
   def options_for_plans
-    current_plans.visible.order('val_pl ASC').map do |plan|
+    current_plans.includes(:app).visible.order('val_pl ASC').map do |plan|
       [plan.send("val_#{I18n.locale}"), plan.id, 'data-app_id' => plan.app.id]
     end
   end
