@@ -10,5 +10,9 @@ class CreateInvitations < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    # add_index :invitations, :role
+    # add_index :invitations, :client_id
+
   end
 end

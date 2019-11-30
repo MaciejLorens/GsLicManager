@@ -20,5 +20,18 @@ class CreateLicenses < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    # add_index :licenses, :client_id
+    # add_index :licenses, :app_id
+    # add_index :licenses, :version_id
+    # add_index :licenses, :plan_id
+    # add_index :licenses, :license_type_id
+    # add_index :licenses, :license_status_id
+    # add_index :licenses, :registration_key
+    # add_index :licenses, :unlock_code
+    # add_index :licenses, :user_id
+    # add_index :licenses, :origin_id
+    # add_index :licenses, :hidden
+
   end
 end

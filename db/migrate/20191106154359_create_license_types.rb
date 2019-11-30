@@ -8,5 +8,8 @@ class CreateLicenseTypes < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    # add_index :license_types, :hidden
+
   end
 end

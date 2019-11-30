@@ -9,5 +9,9 @@ class CreatePlans < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    # add_index :licenses, :hidden
+    # add_index :app_id, :hidden
+
   end
 end

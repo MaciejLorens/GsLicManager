@@ -8,5 +8,8 @@ class CreateClients < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    # add_index :clients, :hidden
+
   end
 end
