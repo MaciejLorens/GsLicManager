@@ -1,8 +1,8 @@
 # ----- CLIENTS: -------------------------------------------------------------------------------------------------------
-Client.create(name: 'Tesla', locale: %w(pl en).sample)
-Client.create(name: 'Spacex', locale: %w(pl en).sample)
-Client.create(name: 'Solarcity', locale: %w(pl en).sample)
-Client.create(name: 'Boring', locale: %w(pl en).sample)
+Client.create(name: 'Tesla', locale: 'pl')
+Client.create(name: 'Spacex', locale: 'en')
+Client.create(name: 'Solarcity', locale: 'pl')
+Client.create(name: 'Boring', locale: 'en')
 
 
 # ----- SUPER_ADMINS: --------------------------------------------------------------------------------------------------

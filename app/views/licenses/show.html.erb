@@ -147,7 +147,7 @@
   <br>
   <% if admin? && @license.origin_id.present? %>
     <%= link_to license_path(@license.origin_id), class: 'btn btn-primary btn-save', target: '_blank' do %>
-      <%= fa_icon('unlock', text: t('license.go_to_origin')) %>
+      <%= fa_icon('sitemap', text: t('license.go_to_origin')) %>
     <% end %>
     <br>
     <br>
