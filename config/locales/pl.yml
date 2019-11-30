@@ -62,10 +62,14 @@ pl:
       header: Lista licencji
     new:
       new_license: Nowa licencja
+    duplicate: Duplikacja
     errors:
       prohibited: uniemożliwiły zapisanie licencji
     are_you_sure: Czy jesteś pewny że chcesz wygenerować kod odblokowujący dla tej licencji?
     registration: Rejestracja
+    go_to_origin: Przejdź do pochodzenia
+    transfer: Transfer
+    update: Aktualizacja
     show:
       view_license: Podgląd licencji
     license_was_successfully_created: Licencja pomyślnie utworzona.
@@ -324,6 +328,7 @@ pl:
         registration_key: Klucz rejestracyjny
         unlock_code: Kod odblokowujący
         user_id: Aktywujący
+        origin_id: Pochodzenie ID
         quantity: Ilość
         hidden: Widoczność
         updated_at: Data edycji

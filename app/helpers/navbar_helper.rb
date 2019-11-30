@@ -32,6 +32,10 @@ module NavbarHelper
     controller.action_name == 'register'
   end
 
+  def duplicate_action?
+    controller.action_name == 'duplicate'
+  end
+
 
   def index_active?
     controller.action_name == 'index' ? 'active' : ''
@@ -55,6 +59,10 @@ module NavbarHelper
 
   def register_active?
     controller.action_name == 'register' ? 'active' : ''
+  end
+
+  def duplicate_active?
+    controller.action_name == 'duplicate' ? 'active' : ''
   end
 
 end

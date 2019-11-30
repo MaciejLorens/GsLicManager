@@ -28,6 +28,12 @@
     </li>
   <% end %>
 
+  <% if duplicate_action? %>
+    <li class="icon new_collection_link <%= duplicate_active? %>">
+      <%= link_to fa_icon('copy', text: t('license.duplicate')), '#' %>
+    </li>
+  <% end %>
+
   <% if admin? && index_action? %>
 
     <li class="dropdown right">

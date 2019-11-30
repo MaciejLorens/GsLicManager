@@ -2,7 +2,7 @@ class LicensesController < ApplicationController
 
   before_action :authorize_admin, only: [:new, :edit, :create, :update, :destroy, :batch_destroy]
 
-  before_action :set_license, only: [:show, :edit, :update, :register, :registration, :destroy]
+  before_action :set_license, only: [:show, :edit, :update, :duplicate, :register, :registration, :destroy]
 
   def index
     @licenses = current_licenses
@@ -13,6 +13,11 @@ class LicensesController < ApplicationController
 
   def new
     @license = License.new
+  end
+
+  def duplicate
+    type_id = LicenseType.find_by(val_en: params[:type]).id
+    @license = License.new(@license.attributes.merge(license_type_id: type_id))
   end
 
   def edit
@@ -26,6 +31,7 @@ class LicensesController < ApplicationController
 
   def create
     params[:quantity].to_i.times do |index|
+      Rails.logger.info "   ===== license_params : #{license_params.inspect}"
       current_licenses.create(license_params)
     end
 
@@ -72,8 +78,8 @@ class LicensesController < ApplicationController
     params.require(:license).permit(
       :client_id,
       :app_id,
-      :plan_id,
       :version_id,
+      :plan_id,
       :license_type_id,
       :license_status_id,
       :order_number,
@@ -82,6 +88,7 @@ class LicensesController < ApplicationController
       :description,
       :registration_key,
       :user_id,
+      :origin_id,
       :quantity,
       :hidden,
       :hidden_at,

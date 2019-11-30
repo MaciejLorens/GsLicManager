@@ -62,10 +62,14 @@ en:
       header: List of licenses
     new:
       new_license: New license
+    duplicate: Duplication
     errors:
       prohibited: prohibited this license from being saved
     are_you_sure: Are you sure you want to generate unlock code for this license?
     registration: Registration
+    go_to_origin: Go to origin
+    transfer: Transfer
+    update: Update
     show:
       view_license: View license
     license_was_successfully_created: License was successfully invited.
@@ -324,6 +328,7 @@ en:
         registration_key: Registration key
         unlock_code: Unlock code
         user_id: Activation
+        origin_id: Origin ID
         quantity: Quantity
         hidden: Visibility
         updated_at: Updated at

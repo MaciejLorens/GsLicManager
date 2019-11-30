@@ -90,6 +90,13 @@
         <%= text_field_tag :client_id, @license.client.name, class: 'form-control', readonly: true %>
       </div>
     </div>
+
+    <div class="form-group control-group">
+      <%= label_tag :origin_id, t('activerecord.attributes.license.origin_id'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :origin_id, @license.origin_id, class: 'form-control', readonly: true %>
+      </div>
+    </div>
   <% end %>
 
   <% if super_admin? %>
@@ -121,7 +128,33 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-2 qr-code small">
   <br>
-  <%= link_to register_license_path(@license), class: 'btn btn-primary btn-save' do %>
-    <%= fa_icon('unlock', text: t('license.register')) %>
+  <% if admin? && @license.origin_id.present? %>
+    <%= link_to license_path(@license.origin_id), class: 'btn btn-primary btn-save', target: '_blank' do %>
+      <%= fa_icon('unlock', text: t('license.go_to_origin')) %>
+    <% end %>
+    <br>
+    <br>
+  <% end %>
+
+
+  <% if @license.license_status.val_en == 'New' %>
+    <%= link_to register_license_path(@license), class: 'btn btn-primary btn-save' do %>
+      <%= fa_icon('unlock', text: t('license.registration')) %>
+    <% end %>
+    <br>
+    <br>
+  <% end %>
+
+  <% if admin? %>
+    <%= link_to duplicate_license_path(@license, type: 'transfer'), class: 'btn btn-primary btn-save' do %>
+      <%= fa_icon('exchange', text: t('license.transfer')) %>
+    <% end %>
+    <br>
+    <br>
+    <%= link_to duplicate_license_path(@license, type: 'update'), class: 'btn btn-primary btn-save' do %>
+      <%= fa_icon('external-link', text: t('license.update')) %>
+    <% end %>
+    <br>
+    <br>
   <% end %>
 </div>
