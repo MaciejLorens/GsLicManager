@@ -14,6 +14,7 @@ class CreateLicenses < ActiveRecord::Migration[5.2]
       t.string :registration_key,     null: true
       t.string :unlock_code,          null: true
       t.integer :user_id,             null: true
+      t.integer :origin_id,           null: true
       t.boolean :hidden,              null: false, default: false
       t.datetime :hidden_at,          null: true
 

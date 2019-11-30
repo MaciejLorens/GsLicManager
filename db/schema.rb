@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194716) do
     t.string "registration_key"
     t.string "unlock_code"
     t.integer "user_id"
+    t.integer "origin_id"
     t.boolean "hidden", default: false, null: false
     t.datetime "hidden_at"
     t.datetime "created_at", null: false
