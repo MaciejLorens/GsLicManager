@@ -7,6 +7,23 @@
 <form class="form-horizontal denser fieldset col-sm-5 show-action">
 
   <div class="form-group control-group">
+    <%= label_tag :id, t('activerecord.attributes.license.id'), class: 'col-sm-4 control-label' %>
+    <div class="col-sm-8 controls">
+      <%= text_field_tag :id, @license.id, class: 'form-control', readonly: true %>
+    </div>
+  </div>
+
+  <% if admin? %>
+    <div class="form-group control-group">
+      <%= label_tag :client_id, t('activerecord.attributes.license.client_id'), class: 'col-sm-4 control-label' %>
+      <div class="col-sm-8 controls">
+        <%= text_field_tag :client_id, @license.client.name, class: 'form-control', readonly: true %>
+      </div>
+    </div>
+  <% end %>
+
+
+  <div class="form-group control-group">
     <%= label_tag :end_client_name, t('activerecord.attributes.license.end_client_name'), class: 'col-sm-4 control-label' %>
     <div class="col-sm-8 controls">
       <%= text_area_tag :end_client_name, @license.end_client_name, class: 'form-control', readonly: true %>

@@ -16,8 +16,9 @@ class LicensesController < ApplicationController
   end
 
   def duplicate
+    status_id = LicenseStatus.find_by(val_en: 'New')
     type_id = LicenseType.find_by(val_en: params[:type]).id
-    @license = License.new(@license.attributes.merge(license_type_id: type_id))
+    @license = License.new(@license.attributes.merge(license_type_id: type_id, license_status_id: status_id))
   end
 
   def edit

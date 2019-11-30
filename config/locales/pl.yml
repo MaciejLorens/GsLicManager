@@ -315,6 +315,7 @@ pl:
               required: jest wymagany
     attributes:
       license:
+        id: ID
         client_id: Klient
         app_id: Nazwa aplikacji
         version_id: Wersja
