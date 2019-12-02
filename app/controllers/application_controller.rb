@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
 
   include QueryHelper
 
+  before_action :set_paper_trail_whodunnit
+
   before_action :set_locale
 
   before_action :configure_permitted_parameters, if: :devise_controller?

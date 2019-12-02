@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :licenses do
     get :duplicate, on: :member
     get :register, on: :member
+    get :history, on: :member
     patch :registration, on: :member
     put :generate_unlock_code, on: :member
     delete :batch_destroy, on: :collection

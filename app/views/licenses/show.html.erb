@@ -144,33 +144,35 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-2 qr-code small">
   <br>
-  <% if admin? && @license.origin_id.present? %>
-    <%= link_to license_path(@license.origin_id), class: 'btn btn-primary btn-save', target: '_blank' do %>
-      <%= fa_icon('sitemap', text: t('license.go_to_origin')) %>
+  <% if admin? %>
+    <%= link_to edit_license_path(@license), class: 'btn btn-primary btn-save btn-same-width' do %>
+      <%= fa_icon('edit', text: t('common.edit')) %>
     <% end %>
-    <br>
-    <br>
+
+    <%= link_to history_license_path(@license), class: 'btn btn-primary btn-save btn-same-width' do %>
+      <%= fa_icon('history', text: t('common.history')) %>
+    <% end %>
+  <% end %>
+
+  <% if admin? && @license.origin_id.present? %>
+    <%= link_to license_path(@license.origin_id), class: 'btn btn-primary btn-save btn-same-width', target: '_blank' do %>
+      <%= fa_icon('sitemap', text: t('license.origin')) %>
+    <% end %>
   <% end %>
 
 
   <% if @license.license_status.val_en == 'New' %>
-    <%= link_to register_license_path(@license), class: 'btn btn-primary btn-save' do %>
+    <%= link_to register_license_path(@license), class: 'btn btn-primary btn-save btn-same-width' do %>
       <%= fa_icon('unlock', text: t('license.registration')) %>
     <% end %>
-    <br>
-    <br>
   <% end %>
 
   <% if admin? %>
-    <%= link_to duplicate_license_path(@license, type: 'transfer'), class: 'btn btn-primary btn-save' do %>
+    <%= link_to duplicate_license_path(@license, type: 'transfer'), class: 'btn btn-primary btn-save btn-same-width' do %>
       <%= fa_icon('exchange', text: t('license.transfer')) %>
     <% end %>
-    <br>
-    <br>
-    <%= link_to duplicate_license_path(@license, type: 'update'), class: 'btn btn-primary btn-save' do %>
+    <%= link_to duplicate_license_path(@license, type: 'update'), class: 'btn btn-primary btn-save btn-same-width' do %>
       <%= fa_icon('external-link', text: t('license.update')) %>
     <% end %>
-    <br>
-    <br>
   <% end %>
 </div>

@@ -1,5 +1,8 @@
 class License < ApplicationRecord
 
+  has_paper_trail versions: { name: :revisions, class_name: 'Revision' },
+                  version:          :revision
+
   include Hideable
 
   belongs_to :client

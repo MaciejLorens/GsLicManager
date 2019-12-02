@@ -36,6 +36,10 @@ module NavbarHelper
     controller.action_name == 'duplicate'
   end
 
+  def history_action?
+    controller.action_name == 'history'
+  end
+
 
   def index_active?
     controller.action_name == 'index' ? 'active' : ''
@@ -63,6 +67,10 @@ module NavbarHelper
 
   def duplicate_active?
     controller.action_name == 'duplicate' ? 'active' : ''
+  end
+
+  def history_active?
+    controller.action_name == 'history' ? 'active' : ''
   end
 
 end

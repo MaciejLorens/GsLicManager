@@ -1,0 +1,71 @@
+<div class="page-header">
+  <h1><%= t('license.history.view_license') %> <%= @license.id %></h1>
+</div>
+
+<%= render partial: 'nav_tabs' %>
+
+<div class="col-sm-12 without-padding">
+  <table class="table table-condensed table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th><%= t('activerecord.attributes.license.updated_at') %></th>
+      <th><%= t('activerecord.attributes.license.author') %></th>
+      <th><%= t('activerecord.attributes.license.client_id') %></th>
+      <th><%= t('activerecord.attributes.license.app_id') %></th>
+      <th><%= t('activerecord.attributes.license.version_id') %></th>
+      <th><%= t('activerecord.attributes.license.plan_id') %></th>
+      <th><%= t('activerecord.attributes.license.license_type_id') %></th>
+      <th><%= t('activerecord.attributes.license.license_status_id') %></th>
+      <th><%= t('activerecord.attributes.license.end_client_name') %></th>
+      <th><%= t('activerecord.attributes.license.installation_address') %></th>
+      <th><%= t('activerecord.attributes.license.user_id') %></th>
+      <th><%= t('activerecord.attributes.license.hidden') %></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% revisions = @license.revisions.to_a.reverse %>
+
+    <tr>
+      <td></td>
+      <td><%= datetime_format(revisions.first.created_at) %></td>
+      <td><%= User.find(revisions.first.whodunnit).full_name %></td>
+      <td><%= @license.client.name %></td>
+      <td><%= @license.app.name %></td>
+      <td><%= @license.version.number %></td>
+      <td><%= @license.plan.send("val_#{I18n.locale}") %></td>
+      <td><%= @license.license_type.send("val_#{I18n.locale}") %></td>
+      <td><%= @license.license_status.send("val_#{I18n.locale}") %></td>
+      <td><%= @license.end_client_name %></td>
+      <td><%= @license.installation_address %></td>
+      <td><%= @license.user&.full_name %></td>
+      <td><%= fa_icon(@license.hidden ? 'times' : 'check') %></td>
+    </tr>
+
+
+    <% revisions.each_with_index do |revision, index| %>
+      <% reify = revision.reify %>
+      <% next if reify.blank? %>
+      <% author = User.find(revisions[index + 1].whodunnit) %>
+      <tr>
+        <td></td>
+        <td><%= datetime_format(revisions[index + 1].created_at) %></td>
+        <td><%= author.full_name %></td>
+        <td><%= reify.client.name %></td>
+        <td><%= reify.app.name %></td>
+        <td><%= reify.version.number %></td>
+        <td><%= reify.plan.send("val_#{I18n.locale}") %></td>
+        <td><%= reify.license_type.send("val_#{I18n.locale}") %></td>
+        <td><%= reify.license_status.send("val_#{I18n.locale}") %></td>
+        <td><%= reify.end_client_name %></td>
+        <td><%= reify.installation_address %></td>
+        <td><%= reify.user&.full_name %></td>
+        <td><%= fa_icon(reify.hidden ? 'times' : 'check') %></td>
+      </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+</div>

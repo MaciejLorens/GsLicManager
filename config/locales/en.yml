@@ -22,6 +22,7 @@ en:
     view: View
     edit: Edit
     register: Register
+    history: History
     delete: Delete
     are_you_sure: Are you sure?
     refresh: Refresh
@@ -67,11 +68,14 @@ en:
       prohibited: prohibited this license from being saved
     are_you_sure: Are you sure you want to generate unlock code for this license?
     registration: Registration
-    go_to_origin: Go to origin
+    origin: Origin
     transfer: Transfer
     update: Update
     show:
       view_license: View license
+    history:
+      view_license: License history
+      actual_state: Actual state
     license_was_successfully_created: License was successfully invited.
     license_was_successfully_edited: License was successfully edited.
     license_was_successfully_registered: License was successfully registered.
@@ -334,6 +338,7 @@ en:
         hidden: Visibility
         updated_at: Updated at
         created_at: Created at
+        author: Author
       client:
         name: Name
         locale: Locale

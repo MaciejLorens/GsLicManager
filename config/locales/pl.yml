@@ -22,6 +22,7 @@ pl:
     view: Podgląd
     edit: Edycja
     register: Zarejestruj
+    history: Historia
     delete: Usuń
     are_you_sure: Czy jesteś pewny?
     refresh: Odśwież
@@ -67,11 +68,14 @@ pl:
       prohibited: uniemożliwiły zapisanie licencji
     are_you_sure: Czy jesteś pewny że chcesz wygenerować kod odblokowujący dla tej licencji?
     registration: Rejestracja
-    go_to_origin: Przejdź do pochodzenia
+    origin: Pochodzenie
     transfer: Transfer
     update: Aktualizacja
     show:
       view_license: Podgląd licencji
+    history:
+      view_license: Historia licencji
+      actual_state: Stan aktualny
     license_was_successfully_created: Licencja pomyślnie utworzona.
     license_was_successfully_edited: Licencja pomyślnie uaktualniona.
     license_was_successfully_registered: Licencja pomyślnie zarejestrowana.
@@ -334,6 +338,7 @@ pl:
         hidden: Widoczność
         updated_at: Data edycji
         created_at: Data utworzenia
+        author: Autor
       client:
         name: Nazwa
         locale: Język

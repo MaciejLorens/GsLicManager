@@ -2,7 +2,7 @@ class LicensesController < ApplicationController
 
   before_action :authorize_admin, only: [:new, :edit, :create, :update, :destroy, :batch_destroy]
 
-  before_action :set_license, only: [:show, :edit, :update, :duplicate, :register, :registration, :destroy]
+  before_action :set_license, only: [:show, :edit, :history, :update, :duplicate, :register, :registration, :destroy]
 
   def index
     @licenses = current_licenses
@@ -30,9 +30,11 @@ class LicensesController < ApplicationController
   def show
   end
 
+  def history
+  end
+
   def create
     params[:quantity].to_i.times do |index|
-      Rails.logger.info "   ===== license_params : #{license_params.inspect}"
       current_licenses.create(license_params)
     end
 

@@ -28,13 +28,13 @@
 
   def options_for_versions
     current_versions.includes(:app).visible.order('number DESC').map do |version|
-      [version.number, version.id, 'data-app_id' => version.app.id]
+      [version.number, version.id]
     end
   end
 
   def options_for_plans
     current_plans.includes(:app).visible.order('val_pl ASC').map do |plan|
-      [plan.send("val_#{I18n.locale}"), plan.id, 'data-app_id' => plan.app.id]
+      [plan.send("val_#{I18n.locale}"), plan.id]
     end
   end
 

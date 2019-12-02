@@ -34,6 +34,12 @@
     </li>
   <% end %>
 
+  <% if history_action? %>
+    <li class="icon new_collection_link <%= history_active? %>">
+      <%= link_to fa_icon('history', text: t('common.history')), '#' %>
+    </li>
+  <% end %>
+
   <% if admin? && index_action? %>
 
     <li class="dropdown right">
